@@ -287,4 +287,3 @@ def count_simple_sentences(doc):
                 simple_sentences_count += 1
     return simple_sentences_count
 
-
