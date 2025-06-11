@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "linguistic-analysis"
+version = "0.1.0"
+description = "A pipeline for extracting linguistic features from German transcripts."
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "spacy",
+    "pandas",
+    "numpy",
+    "gensim",
+    "flair",
+    "torch",
+    "pyphen",
+    "transformers",
+    "scikit-learn",
+    "networkx",
+    "sentence-transformers",
+    "lexical-diversity",
+    "nltk"
+]
