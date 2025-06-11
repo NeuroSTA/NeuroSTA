@@ -12,7 +12,7 @@ from collections import Counter, deque
 
 # Initialize models
 nlp = spacy.load('de_dep_news_trf')
-# fasttext_model = load_facebook_model('cc.de.300.bin')
+fasttext_model = load_facebook_model('models/cc.de.300.bin')  # Facebook FastText cc.de.300
 bert_tokenizer = AutoTokenizer.from_pretrained('bert-base-german-cased')
 bert_model = AutoModel.from_pretrained('bert-base-german-cased')
 sentiment_tokenizer = AutoTokenizer.from_pretrained('oliverguhr/german-sentiment-bert')
@@ -37,6 +37,24 @@ def compute_bert_coherence(sentences):
         sim = np.dot(vec1, vec2) / (np.linalg.norm(vec1) * np.linalg.norm(vec2))
         similarities.append(sim)
     return np.mean(similarities)
+
+# Compute FastText-based token coherence
+def compute_fasttext_coherence(tokens):
+    # tokens: list of str
+    embs = []
+    for tok in tokens:
+        try:
+            vec = fasttext_model.wv[tok]
+        except Exception:
+            try:
+                vec = fasttext_model[tok]
+            except Exception:
+                continue
+        embs.append(vec)
+    if len(embs) < 2:
+        return None
+    sims = [cosine_similarity([embs[i]], [embs[i+1]])[0][0] for i in range(len(embs)-1)]
+    return float(np.mean(sims))
 
 # Compute Readability
 def compute_readability(doc):
