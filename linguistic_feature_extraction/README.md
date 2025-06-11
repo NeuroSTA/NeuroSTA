@@ -1,77 +1,89 @@
-# Speech Analysis Pipeline
 
-This project analyzes German speech transcripts, extracting linguistic features.
+# Linguistic Analysis Pipeline
+
+This project implements a comprehensive pipeline for analyzing German-language transcripts using advanced NLP methods. It extracts semantic and syntactic features.
+
+## 🧪 Methodology
+
+The pipeline performs multi-layered text analysis:
+
+- **Preprocessing**: Normalizes contractions and cleans input text
+- **Tokenization and Utterance Segmentation**: Based on spaCy German models
+- **Feature Extraction**:
+  - **Lexical**: TTR, MTLD, MATTR
+  - **Syntactic**: Tree depth, subordination, sentence length
+  - **Morphological**: Morph. complexity, root overlap
+  - **Semantic**: Embedding-based coherence using Word2Vec, SBERT, BERT, XLM-R
+  - **Graph-based**: Speech coherence graph metrics
+  - **Discourse and Pragmatics**: Filler detection, sentiment
+
+## 📁 Repository Structure
+
+- `analysis_pipeline.py`: Full pipeline combining all modules
+- `linguistics.py`: Linguistic feature computation
+- `graph_analysis.py`: Syntactic/semantic graph metrics
+- `LLP_features.py`: Lexico-structural metrics
+- `merge_results.py`: Combines result tables
+- `README.md`: Documentation
+- `requirements.txt`: Software dependencies
+- `__init__.py`: init for packaging
+
+## 🗂 Data Input
+
+Place plain `.txt` transcript files into:
+```
+data/transcripts/
+```
+Each file should be a UTF-8 encoded German language transcript.
+
+## 🧠 Models Used
+
+- `spaCy`: `de_dep_news_trf`, `de_core_news_lg`
+- `Gensim`: Word2Vec (.bin format)
+- `sentence-transformers`: SBERT multilingual
+- `transformers`:
+  - `bert-base-german-dbmdz-uncased`
+  - `xlm-roberta-base`
+  - `german-sentiment-bert`
+
+## ▶ Usage
+
+Install dependencies:
+```bash
+pip install -r requirements.txt
+python -m nltk.downloader stopwords
+python -m spacy download de_dep_news_trf
+python -m spacy download de_core_news_lg
+```
+
+Download pretrained embeddings and save into the models/ folder:
+
+German Word2Vec: download from https://devmount.github.io/GermanWordEmbeddings/ and save as models/german.model
+
+FastText (cc.de.300): download from https://fasttext.cc/docs/en/pretrained-vectors.html and save as models/cc.de.300.bin
 
 
-## Installation and Setup
 
-### Prerequisites
-1. **Python 3.12.4**
-2. **Virtual Environment (recommended)**
+Run the full pipeline:
+```bash
+python analysis_pipeline.py
+```
+(Optional) Merge with other results:
+```bash
+python merge_results.py
+```
 
-### Step-by-Step Setup
-1. **Clone the Repository**
-    <!-- ```bash
-    git clone https://github.com/svenjaseuffert/NLP
-    cd Speech_analysis
-    ``` -->
+## 📝 Output
 
-2. **Set Up a Virtual Environment**
-    ```bash
-    python -m venv venv
-    source venv/bin/activate   # On Windows use `venv\Scripts\activate`
-    ```
-
-3. **Install Dependencies**
-    pip install -r requirements.txt
+Results are saved as an Excel file:
+```
+results/combined_analysis.xlsx
+```
 
 
-4. **Download Necessary NLP Models**
-   - **spaCy Models**:
-     ```bash
-     python -m spacy download de_dep_news_trf
-     python -m spacy download de_core_news_lg
-     ```
+## 📌 Reproducibility Notes
 
-5. **Download NLTK Stopwords**:
-    ```python
-    import nltk
-    nltk.download('stopwords')
-    ```
-
-## Usage
-
-1. **Prepare Input Data**: Place `.txt` transcript files in the `data/transcripts/` directory.
-2. **Run the Analysis Pipeline**:
-    ```bash
-    python src/analysis_pipeline.py
-    ```
-3. **Merge Results**:
-    ```bash
-    python src/merge_results.py
-    ```
-4. **View Results**:
-   - Linguistic results are saved as `combined_analysis.xlsx` in the `results` folder.
-   
-## Output
-
-The analysis output provides the following metrics:
-
-### Linguistic Features
-- **Type-Token Ratio (TTR)**: Lexical diversity.
-- **MTLD**: Measure of Textual Lexical Diversity.
-- **POS Ratios**: Ratios of parts of speech like pronouns, nouns, verbs, etc.
-- **Morphological Complexity**: Average morphological feature count per word.
-- **Syntactic Complexity**: Composite metric of sentence length and dependency tree depth.
-- **Readability Index**: German-specific readability metric.
-- **Subordination Index**: Ratio of subordinate clauses to main clauses.
-- **Grammatical Error Ratio**: Count of tokens with potential grammatical errors.
-- **Semantic Density**: Average cosine similarity between word vectors (global).
-- **Semantic Coherence**: Average cosine similarity between word vectors.
-- **spacy Coherence**: Semantic coherence based on spacy word vectors across words
-- **BERT Coherence**: Sentence coherence using BERT embeddings.
-- **Connective Ratio**: Proportion of connective words to sentences.
-- **Speech Graph Coherence**: Average shortest path length in the speech graph.
-- **Disfluencies**: Ratios of filled pauses and word repetitions.
-- **Negative Sentiment**: Probability of negative sentiment.
+- Tested on Python 3.11 with sufficient RAM for transformer models
+- Supports GPU for faster BERT/SBERT inference
+- Pretrained models auto-downloaded via `transformers`
 
