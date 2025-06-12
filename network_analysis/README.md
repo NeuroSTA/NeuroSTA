@@ -1,15 +1,15 @@
-#Network Analysis
+# Network Analysis
 
 This folder contains a fully reproducible pipeline to conduct a network analysis as used in the associated manuscript.
 
-##Overview
+## Overview
 This pipeline reads structured data from an Excel sheet and performs a network estimation using the EBICglasso method. It includes preprocessing, visualization, centrality estimation, and bootstrapped stability analyses.
 
-###File Types:
+### File Types:
 - Input: here excel (.xls) files
 - Expected format: numeric variables only; missing values if encoded as -99 are recoded as NA
 
-###Pipeline Steps:
+### Pipeline Steps:
 **1.** Required R packages
 install.packages(c("qgraph", "bootnet", "readxl"))
 
@@ -33,11 +33,11 @@ install.packages(c("qgraph", "bootnet", "readxl"))
 - Nonparametric bootstrapping with 1000 iterations
 - Bootstrapped stability plots for: strength, closeness, betweenness
 
-###Reproducibility Notes
+### Reproducibility Notes
 - R version ≥ 4.1 recommended
 - modify your excel range (X:XX) as needed
 
-###References for further information:
+### References for further information:
 *Tibshirani R. Regression shrinkage and selection via the lasso. J R Stat Soc Series B Stat Methodol 1996;58:267–88.
 Chen J, Chen Z. Extended Bayesian information criteria for model selection with large model spaces. Biometrika 2008;95:759–71.
 Foygel R, Drton M. Extended Bayesian Information Criteria for Gaussian Graphical Models. In: Lafferty J, Williams C, Shawe-Taylor J, Zemel R, Culotta A, editors. Adv Neural Inf Process Syst, vol. 23, Curran Associates, Inc.; 2010.
