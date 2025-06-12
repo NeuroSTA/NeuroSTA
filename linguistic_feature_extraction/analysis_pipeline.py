@@ -24,14 +24,14 @@ from sklearn.metrics.pairwise import cosine_similarity
 from linguistics import (
     compute_ttr, compute_mtld, compute_connective_ratio, compute_morphological_complexity,
     compute_semantic_coherence, compute_semantic_density, compute_readability,
-    compute_bert_coherence, compute_pos_ratios, compute_negative_sentiment_probability,
+    compute_bert_coherence, compute_fasttext_coherence, compute_pos_ratios, compute_negative_sentiment_probability,
     compute_disfluencies, compute_subordination_index, compute_grammatical_errors,
     calculate_mean_dependency_distance, calculate_morphological_root_overlap, calculate_moving_average_ttr,
     compute_avg_sentence_length, compute_syntactic_complexity, count_simple_sentences
 )
 
 from graph_analysis import calculate_semantic_coherence, calculate_syntactic_complexity, build_speech_graph
-from rieke_features import (
+from LLP_features import (
     count_words_in_file, count_unique_words_and_ttr, calculate_mlu,
     calculate_mlu_no_fillers, calculate_noun_verb_ratio, calculate_open_closed_ratio,
     count_conjunctions, count_sentences_in_file, coordinating_conjunctions,
@@ -41,8 +41,8 @@ from rieke_features import (
 # Logging setup
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-TRANSCRIPT_FOLDER = 'combined_code/data/transcripts'
-OUTPUT_FILE = 'combined_code/results/combined_analysis.xlsx'
+TRANSCRIPT_FOLDER = 'data/transcripts'
+OUTPUT_FILE = 'results/combined_analysis.xlsx'
 
 
 contractions = {
@@ -63,10 +63,12 @@ contractions = {
 nlp = spacy.load("de_dep_news_trf")
 
 # Load pre-trained Word2Vec model using gensim
-word2vec_model_path = 'combined_code/german.model'
+word2vec_model_path = 'models/german.model'
 word2vec_model = KeyedVectors.load_word2vec_format(word2vec_model_path, binary=True)
 
-
+# Load FastText model
+fasttext_model_path = 'models/wiki.de.bin'
+fasttext_model = KeyedVectors.load_word2vec_format(fasttext_model_path, binary=True)
 
 # Load BERT model and tokenizer
 tokenizer = BertTokenizer.from_pretrained('bert-base-german-dbmdz-uncased')
@@ -80,7 +82,7 @@ sbert_model = SentenceTransformer(model_name)
 xlmroberta_tokenizer = XLMRobertaTokenizer.from_pretrained('xlm-roberta-base')
 xlmroberta_model = XLMRobertaModel.from_pretrained('xlm-roberta-base')
 
-
+flair_embedder = TransformerDocumentEmbeddings('bert-base-german-cased')
 
 
 # Function to preprocess text
@@ -180,7 +182,7 @@ def run_linguistic_analysis():
         tokensnew = tokenize_text(preprocessed_txt)
         utterances = segment_into_utterances(preprocessed_txt)
         word2vec_embeddings = encode_with_model(tokensnew, word2vec_model)
-        # fasttext_embeddings = encode_with_model(tokens, fasttext_model)
+        fasttext_embeddings = encode_with_model(tokens, fasttext_model)
         bert_embeddings = encode_with_bert(utterances)
         sbert_embeddings = encode_with_sbert(utterances)
         xlmroberta_embeddings = encode_with_xlmroberta(utterances)
@@ -189,6 +191,7 @@ def run_linguistic_analysis():
         result = {
             'Proband': proband,
             'BERT_Coherence': compute_bert_coherence(sentences),
+            'FastText_Coherence': compute_fasttext_coherence(sentences),
             'Readability': compute_readability(doc),
             'POS_Ratios': compute_pos_ratios(tokens),
             'PRON_Ratio': list(compute_pos_ratios(tokens).values())[0], 
@@ -206,7 +209,7 @@ def run_linguistic_analysis():
             'Disfluencies': compute_disfluencies(tokens),
             'Subordination_Index': compute_subordination_index(doc),
             'Grammatical_Errors': compute_grammatical_errors(doc),
-            # sveja more
+
             'Mean_Dependency_Distance': calculate_mean_dependency_distance(doc),   
             'MATTR':calculate_moving_average_ttr(doc),      
             'Root_overlap':   calculate_morphological_root_overlap(doc),
@@ -214,7 +217,7 @@ def run_linguistic_analysis():
             'MLU': mlu,
             'total_types':total_types,
             'SimS':simple_sentences_ratio,
-            # rieke
+
             'Total Words':count_words_in_file(filepath),
             "Unique Words":count_unique_words_and_ttr(filepath)[0],
             "Type-Token Ratio":count_unique_words_and_ttr(filepath)[1],
@@ -234,32 +237,51 @@ def run_linguistic_analysis():
 
         }
 
-        for model_name, emb in zip(
-                    ["Word2Vec", "BERT", "SBERT", "XLMR"],
-                    [word2vec_embeddings, bert_embeddings, sbert_embeddings, xlmroberta_embeddings,
-                     ]
-                ):
-                stats = calculate_cosine_similarity_statistics(emb)
-                result.update({f"{model_name}_{k}": v for k, v in stats.items()})
+        # Embedding coherence: Word2Vec & FastText
+        w2v_emb = encode_with_model(token_strs, word2vec_model)
+        ft_emb = encode_with_model(token_strs, fasttext_model)
+        for name, emb in [('Word2Vec', w2v_emb), ('FastText', ft_emb)]:
+            stats = calculate_cosine_similarity_statistics(emb)
+            result.update({f"{name}_{k}": v for k, v in stats.items()})
+
+        # BERT token-level
+        bert_embs = []
+        for t in token_strs:
+            inputs = bert_tokenizer(t, return_tensors='pt', truncation=True, padding=True)
+            out = bert_model(**inputs)
+            bert_embs.append(out.last_hidden_state.mean(dim=1).detach().numpy()[0])
+        for k, v in calculate_cosine_similarity_statistics(bert_embs).items():
+            result[f'BERT_{k}'] = v
+
+        # SBERT sentence-level
+        sb_embs = sbert_model.encode(utterances)
+        for k, v in calculate_cosine_similarity_statistics(sb_embs).items():
+            result[f'SBERT_{k}'] = v
+
+        # XLM-RoBERTa sentence-level
+        xlm_embs = []
+        for u in utterances:
+            inp = xlmr_tokenizer(u, return_tensors='pt', truncation=True, padding=True)
+            out = xlmr_model(**inp)
+            xlm_embs.append(out.last_hidden_state.mean(dim=1).detach().numpy()[0])
+        for k, v in calculate_cosine_similarity_statistics(xlm_embs).items():
+            result[f'XLMR_{k}'] = v
+
+        # Flair document-level
+        flair_sents = [Sentence(u) for u in utterances]
+        flair_embedder.embed(flair_sents)
+        flair_embs = [sent.embedding.cpu().numpy() for sent in flair_sents]
+        for k, v in calculate_cosine_similarity_statistics(flair_embs).items():
+            result[f'Flair_{k}'] = v
+
         results.append(result)
 
+    # Save results
     df = pd.DataFrame(results)
+    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
     df.to_excel(OUTPUT_FILE, index=False)
-    logging.info("Full analysis complete. Results saved.")
+    logging.info("Full analysis complete. Results saved to %s", OUTPUT_FILE)
 
 
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     run_linguistic_analysis()
-
-
-
-
-
-
-
-
-
-
-
