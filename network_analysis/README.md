@@ -38,8 +38,12 @@ install.packages(c("qgraph", "bootnet", "readxl"))
 - modify your excel range (X:XX) as needed
 
 ### References for further information:
-*Tibshirani R. Regression shrinkage and selection via the lasso. J R Stat Soc Series B Stat Methodol 1996;58:267–88.
-Chen J, Chen Z. Extended Bayesian information criteria for model selection with large model spaces. Biometrika 2008;95:759–71.
-Foygel R, Drton M. Extended Bayesian Information Criteria for Gaussian Graphical Models. In: Lafferty J, Williams C, Shawe-Taylor J, Zemel R, Culotta A, editors. Adv Neural Inf Process Syst, vol. 23, Curran Associates, Inc.; 2010.
-Burger J, Isvoranu AM, Lunansky G, Haslbeck JMB, Epskamp S, Hoekstra RHA, et al. Reporting Standards for Psychological Network Analyses in Cross-Sectional Data. Psychol Methods 2023;28:806–24. https://doi.org/10.1037/met0000471.
-Epskamp S, Fried EI. A tutorial on regularized partial correlation networks. Psychol Methods 2018;23:617.*
+*Tibshirani R. Regression shrinkage and selection via the lasso. J R Stat Soc Series B Stat Methodol 1996;58:267–88.*
+
+*Chen J, Chen Z. Extended Bayesian information criteria for model selection with large model spaces. Biometrika 2008;95:759–71.*
+
+*Foygel R, Drton M. Extended Bayesian Information Criteria for Gaussian Graphical Models. In: Lafferty J, Williams C, Shawe-Taylor J, Zemel R, Culotta A, editors. Adv Neural Inf Process Syst, vol. 23, Curran Associates, Inc.; 2010.*
+
+*Burger J, Isvoranu AM, Lunansky G, Haslbeck JMB, Epskamp S, Hoekstra RHA, et al. Reporting Standards for Psychological Network Analyses in Cross-Sectional Data. Psychol Methods 2023;28:806–24. https://doi.org/10.1037/met0000471.*
+
+*Epskamp S, Fried EI. A tutorial on regularized partial correlation networks. Psychol Methods 2018;23:617.*
