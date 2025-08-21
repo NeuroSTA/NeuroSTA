@@ -8,15 +8,15 @@ This folder contains a fully reproducible pipeline for **Exploratory Factor Anal
 
 - **Objective:** Identify latent dimensions underlying linguistic markers extracted from spontaneous speech.
 - **Approach:** Dimensionality reduction via EFA on NLP-derived speech metrics.
-- **Data:** Syntactic, lexical, semantic, cohesion, and discourse features extracted from spontaneous speech samples.
+- **Data:** Syntactic, lexical, semantic, cohesion, and discourse features extracted from spontaneous speech samples (Speech_Variables).
 - **Participants:** Psychiatric sample
-- **Software:** R (Version 4.4.1).
 
 ---
 
 ## 📬 Contact
 
 For questions about this research, analyses, or code, feel free to reach out: [svenja.seuffert@uni-marburg.de]
+
 
 
 
