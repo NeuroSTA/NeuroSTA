@@ -5,26 +5,28 @@
 # ----------------------------------
 # SETUP
 # ----------------------------------
-library(tidyverse)
-library(psych)
-library(GPArotation)
-library(corrplot)
-library(lavaan)
-library(ggplot2)
-library(nFactors)
-library(readxl)
-library(writexl)
-library(summarytools)
-library(rempsyc)
-library(nortest)
-library(MVN)
-library(caret)
-library(car)
-library(EFAtools)
-library(semPlot)
-library(semTools)
-library(reshape2)
+library(tidyverse)      # Data wrangling + ggplot2
+library(psych)          # Psychometrics, factor analysis
+library(GPArotation)    # Factor rotations
+library(corrplot)       # Correlation plots
+library(lavaan)         # Structural equation modeling
+library(ggplot2)        # Visualization
+library(nFactors)       # Factor retention methods
+library(readxl)         # Read Excel files
+library(writexl)        # Write Excel files
+library(summarytools)   # Data summaries
+library(rempsyc)        # APA-style plots/tables
+library(nortest)        # Normality tests
+library(MVN)            # Multivariate normality
+library(caret)          # ML preprocessing
+library(car)            # VIF diagnostics
+library(EFAtools)       # EFA functions
+library(semPlot)        # SEM visualization
+library(semTools)       # SEM utilities
+library(reshape2)       # Data reshaping
+library(tidyr)          # Modern reshaping (pivot_*)
 
+# Set random seed for reproducibility
 set.seed(42)  
 
 
@@ -50,10 +52,10 @@ data <- subset(data_all, select = var)
 missing_values <- sum(is.na(data))
 print(paste("Total missing values:", missing_values))
 
-# using imputation vs. removing rows
+# Remove rows with NA (alternative: imputation)
 df <- na.omit(data)
 
-# Check for Outliers
+# Outlier detection using Mahalanobis distance
 mahalanobis_distances <- mahalanobis(df, colMeans(df), cov(df))
 cutoff <- qchisq(0.95, df = ncol(df))
 outliers <- mahalanobis_distances > cutoff
@@ -62,14 +64,16 @@ print(sum(outliers))
 # Remove outliers if necessary
 #df_cleaned <- df[!outliers, ]
 
-# Check for Normality
+# Test univariate normality (Anderson-Darling)
 univariate_normality <- apply(df, 2, function(x) ad.test(x)$p.value)
 print(univariate_normality)
 
-# Multivariate Normality
+# Test multivariate normality (Mardia)
 mvn_result <- mvn(df, mvnTest = "mardia")
 print(mvn_result$multivariateNormality)
 
+                              
+# Standardize data
 scaled_data <- scale(df)
 
 # ----------------------------------
@@ -80,28 +84,27 @@ cor_matrix <- cor(scaled_data)
 # Plot Correlation Matrix
 corrplot(cor_matrix, method = "color", type = "upper", tl.cex = 0.8, tl.col = "black", addCoef.col = "black", number.cex = 0.7)
 
-# Check for multicollinearity and remove highly correlated pairs
+# Identify highly correlated pairs (> 0.80)
 high_corr_pairs <- which(abs(cor_matrix) > 0.80 & lower.tri(cor_matrix), arr.ind = TRUE)
 
-# Multicollinearity check
+# Check for multicollinearity with VIF
 vif_data <- lm(as.matrix(scaled_data) ~ 1)
 vif_results <- apply(scaled_data, 2, function(x) vif(lm(x ~ ., data = as.data.frame(scaled_data))))
 print(vif_results)
 
-# Bartlett's test & KMO
+# Bartlett's test of sphericity & Kaiser-Meyer-Olkin (KMO) measure
 BARTLETT(scaled_data, use = "complete.obs", cor_method = "spearman")
 KMO(scaled_data, use = "complete.obs", cor_method = "spearman")
 
 # ----------------------------------
 # 4. FACTOR RETENTION DECISION
 # ----------------------------------
+# Apply multiple criteria for deciding number of factors
 N_FACTORS(scaled_data, criteria = c("EKC", "HULL", "KGC", "PARALLEL", "SCREE"), 
           method = "ULS", use = "complete.obs", cor_method = "spearman",  eigen_type_HULL = "EFA", eigen_type_other = "EFA")
 
-# Calculate eigenvalues
+# Calculate eigenvalues and scree plot
 eigenvalues <- eigen(cor(scaled_data))$values
-
-# Create a scree plot using base R
 plot(eigenvalues, type = "b", pch = 19, 
      xlab = "Factor Number", 
      ylab = "Eigenvalue", 
@@ -112,7 +115,9 @@ abline(h = 1, col = "red", lty = 2)
 # ----------------------------------
 # 5. EXPLORATORY FACTOR ANALYSIS
 # ----------------------------------
-num_factors = 3
+num_factors = 3 # Based on retention tests
+
+# Run EFA with different oblique rotations
 efa_results_3f <- list(
   simplimax = EFA(scaled_data, n_factors = num_factors, method = "ULS", rotation = "simplimax", use = "complete.obs", cor_method = "spearman"),
   promax = EFA(scaled_data, n_factors = num_factors, method = "ULS", rotation = "promax", use = "complete.obs", cor_method = "spearman"),
@@ -125,26 +130,26 @@ efa_results_3f <- list(
 
 print(efa_results_3f)
 
-# Comparison of different methods - different lib
+# Compare different EFA implementations (psych vs EFAtools)
 COMPARE(
   EFA(scaled_data, n_factors = num_factors, rotation = "promax", type = "psych")$rot_loadings,
   EFA(scaled_data, n_factors = num_factors, rotation = "promax", type = "EFAtools")$rot_loadings
 )
 
-# Average solution across many different EFAs with oblique rotations
+# Average solution across different methods with oblique rotation
 EFA_AV <- EFA_AVERAGE(scaled_data, n_factors = num_factors, 
                       method = c("PAF", "ML", "ULS"), rotation = "oblique",
                       show_progress = FALSE)
 EFA_AV
 
-# Perform EFA with EFAtools
+# EFA with promax rotation
 efa_results <- EFA(scaled_data, n_factors = num_factors, method = "ULS", rotation = "promax", use = "complete.obs", cor_method = "spearman")
 print(efa_results)
 
 # Bootstrapping
 n_factors_nlp <- 3
 efa_nlp_results <- fa(scaled_data, nfactors = n_factors_nlp, 
-                      rotate = "promax", fm = "minres", 
+                      rotate = "promax", fm = "uls", 
                       n.iter = 5000)  # 5000 bootstrap iterations
 
 print(efa_nlp_results, digits = 3)
@@ -158,37 +163,6 @@ colnames(nlp_scores_df) <- c("Proband", paste0("NLP_F", 1:num_factors))
 combined_data <- data_all %>% left_join(nlp_scores_df, by = "Proband")
 # write_xlsx(combined_data, "data_linguistic.xlsx"
 
-
-# ----------------------------------
-# 7. VISUALIZATIONS OF FACTOR LOADINGS
-# ----------------------------------
-# Extract loadings
-loadings_matrix <- as.data.frame(efa_nlp_results$loadings[, 1:num_factors])
-loadings_matrix$Variable <- rownames(loadings_matrix)
-
-# Reshape for ggplot2
-library(tidyr)
-colnames(loadings_matrix)[1:num_factors] <- paste0("Factor", 1:num_factors)
-loadings_long <- pivot_longer(loadings_matrix, 
-                              cols = starts_with("Factor"), 
-                              names_to = "Factor", 
-                              values_to = "Loading")
-
-
-# Heatmap of Loadings
-ggplot(loadings_long, aes(x = Factor, y = Variable, fill = Loading)) +
-  geom_tile() +
-  scale_fill_gradient2(low = "red", mid = "white", high = "blue", midpoint = 0, limits = c(-1,1)) +
-  theme_minimal(base_size = 14) +
-  labs(title = "Factor Loadings Heatmap", x = "Factor", y = "Variable")
-
-# Bar Plot per factor
-ggplot(loadings_long, aes(x = reorder(Variable, Loading), y = Loading, fill = Factor)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  coord_flip() +
-  theme_minimal(base_size = 14) +
-  labs(title = "Standardized Factor Loadings", x = "Variables", y = "Loading") +
-  scale_fill_brewer(palette = "Set1")
-
 # Diagram of factor structure
 psych::fa.diagram(efa_nlp_results, main = "Factor Structure Diagram")
+
