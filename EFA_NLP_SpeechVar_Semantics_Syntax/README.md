@@ -10,13 +10,14 @@ This folder contains a fully reproducible pipeline for **Exploratory Factor Anal
 - **Approach:** Dimensionality reduction via EFA on NLP-derived speech metrics.
 - **Data:** Syntactic, lexical, semantic, cohesion, and discourse features extracted from spontaneous speech samples.
 - **Participants:** Psychiatric sample
-- **Software:** Entirely built using R (Version 4.4.1).
+- **Software:** R (Version 4.4.1).
 
 ---
 
 ## 📬 Contact
 
 For questions about this research, analyses, or code, feel free to reach out: [svenja.seuffert@uni-marburg.de]
+
 
 
 
