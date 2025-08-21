@@ -1,6 +1,6 @@
 # NLP Speech Features: Exploratory Factor Analysis Pipeline
 
-This folder contains a fully reproducible pipeline for **Exploratory Factor Analysis (EFA)** of speech-derived linguistic features used in the manuscript
+This folder contains a fully reproducible pipeline for **Exploratory Factor Analysis (EFA)** of NLP-derived linguistic features used in the manuscript
 
 ---
 
@@ -17,6 +17,7 @@ This folder contains a fully reproducible pipeline for **Exploratory Factor Anal
 ## 📬 Contact
 
 For questions about this research, analyses, or code, feel free to reach out: [svenja.seuffert@uni-marburg.de]
+
 
 
 
