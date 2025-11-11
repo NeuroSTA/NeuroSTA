@@ -1,6 +1,6 @@
 title: "NeuroSTA Lab"
 description: "Neuroimaging and Speech using Transdiagnostic Approaches"
-theme: minimal
+theme: midnight
 markdown: kramdown
 # Navigation links
 header_pages:
