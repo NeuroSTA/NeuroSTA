@@ -2,7 +2,15 @@
 title: "Research"
 ---
 
-# Research Areas
+## 🔬 Research Overview
+We integrate:
+- Structural and functional MRI analyses  
+- Speech and linguistic feature extraction  
+- Multimodal data fusion and machine learning
+
+Our goal is to identify **transdiagnostic mechanisms** underlying communication and cognition.
+
+## Research Areas
 
 We combine language, speech, and neuroimaging to study:
 
