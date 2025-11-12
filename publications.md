@@ -14,7 +14,7 @@ Journal of Affective Disorders, 119464.
 *Figurative language production in schizophrenia, bipolar disorder, and depression: Figurative language production in MDD, BD, and SZ.*
 Psychiatry Research, 116772.
 
-4. Palominos, C., He, R., Fröhlich, K., **Mülfarth, R. R., Seuffert, S.,** Sommer, I. E., ... & Hinzen, W. (2024).
+4. Palominos, C., He, R., Fröhlich, K., **Mülfarth, R. R., Seuffert, S.,** Sommer, I. E., ... **Stein, F.** & Hinzen, W. (2024).
 *Approximating the semantic space: word embedding techniques in psychiatric speech analysis.* Schizophrenia, 10(1), 1-10.
 
 5. in press
