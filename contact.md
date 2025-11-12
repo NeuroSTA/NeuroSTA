@@ -5,11 +5,9 @@ title: "Contact"
 # Contact
 
 **NeuroSTA Lab**  
-Faculty of Medicine,
-Department of [Psychiatry and Psychotherapy],  
-[Philipps-Universität, Marburg]  
-[Rudolf-Bultmann-Str. 8]
-[Marburg, Hesse, 35039, Germany]
+Department of [Your Department]  
+[Your University]  
+[Address]  
 
 📧 [contact@neurosta.org](mailto:contact@neurosta.org)  
 🌐 [https://neurosta.github.io/NeuroSTA/](https://neurosta.github.io/NeuroSTA/)
