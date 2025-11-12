@@ -10,3 +10,9 @@ header_pages:
   - research.md
   - publications.md
   - contact.md
+
+# eigene CSS-Datei einbinden
+sass:
+  style: compressed
+
+# assets/css/custom.css wird automatisch übernommen
