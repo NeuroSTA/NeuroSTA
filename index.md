@@ -7,7 +7,7 @@ title: "Home"
 
 We study how brain networks and language interact across diagnostic categories — combining speech, linguistic, and neuroimaging data.
 
-![lab](assets/images/lab_placeholder.jpg)
+<!-- ![lab](assets/images/lab_placeholder.jpg) -->
 
 ---
 
