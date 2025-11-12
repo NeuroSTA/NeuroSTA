@@ -12,4 +12,4 @@ this repository will be continuously updated as new components are developed.
 
 ---
 
-✨[Our NeuroSTA Repository](https://github.com/NeuroSTA/NeuroSTA)
+✨[Our NeuroSTA Repository on GitHub](https://github.com/NeuroSTA/NeuroSTA)
