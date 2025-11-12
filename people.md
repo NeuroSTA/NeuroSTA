@@ -5,7 +5,7 @@ title: "People"
 # Our Team 
 
 ## Principal Investigator
-- Dr. rer. med. [Frederike Stein](fs.md)
+- [Dr. rer. med. Frederike Stein](fs.md)
 
 ## PhD Students
 - [Jannik Lepper](jl.md)
