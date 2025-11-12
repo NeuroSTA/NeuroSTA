@@ -1,4 +1,6 @@
 ---
+title: NeuroSTA Repository
+---
 
 NeuroSTA stands for <ins>**Neuro**</ins>imaging and <ins>**S**</ins>peech using <ins>**T**</ins>ransdiagnostic <ins>**A**</ins>pproaches. 
 Our repository brings together work from several domains including neuroimaging, speech and language analysis, and transdiagnostic psychiatry. 
