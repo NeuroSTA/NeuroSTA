@@ -1,33 +1,29 @@
 ---
-title: "Home"
+layout: default
+title: NeuroSTA
 ---
 
-# 🧠 Welcome to NeuroSTA 
+# NeuroSTA
+Transdiagnostische Forschung in Sprache und Kognition
 
-**Neuroimaging and Speech using Transdiagnostic Approaches**
-
-We study how brain networks and language interact across diagnostic categories — combining speech, linguistic, and neuroimaging data.
-
----
-
-## 🔬 Research Overview
-We integrate:
-- Structural and functional MRI analyses  
-- Speech and linguistic feature extraction  
-- Multimodal data fusion and machine learning
-
-Our goal is to identify **transdiagnostic mechanisms** underlying communication and cognition.
+[Unser Team](#team) | [Projekte](#projects) | [Publikationen](#publications) | [Kontakt](#contact)
 
 ---
 
-## 👥 People
-Meet our [team](people.md).
+## Team {#team}
+{% include people.html %}
 
 ---
 
-## 📚 Publications
-Find our recent work on [Google Scholar](https://scholar.google.com).
+## Projekte {#projects}
+{% include research.html %}
 
 ---
 
-*This page is part of NeuroSTA’s open-science initiative.*
+## Publikationen {#publications}
+{% include publications.html %}
+
+---
+
+## Kontakt {#contact}
+{% include contact.html %}
