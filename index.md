@@ -11,19 +11,19 @@ Transdiagnostische Forschung in Sprache und Kognition
 ---
 
 ## Team {#team}
-{% include people.html %}
+{% include people.md %}
 
 ---
 
 ## Projekte {#projects}
-{% include research.html %}
+{% include research.md %}
 
 ---
 
 ## Publikationen {#publications}
-{% include publications.html %}
+{% include publications.md %}
 
 ---
 
 ## Kontakt {#contact}
-{% include contact.html %}
+{% include contact.md %}
