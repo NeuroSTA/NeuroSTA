@@ -1,8 +1,6 @@
 ---
-title: Frederike Stein
+title: Dr. rer. med. Frederike Stein
 ---
-
-##Dr. rer. med. Frederike Stein 
 
 🔎 Transdiagnostic investigation of psychopathology, formal thought disorder, progression of mental illness and neuroimaging
 
