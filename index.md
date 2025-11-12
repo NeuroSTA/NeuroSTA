@@ -2,7 +2,7 @@
 title: "Home"
 ---
 
-# 🧠 Welcome to the NeuroSTA Lab
+# 🧠 Welcome to NeuroSTA 
 
 **Neuroimaging and Speech using Transdiagnostic Approaches**
 
