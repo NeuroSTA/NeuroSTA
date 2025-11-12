@@ -18,4 +18,4 @@ Psychiatry Research, 116772.
 4. in press
 
 
-➡️ See our full list on [e.g. pubmed ](https:/ .com).
+➡️ See our full list on [e.g., pubmed ](https:/ .com).
