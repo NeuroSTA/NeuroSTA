@@ -6,17 +6,12 @@ title: "Publications"
 
 A selection of our recent work:
 
-1. **Stein, F., & Kircher, T. (2025).**  
-   *Transdiagnostic findings across major depressive disorder, bipolar disorder and schizophrenia: A qualitative review.*
-   _Journal of Affective Disorders, 119464._
+1. **Author et al. (2025).**  
+   *Speech and connectivity networks in transdiagnostic populations.*  
+   _Journal of Neuroscience Methods._
 
-2. **Mueller, N., Mülfarth, R., Seuffert, S., Dannlowski, U., Kircher, T., Kauschke, C., ... & Stein, F. (2025).**  
-   *Figurative language production in schizophrenia, bipolar disorder, and depression: Figurative language production in MDD, BD, and SZ.*  
-    _Psychiatry Research, 116772._
-
-3. in press
-4. in press
-
----
+2. **Author et al. (2024).**  
+   *Integrating linguistic and neural features in psychiatric research.*  
+   _Frontiers in Human Neuroscience._
 
 ➡️ See our full list on [Google Scholar](https://scholar.google.com).
