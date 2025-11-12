@@ -1,8 +1,9 @@
-markdown: kramdown
-theme: minima
 title: "NeuroSTA Lab"
 description: "Neuroimaging and Speech using Transdiagnostic Approaches"
-# Navigation links
+theme: minima
+markdown: kramdown
+
+# Seiten für das Header-Menü
 header_pages:
   - index.md
   - people.md
