@@ -2,12 +2,11 @@
 title: "Home"
 ---
 
-# Welcome to the NeuroSTA Lab 🧠
+# 🧠 Welcome to the NeuroSTA Lab
+
 **Neuroimaging and Speech using Transdiagnostic Approaches**
 
 We study how brain networks and language interact across diagnostic categories — combining speech, linguistic, and neuroimaging data.
-
-<!-- ![lab](assets/images/lab_placeholder.jpg) -->
 
 ---
 
@@ -32,4 +31,3 @@ Find our recent work on [Google Scholar](https://scholar.google.com).
 ---
 
 *This page is part of NeuroSTA’s open-science initiative.*
-
