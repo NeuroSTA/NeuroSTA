@@ -1,5 +1,5 @@
 ---
-title: "NeuroSTA Repository"
+title: "Repository"
 ---
 
 NeuroSTA stands for <ins>**Neuro**</ins>imaging and <ins>**S**</ins>peech using <ins>**T**</ins>ransdiagnostic <ins>**A**</ins>pproaches. 
