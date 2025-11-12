@@ -1,10 +1,14 @@
+---
+---
+
+/* Header Hintergrundfarbe */
 .hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background: linear-gradient(135deg, #6c5ce7, #00b894);
   color: white;
-  text-align: center;
+}
+
+/* Buttons */
+.btn {
+  background-color: white;
+  color: #6c5ce7;
 }
