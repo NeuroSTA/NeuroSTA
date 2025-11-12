@@ -1,3 +1,4 @@
+include: ["assets/css/custom.css"]
 title: "NeuroSTA"
 description: "Neuroimaging and Speech using Transdiagnostic Approaches"
 theme: minima
