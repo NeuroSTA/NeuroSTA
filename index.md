@@ -10,16 +10,6 @@ We study how brain networks and language interact across diagnostic categories �
 
 ---
 
-## 🔬 Research Overview
-We integrate:
-- Structural and functional MRI analyses  
-- Speech and linguistic feature extraction  
-- Multimodal data fusion and machine learning
-
-Our goal is to identify **transdiagnostic mechanisms** underlying communication and cognition.
-
----
-
 ## 👥 People
 Meet our [team](people.md).
 
