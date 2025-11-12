@@ -14,10 +14,3 @@ We combine language, speech, and neuroimaging to study:
 
 3. **Transdiagnostic Mechanisms**  
    Exploring neural and linguistic markers across affective and psychotic disorders.
-
----
-
-### 🧠 Methods
-- Exploratory Factor Analysis (EFA) of speech features  
-- Network analyses of brain connectivity  
-- Robust regression models controlling for age, sex, and scanner
