@@ -5,14 +5,12 @@ title: "People"
 # Our Team 👩‍🔬👨‍🔬
 
 ## Principal Investigator
-- Dr. [Name], NeuroSTA Lab
-
-## Postdoctoral Researchers
-- [Name]
+- Dr. rer. med. [Frederike Stein]
 
 ## PhD Students
-- [Name]
-- [Name]
+- [Jannik Lepper]
+- [Rieke Mülfarth]
+- [Svenja Seuffert]
 
 ## Collaborators
 - [Name], [Affiliation]
