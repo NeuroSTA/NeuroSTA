@@ -1,12 +1,14 @@
-<p align="center">
-  <img src="Stein.png" width="200" style="border-radius: 50%;">
-</p>
 
 ---
 title: "Dr. rer. med. Frederike Stein" 
 subtitle: "Principal Investigator"
 ---
 
+<p align="center">
+  <img src="/Stein.png" width="200" style="border-radius: 50%;">
+  <h2>Dr. rer. med. Frederike Stein</h2>
+  <h4>Principal Investigator · Clinical Neuroscience</h4>
+</p>
 
 
 🏛️ Department of Psychiatry and Psychotherapy  
