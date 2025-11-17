@@ -11,7 +11,7 @@ title: ""
   Dr. rer. med. Frederike Stein
 </h2>
 
-<h3 align="center" style="font-size: 1.6rem; font-weight: 700; margin-top: -10px;">
+<h3 align="center" style="font-size: 2.3rem; font-weight: 900; margin-top: 0;">
   Principal Investigator · Clinical Neuroscience
 </h3>
 
