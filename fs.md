@@ -22,10 +22,11 @@ ORCID: 0000-0002-5052-6022
 
 📧 frederike.stein@uni-marburg.de
 
+## About My Research
+I’m a neuroscientist and linguist studying transdiagnostic symptom dimensions and disease trajectories in affective and psychotic disorders. My research integrates multimodal neuroimaging, computational psychiatry, and speech- and language-based markers to better understand how mental disorders emerge, evolve, and can be recognized across diagnostic boundaries. A central focus of my work is on speech and language as dynamic indicators of symptom severity and illness course, combining acoustic, linguistic, and semantic features with advanced statistical and machine-learning approaches. 
+I am actively involved in the Collaborative Research Center CRC/TRR 393 “Trajectories of Affective Disorders”, where I contribute to projects investigating the temporal development of psychopathology and its neurobiological underpinnings. In addition, I participate in several externally funded research projects aimed at identifying dimensional, biologically informed markers of psychiatric disorders using large-scale datasets.
 
-Dr. Frederike Stein is a postdoctoral researcher and principal investigatpr in psychiatry and clinical neuroscience with a focus on **transdiagnostic investigations of affective and psychotic disorders**. Her work integrates phenomenology, multimodal neuroimaging, computational approaches, and language-based markers to better understand mental disorders across diagnostic boundaries.
-
-She is actively engaged in teaching at all academic levels and contributes to the supervision of early-career researchers in medicine, psychology, linguistics, and neuroscience.
+I am deeply committed to interdisciplinary teaching and mentoring, supervising students across medicine, psychology, linguistics, and neuroscience. Ultimately, my work aims to bridge clinical phenomenology, neurobiology, and computational models, advancing towards a more precise and dynamic understanding of mental disorders.
 
 ---
 
