@@ -11,6 +11,10 @@ We study how brain networks and language interact across diagnostic categories �
 
 ---
 
+## ⚡ News
+Latest news from out [news](news.md).
+
+---
 ## 👥 People
 Meet our [team](people.md).
 
