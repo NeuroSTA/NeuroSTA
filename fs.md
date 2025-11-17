@@ -2,17 +2,18 @@
 title: "Dr. rer. med. Frederike Stein"
 subtitle: "Principal Investigator"
 ---
+
 <p align="center">
-  <img src="/Stein.png" width="200" style="border-radius: 50%;">
+  <img src="/NeuroSTA/Stein.png" width="200" style="border-radius: 50%;">
 </p>
 
 <h2 align="center">Dr. rer. med. Frederike Stein</h2>
 <h4 align="center">Principal Investigator · Clinical Neuroscience</h4>
 
 🏛️ Department of Psychiatry and Psychotherapy  
-   Philipps-University Marburg, Germany  
-   ORCID: 0000-0002-5052-6022
-   
+Philipps-University Marburg, Germany  
+ORCID: 0000-0002-5052-6022
+
 📧 *frederike.stein@uni-marburg.de*
 
 
