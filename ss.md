@@ -7,7 +7,6 @@ layout: page
 Philipps-Universität Marburg, Germany  
 **ORCID:** [0009-0007-2230-4741](https://orcid.org/0009-0007-2230-4741)
 
-📧 *svenja.seuffert@uni-marburg.de*
 
 Svenja Seuffert is a PhD student in psychiatry at Philipps-Universität Marburg. Her research focuses on automatic speech analysis in psychiatric populations, with an emphasis on latent linguistic markers in affective and psychotic disorders and their neurobiological correlates.
 
