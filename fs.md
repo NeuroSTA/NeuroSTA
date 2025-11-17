@@ -7,11 +7,14 @@ title: ""
   <img src="{{ '/Stein.png' | relative_url }}" width="200" style="border-radius: 50%;">
 </p>
 
-<h1 align="center"><strong>Dr. rer. med. Frederike Stein</strong></h1>
-
-<h2 align="center" style="font-weight: 800; font-size: 2rem;">
-  <strong>Principal Investigator · Clinical Neuroscience</strong>
+<h2 align="center" style="font-size: 2.3rem; font-weight: 900; margin-top: 0;">
+  Dr. rer. med. Frederike Stein
 </h2>
+
+<h3 align="center" style="font-size: 1.6rem; font-weight: 700; margin-top: -10px;">
+  Principal Investigator · Clinical Neuroscience
+</h3>
+
 
 🏛️ Department of Psychiatry and Psychotherapy  
 Philipps-University Marburg, Germany  
