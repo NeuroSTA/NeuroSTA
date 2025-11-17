@@ -13,8 +13,6 @@ Svenja Seuffert is a PhD student in psychiatry at Philipps-Universität Marburg.
 <section class="section" id="publications">
   <div class="title">📚 Publications</div>
   <p class="desc">
-    Find more on
-    <a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>.
   </p>
   <ul class="pubs">
     <li>
