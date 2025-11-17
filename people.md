@@ -8,7 +8,7 @@ title: "People"
 - [Dr. rer. med. Frederike Stein](fs.md)
 
 ## Post Doc
-- [Alina Nostadt](an.md)
+- [Dr. rer. nat. Alina Nostadt](an.md)
 
 ## PhD Students
 - [Jannik Lepper](jl.md)
