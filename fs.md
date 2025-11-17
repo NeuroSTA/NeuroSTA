@@ -1,8 +1,14 @@
+<p align="center">
+  <img src="Stein.png" width="200" style="border-radius: 50%;">
+</p>
+
 ---
-title: "Dr. rer. med. Frederike Stein"
+title: "Dr. rer. med. Frederike Stein" 
 subtitle: "Principal Investigator"
 ---
- 
+
+
+
 🏛️ Department of Psychiatry and Psychotherapy  
    Philipps-University Marburg, Germany  
    ORCID: 0000-0002-5052-6022
