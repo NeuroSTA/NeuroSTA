@@ -1,6 +1,6 @@
 ---
-title: Dr. rer. med. Frederike Stein
-Principal Investigator
+title: "Dr. rer. med. Frederike Stein"
+subtitle: "Principal Investigator"
 ---
  
 🏛️ Department of Psychiatry and Psychotherapy  
