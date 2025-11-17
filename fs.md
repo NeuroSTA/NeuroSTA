@@ -7,11 +7,11 @@ title: ""
   <img src="{{ '/Stein.png' | relative_url }}" width="200" style="border-radius: 50%;">
 </p>
 
-<h2 align="center" style="font-size: 2.3rem; font-weight: 700; margin-top: 0;">
+<h2 align="center" style="font-size: 1.8rem; font-weight: 600; margin-top: 0.5rem;">
   Dr. rer. med. Frederike Stein
 </h2>
 
-<h3 align="center" style="font-size: 2.3rem; font-weight: 700; margin-top: 0;">
+<h3 align="center" style="font-size: 1.3rem; font-weight: 500; margin-top: -0.3rem;">
   Principal Investigator · Clinical Neuroscience
 </h3>
 
