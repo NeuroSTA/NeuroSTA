@@ -1,10 +1,10 @@
 ---
+layout: default
 title: "Dr. rer. med. Frederike Stein"
-subtitle: "Principal Investigator"
 ---
 
 <p align="center">
-  <img src="/NeuroSTA/Stein.png" width="200" style="border-radius: 50%;">
+  <img src="{{ '/Stein.png' | relative_url }}" width="200" style="border-radius: 50%;">
 </p>
 
 <h2 align="center">Dr. rer. med. Frederike Stein</h2>
@@ -12,9 +12,9 @@ subtitle: "Principal Investigator"
 
 🏛️ Department of Psychiatry and Psychotherapy  
 Philipps-University Marburg, Germany  
-ORCID: 0000-0002-5052-6022
+ORCID: 0000-0002-5052-6022  
 
-📧 *frederike.stein@uni-marburg.de*
+📧 frederike.stein@uni-marburg.de
 
 
 Dr. Frederike Stein is a postdoctoral researcher and principal investigatpr in psychiatry and clinical neuroscience with a focus on **transdiagnostic investigations of affective and psychotic disorders**. Her work integrates phenomenology, multimodal neuroimaging, computational approaches, and language-based markers to better understand mental disorders across diagnostic boundaries.
@@ -28,7 +28,8 @@ She is actively engaged in teaching at all academic levels and contributes to th
   *Dissertation:* *Investigation of dimensional phenomenology and neurobiology across affective and psychotic disorders*  
   Summa Cum Laude
   
-- **M.A. Linguistics, Johannes-Gutenberg-Universität Mainz and Philipps-Universität Marburg, Germany, 2012–2018**  
+- **M.A. Linguistics, Johannes-Gutenberg-Universität Mainz and Philipps-Universität Marburg, Germany, 2012–2018**
+  
 - **B.A. Spanish Studies, Johannes-Gutenberg-Universität Mainz, Germany, 2012–2016**
 
 ---
