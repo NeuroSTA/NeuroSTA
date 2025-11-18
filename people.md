@@ -15,5 +15,23 @@ title: "People"
 - [Rieke Mülfarth](rm.md)
 - [Svenja Seuffert](ss.md)
 
-## Collaborators
-- [Name], [Affiliation]
+## Medical students
+- Merle Gudjons
+- Elena Kemmann
+- Luca Mira Keunecke
+- Felix Bornhofen
+- Clara Stuhldreier
+- Lea Theresa Kercher
+- Lisa Koob
+
+## Alummni
+- Dr. med. Angela Sültmann
+- Dr. rer. med. Katharina Schneider
+- Delia Schepers
+- Elena Buckenmayer
+- Aliya Tharwani
+- Vivien Hansmann
+- Gioa Liz Schifa
+- Judith Wagner-Knödgen
+- Milena Buck
+
