@@ -35,7 +35,7 @@ Our group brings together researchers from psychiatry, neuroscience, psychology,
   
 ---
 
-## Alummni
+## Alumni
 - Dr. med. Angela Sültmann
 - Dr. rer. med. Katharina Schneider
 - Delia Schepers
