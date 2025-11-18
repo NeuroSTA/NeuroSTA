@@ -17,7 +17,7 @@ title: ""
 <p>
 🏛️ Department of Psychiatry and Psychotherapy<br>
 Philipps-University Marburg, Germany<br>
-ORCID: [0009-0001-8425-0431[(https://orcid.org/0009-0001-8425-0431)<br><br>
+ORCID: [0009-0001-8425-0431](https://orcid.org/0009-0001-8425-0431)<br><br>
 
 📧 r.r.muelfarth@uni-marburg.de
 </p>
@@ -27,11 +27,8 @@ ORCID: [0009-0001-8425-0431[(https://orcid.org/0009-0001-8425-0431)<br><br>
 I’m a linguist, and my research focuses on latent linguistic parameters and their association with psychopathology, cognition, and brain structure in affective and psychotic disorders. 
 I combine linguistic feature extraction using Natural Language Processing (NLP) with methods such as network analysis, diffusion-MRI-based connectomics, following an interdisciplinary approach that integrates linguistics, psychiatry, and computational neuroscience. 
 In addition, I am a part of the Collaborative Research Center <a href="https://www.uni-marburg.de/en/trr-393" target="_blank">CRC/TRR 393 “Trajectories of Affective Disorders”</a>. 
-
 </div>
-
 <br><br>
----
 
 ### Academic Qualifications  
 
