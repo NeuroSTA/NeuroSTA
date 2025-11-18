@@ -33,7 +33,7 @@ In addition, I am a part of the Collaborative Research Center <a href="https://w
 <br><br>
 ---
 
-## Academic Qualifications  
+### Academic Qualifications  
 
 - **M.A. Linguistics**, Program: Language Dynamics, University of Paderborn, Germany, 2020–2023
   
@@ -41,7 +41,7 @@ In addition, I am a part of the Collaborative Research Center <a href="https://w
 
 ---
 
-## Publications  
+### Publications  
 
 1.	Mueller N, **Mülfarth R**, **Seuffert S**, Dannlowski U, Kircher T, Kauschke C, Nagels A, **Stein F**. Figurative language production in schizophrenia, bipolar disorder, and depression. **Psychiatry Res**. 2025 Oct 17;354:116772. doi: 10.1016/j.psychres.2025.116772.
    
@@ -49,7 +49,7 @@ In addition, I am a part of the Collaborative Research Center <a href="https://w
    
 ---
 
-## Awards and Grants  
+### Awards and Grants  
 - **2025**	Open Science Award, Discourse in Psychosis Consortium, Chicago, USA
 - **2025**	Travel grant from MArburg University Research Academy (MARA)
 - **2025**	Travel grant from Center for Mind, Brain and Behavior (CMBB)
