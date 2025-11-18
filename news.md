@@ -12,13 +12,13 @@ Stay up to date with recent developments, publications, awards, talks, and activ
 
 ## 🏆 October 2025 – Poster Award for Dr. Alina Nostadt
 
-Dr. Alina Nostadt was awarded a Poster Prize at the 2025 CRC/TRR 393 Retreat in Dresden for her outstanding poster:
+**Dr. Alina Nostadt** was awarded a **Poster Prize at the 2025 CRC/TRR 393 Retreat** in Dresden for her outstanding poster:
 “Transdiagnostic Identification of Cognitive Subtypes and White Matter Correlates.”
 
 The retreat brought together early-career researchers from all CRC/TRR 393 sites and the International Research Training Group 2773, featuring nearly 70 posters across several scientific sessions. Posters were evaluated on scientific excellence, clarity of presentation, and design.
 
 Congratulations to Alina on this well-deserved recognition!
-
+<br><br>
 
 ## 🏆 April 2025 – Awards at the DISCOURSE in Psychosis Satellite Meeting (Chicago, USA) for Rieke Mülfarth and Dr. Frederike Stein 
 
@@ -31,3 +31,22 @@ At the DISCOURSE in Psychosis Consortium Satellite Meeting on April 3, 2025, two
 The DISCOURSE in Psychosis Consortium is dedicated to advancing our understanding of thought, language, and communication disturbances in psychotic and affective disorders. With a strong focus on the multimodal nature of language production, the consortium investigates the mechanisms underlying these disturbances and their relevance for daily life.
 
 Congratulations to Dr. Stein and Rieke Mülfarth on these well-deserved honors!
+<br><br>
+
+## 🏆 May 2025 – Awards at the DGBP Conference
+
+Several members of the **NeuroSTA  group** at the Department of Psychiatry and Psychotherapy, Philipps-University Marburg were recognized with awards at this year’s annual meeting of the German Society for Biological Psychiatry (DGBP) in Berlin, Germany. 
+
+**Dr. Frederike Stein**, Principal Investigator of **NeuroSTA**, received the **DGBP Research Award for Early Career Scientists** for her outstanding contributions to biological psychiatry. 
+
+Two NeuroSTA medical doctoral researchers were also honored for their poster presentations:
+
+- **Lea Kercher** received the **1st Poster Prize** for her work on the transdiagnostic analysis of delusional ideation.  
+- **Lisa Koob** received the **3rd Poster Prize** for her research on sleep and depression.
+
+In addition to their poster awards, **both s received DGBP travel scholarships** to support their conference participation.
+
+The three-day conference featured a wide range of scientific talks, discussions, and networking opportunities for researchers in biological psychiatry. These multiple awards highlight not only the quality of the presented work but also the strong commitment to early-career researchers within the NeuroSTA group and at the Department of Psychiatry and Psychotherapy Marburg, Germany. 
+
+Warm congratulations to all awardees, and sincere thanks to the DGBP for supporting early career researchers.
+
