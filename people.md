@@ -48,7 +48,7 @@ Our group brings together researchers from psychiatry, neuroscience, psychology,
 
 ---
 
-## Interested in Joining the Lab? 🎓  
+## Interested in Joining the Group? 🎓  
 
 We are happy to hear from motivated students who would like to work with us.
 
