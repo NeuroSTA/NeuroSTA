@@ -35,7 +35,7 @@ I am deeply committed to interdisciplinary teaching and mentoring, supervising s
 
 </div>
 
-<div style="height: 1.5rem;"></div>
+<br>
 
 ---
 
