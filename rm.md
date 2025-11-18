@@ -17,7 +17,8 @@ title: ""
 <p>
 🏛️ Department of Psychiatry and Psychotherapy<br>
 Philipps-University Marburg, Germany<br>
-ORCID: [0009-0001-8425-0431](https://orcid.org/0009-0001-8425-0431)<br><br>
+ORCID: <a href="https://orcid.org/0009-0001-8425-0431" target="_blank">0009-0001-8425-0431</a> <br><br>
+
 
 📧 r.r.muelfarth@uni-marburg.de
 </p>
