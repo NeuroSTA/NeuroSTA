@@ -2,6 +2,10 @@
 layout: default
 title: ""
 ---
+<p align="center">
+  <img src="{{ '/rm_bild.jpg' | relative_url }}" width="200" style="border-radius: 50%;">
+</p>
+
 <h2 align="center" style="font-size: 1.8rem; font-weight: 600; margin-top: 0.5rem;">
   Rieke Mülfarth
 </h2>
