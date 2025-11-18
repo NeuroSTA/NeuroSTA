@@ -66,7 +66,7 @@ The retreat brought together early-career researchers from all CRC/TRR 393 sites
        style="max-width: 520px; width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
   <br>
   <span style="font-size: 0.8rem; color: #555;">
-    Dr. Frederike Stein &amp; Rieke Mülfarth at DISCOURSE 2025
+     Rieke Mülfarth &amp; Dr. Frederike Stein at the DISCOURSE satellite event 2025
   </span>
 </p>
 
