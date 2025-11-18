@@ -12,7 +12,7 @@ We study how brain networks and language interact across diagnostic categories �
 ---
 
 ## ⚡ News
-Latest news from out [news.md].
+Latest [news](news.md) from our team.
 
 ---
 ## 👥 People
