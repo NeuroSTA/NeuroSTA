@@ -2,11 +2,14 @@
 title: "Publications"
 ---
 
-# Publications 📚
+# Publications 📚  
+
+Full list available on PubMed:  
+[View all publications on PubMed](https://pubmed.ncbi.nlm.nih.gov/?term=frederike+stein&sort=date)
 
 ---
 
-2025
+## 2025  
 1.Barkhau CBC, Pellengahr C, Wang Z, Fisch L, Leenings R, Winter NR, Ernsting J, Konowski M, Grotegerd D, Meinert S, Hubbert JM, Krieger J, Borgers T, Flinkenflügel K, Leehr EJ, **Stein F**, Thomas-Odenthal F, Usemann P, Teutenberg L, Nenadic I, Straube B, Alexander N, Jansen A, Porschen C, Kircher T, Griffiths JD, Jamalabadi H, Dannlowski U, Hahn T. Toward Personalized Neuroscience: Evaluating Individual-Level Information in Neural Mass Models. **Hum Brain Mapp**. 2025 Nov;46(16):e70413. doi: 10.1002/hbm.70413.
 
 2. Serrarens C, Toenders YJ, Pozzi E, Aleman A, Alexander N, Başgöze Z, Belov V, Berger K, Brosch K, Bülow R, Busatto GF, Capitão LP, Connolly CG, Couvy-Duchesne B, Cullen KR, Dannlowski U, Davey CG, de Zubicaray GI, Dima D, Dohm K, Enneking V, Erwin-Grabner T, Evermann U, Fu CHY, Fuentes-Claramonte P, Godlewska BR, Gonul AS, Gotlib IH, Goya-Maldonado R, Grabe HJ, Groenewold NA, Grotegerd D, Gruber O, Hahn T, Hall G, Harrison BJ, Heindel W, Hermesdorf M, Ho TC, Ichikawa N, Itai E, Jahanshad N, Jamalabadi H, Jamieson AJ, Jansen A, Kircher T, Klimes-Dougan B, Krämer B, Krug A, Lancaster TM, Leehr EJ, Li M, Linden DEJ, MacMaster F, McMahon KL, Medland SE, Mehler DMA, Meinert S, Mwangi B, Nenadić I, Okada G, Okamoto Y, Opel N, Pfarr JK, Pomarol-Clotet E, Portella MJ, Redlich R, Reneman L, Repple J, Ringwald K, Rodriguez-Cano E, Rosa PGP, Sacchet MD, Sämann PG, Salvador R, Schrantee A, Shinzato H, Sim K, Simulionyte E, Soares JC, Stein DJ, **Stein F**, Straube B, Strike LT, Thomas-Odenthal F, Thomopoulos SI, Thompson PM, van Tol MJ, Usemann P, Uyar A, van der Wee N, van der Werff S, Vives-Gilabert Y, Völzke H, Walter M, Whittle S, Wittfeld K, Wroblewski A, Wu MJ, Yang TT, Zunta-Soares GB, Veltman DJ, Schmaal L, van Velzen LS. Regional brain morphology and current antidepressant use: findings from 32 international cohorts from the ENIGMA major depressive disorder working group. **Mol Psychiatry**. 2025 Dec;30(12):5625-5636. doi: 10.1038/s41380-025-03310-8.
@@ -55,10 +58,10 @@ title: "Publications"
 
 24. **Major Depressive Disorder Working Group of the Psychiatric Genomics Consortium.** Trans-ancestry genome-wide study of depression identifies 697 associations implicating cell types and pharmacotherapies. **Cell**. 2025 Feb 6;188(3):640-652.e9. doi: 10.1016/j.cell.2024.12.002. 
 
+
 ---
 
-2024
-
+## 2024  
 1. Palominos C, He R, Fröhlich K, **Mülfarth RR**, **Seuffert S**, Sommer IE, Homan P, Kircher T, **Stein F**, Hinzen W. Approximating the semantic space: word embedding techniques in psychiatric speech analysis. **Schizophrenia (Heidelb)**. 2024 Dec 2;10(1):114. doi: 10.1038/s41537-024-00524-7.
 
 2. Sindermann L, Dannlowski U, Leehr EJ, Hahn T, Grotegerd D, Meinert S, Lemke H, Winter A, Thiel K, Flinkenflügel K, Kircher T, Nenadić I, Straube B, Alexander N, Jamalabadi H, Jansen A, **Stein F**, Brosch K, Thomas-Odenthal F, Usemann P, Teutenberg L, Krug A, Andlauer TFM, David FS, Federmann LM, Beins E, Nöthen MM, Forstner AJ. Neurobiological correlates of comorbidity in disorders across the affective disorders-psychosis spectrum. **J Psychiatr Res**. 2024 Dec;180:462-472. doi: 10.1016/j.jpsychires.2024.09.052.
@@ -85,14 +88,22 @@ title: "Publications"
 
 13. Hilbert K, Boeken OJ, Langhammer T, Groenewold NA, Bas-Hoogendam JM, Aghajani M, Zugman A, Åhs F, Arolt V, Beesdo-Baum K, Björkstrand J, Blackford JU, Blanco-Hinojo L, Böhnlein J, Bülow R, Cano M, Cardoner N, Caseras X, Dannlowski U, Domschke K, Fehm L, Feola B, Fredrikson M, Goossens L, Grabe HJ, Grotegerd D, Gur RE, Hamm AO, Harrewijn A, Heinig I, Herrmann MJ, Hofmann D, Jackowski AP, Jansen A, Kaczkurkin AN, Kindt M, Kingsley EN, Kircher T, Klahn AL, Koelkebeck K, Krug A, Kugel H, Larsen B, Leehr EJ, Leonhardt L, Lotze M, Margraf J, Michałowski J, Muehlhan M, Nenadić I, Pan PM, Pauli P, Peñate W, Pittig A, Plag J, Pujol J, Richter J, Rivero FL, Salum GA, Satterthwaite TD, Schäfer A, Schäfer J, Schienle A, Schneider S, Schrammen E, Schruers K, Schulz SM, Seidl E, Stark RM, **Stein F**, Straube B, Straube T, Ströhle A, Suchan B, Thomopoulos SI, Ventura-Bort C, Visser R, Völzke H, Wabnegger A, Wannemüller A, Wendt J, Wiemer J, Wittchen HU, Wittfeld K, Wright B, Yang Y, Zilverstand A, Zwanzger P, Veltman DJ, Winkler AM, Pine DS, Jahanshad N, Thompson PM, Stein DJ, Van der Wee NJA, Lueken U. Cortical and Subcortical Brain Alterations in Specific Phobia and Its Animal and Blood-Injection-Injury Subtypes: A Mega-Analysis From the ENIGMA Anxiety Working Group. **Am J Psychiatry**. 2024 Aug 1;181(8):728-740. doi: 10.1176/appi.ajp.20230032.
 
-2023
 
-2022
+---
 
-2021
-
-2020
+## 2023 
 
 
+---
 
-➡️ See our full list on [e.g., pubmed ](https:/ .com).
+## 2022
+
+---
+
+## 2021
+
+
+---
+
+## 2020
+
