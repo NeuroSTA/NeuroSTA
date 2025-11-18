@@ -61,14 +61,14 @@ The retreat brought together early-career researchers from all CRC/TRR 393 sites
   </p>
 
   <p style="text-align: center; margin-top: 1.5rem;">
-    <img src="{{ '/rieke_frederike_discourse.png' | relative_url }}" 
-         alt="Dr. Frederike Stein and Rieke Mülfarth at DISCOURSE 2025" 
-         style="max-width: 260px; width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
-    <br>
-    <span style="font-size: 0.8rem; color: #555;">
-      Dr. Frederike Stein &amp; Rieke Mülfarth at DISCOURSE 2025
-    </span>
-  </p>
+  <img src="{{ '/rieke_frederike_discourse.png' | relative_url }}" 
+       alt="Dr. Frederike Stein and Rieke Mülfarth at DISCOURSE 2025" 
+       style="max-width: 320px; width: 100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);">
+  <br>
+  <span style="font-size: 0.8rem; color: #555;">
+    Dr. Frederike Stein &amp; Rieke Mülfarth at DISCOURSE 2025
+  </span>
+</p>
 
 </div>
 
