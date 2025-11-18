@@ -17,7 +17,7 @@ title: ""
 <p>
 🏛️ Department of Psychiatry and Psychotherapy<br>
 Philipps-University Marburg, Germany<br>
-ORCID: 0009-0001-8425-0431<br><br>
+ORCID: [0009-0001-8425-0431[(https://orcid.org/0009-0001-8425-0431)<br><br>
 
 📧 r.r.muelfarth@uni-marburg.de
 </p>
@@ -31,6 +31,7 @@ In addition, I am a part of the Collaborative Research Center <a href="https://w
 </div>
 
 <br><br>
+---
 
 ## Academic Qualifications  
 
