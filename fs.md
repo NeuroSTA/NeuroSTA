@@ -49,6 +49,7 @@ I am deeply committed to interdisciplinary teaching and mentoring, supervising s
 - **B.A. Spanish Studies, Johannes-Gutenberg-Universität Mainz, Germany, 2012–2016**
 
 ---
+<br><br>
 
 ## Academic Positions  
 - **Postdoctoral Research Fellow**, Department of Psychiatry & Psychotherapy, Philipps-Universität Marburg, Germany (2021–present)  
