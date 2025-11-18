@@ -19,6 +19,7 @@ The retreat brought together early-career researchers from all CRC/TRR 393 sites
 
 Congratulations to Alina on this well-deserved recognition!
 
+
 ## 🏆 April 2025 – Awards at the DISCOURSE in Psychosis Satellite Meeting (Chicago, USA) for Rieke Mülfarth and Dr. Frederike Stein 
 
 At the DISCOURSE in Psychosis Consortium Satellite Meeting on April 3, 2025, two researchers from the NeuroSTA group were recognized for their outstanding contributions to language and psychosis research.
@@ -29,4 +30,4 @@ At the DISCOURSE in Psychosis Consortium Satellite Meeting on April 3, 2025, two
 
 The DISCOURSE in Psychosis Consortium is dedicated to advancing our understanding of thought, language, and communication disturbances in psychotic and affective disorders. With a strong focus on the multimodal nature of language production, the consortium investigates the mechanisms underlying these disturbances and their relevance for daily life.
 
-**Congratulations to Dr. Stein and Rieke Mülfarth on these well-deserved honors!**
+Congratulations to Dr. Stein and Rieke Mülfarth on these well-deserved honors!
