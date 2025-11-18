@@ -17,7 +17,7 @@ ORCID: 0009-0001-8425-0431<br><br>
 
 📧 r.r.muelfarth@uni-marburg.de
 </p>
----
+
 <div style="text-align: justify;">
 
 I’m a linguist, and my research focuses on latent linguistic parameters and their association with psychopathology, cognition, and brain structure in affective and psychotic disorders. 
