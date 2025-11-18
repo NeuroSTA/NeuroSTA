@@ -1,7 +1,42 @@
 ---
-title: Rieke Mülfarth
+layout: default
+title: ""
+---
+<h2 align="center" style="font-size: 1.8rem; font-weight: 600; margin-top: 0.5rem;">
+  Rieke Mülfarth
+</h2>
+
+<h3 align="center" style="font-size: 1.3rem; font-weight: 400; margin-top: -0.3rem;">
+  Doctoral Researcher
+</h3>
+
+<p>
+🏛️ Department of Psychiatry and Psychotherapy<br>
+Philipps-University Marburg, Germany<br>
+ORCID: 0009-0001-8425-0431<br><br>
+
+📧 r.r.muelfarth@uni-marburg.de
+</p>
 ---
 
-🔨under construction🔨
+## Academic Qualifications  
 
-📧 *rieke.muelfarth@uni-marburg.de*
+- **M.A. Linguistics**, Program: Language Dynamics, University of Paderborn, Germany, 2020–2023
+  
+- **B.A. Linguistics**, University of Paderborn, Germany, 2016–2020
+
+---
+
+## Publications  
+
+1.	Mueller N, **Mülfarth R**, **Seuffert S**, Dannlowski U, Kircher T, Kauschke C, Nagels A, **Stein F**. Figurative language production in schizophrenia, bipolar disorder, and depression. **Psychiatry Res**. 2025 Oct 17;354:116772. doi: 10.1016/j.psychres.2025.116772.
+   
+2.	Palominos C, He R, Fröhlich K, **Mülfarth RR**, **Seuffert S**, Sommer IE, Homan P, Kircher T, **Stein F**, Hinzen W. Approximating the semantic space: word embedding techniques in psychiatric speech analysis. **Schizophrenia (Heidelb)**. 2024 Dec 2;10(1):114. doi: 10.1038/s41537-024-00524-7.
+   
+---
+
+## Awards and Grants  
+- **2025**	Open Science Award, Discourse in Psychosis Consortium, Chicago, USA
+- **2025**	Travel grant from MArburg University Research Academy (MARA)
+- **2025**	Travel grant from Center for Mind, Brain and Behavior (CMBB)
+
