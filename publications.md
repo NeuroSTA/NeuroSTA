@@ -9,7 +9,8 @@ Full list available on PubMed:
 
 ---
 
-## 2025  
+## 2025   
+<div style="text-align: justify;">
 1.Barkhau CBC, Pellengahr C, Wang Z, Fisch L, Leenings R, Winter NR, Ernsting J, Konowski M, Grotegerd D, Meinert S, Hubbert JM, Krieger J, Borgers T, Flinkenflügel K, Leehr EJ, **Stein F**, Thomas-Odenthal F, Usemann P, Teutenberg L, Nenadic I, Straube B, Alexander N, Jansen A, Porschen C, Kircher T, Griffiths JD, Jamalabadi H, Dannlowski U, Hahn T. Toward Personalized Neuroscience: Evaluating Individual-Level Information in Neural Mass Models. **Hum Brain Mapp**. 2025 Nov;46(16):e70413. doi: 10.1002/hbm.70413.
 
 2. Serrarens C, Toenders YJ, Pozzi E, Aleman A, Alexander N, Başgöze Z, Belov V, Berger K, Brosch K, Bülow R, Busatto GF, Capitão LP, Connolly CG, Couvy-Duchesne B, Cullen KR, Dannlowski U, Davey CG, de Zubicaray GI, Dima D, Dohm K, Enneking V, Erwin-Grabner T, Evermann U, Fu CHY, Fuentes-Claramonte P, Godlewska BR, Gonul AS, Gotlib IH, Goya-Maldonado R, Grabe HJ, Groenewold NA, Grotegerd D, Gruber O, Hahn T, Hall G, Harrison BJ, Heindel W, Hermesdorf M, Ho TC, Ichikawa N, Itai E, Jahanshad N, Jamalabadi H, Jamieson AJ, Jansen A, Kircher T, Klimes-Dougan B, Krämer B, Krug A, Lancaster TM, Leehr EJ, Li M, Linden DEJ, MacMaster F, McMahon KL, Medland SE, Mehler DMA, Meinert S, Mwangi B, Nenadić I, Okada G, Okamoto Y, Opel N, Pfarr JK, Pomarol-Clotet E, Portella MJ, Redlich R, Reneman L, Repple J, Ringwald K, Rodriguez-Cano E, Rosa PGP, Sacchet MD, Sämann PG, Salvador R, Schrantee A, Shinzato H, Sim K, Simulionyte E, Soares JC, Stein DJ, **Stein F**, Straube B, Strike LT, Thomas-Odenthal F, Thomopoulos SI, Thompson PM, van Tol MJ, Usemann P, Uyar A, van der Wee N, van der Werff S, Vives-Gilabert Y, Völzke H, Walter M, Whittle S, Wittfeld K, Wroblewski A, Wu MJ, Yang TT, Zunta-Soares GB, Veltman DJ, Schmaal L, van Velzen LS. Regional brain morphology and current antidepressant use: findings from 32 international cohorts from the ENIGMA major depressive disorder working group. **Mol Psychiatry**. 2025 Dec;30(12):5625-5636. doi: 10.1038/s41380-025-03310-8.
@@ -57,7 +58,7 @@ Full list available on PubMed:
 23. Teutenberg L, **Stein F**, Thomas-Odenthal F, Usemann P, Brosch K, Winter N, Goltermann J, Leenings R, Konowski M, Barkhau C, Fisch L, Meinert S, Flinkenflügel K, Schürmeyer N, Bonnekoh L, Thiel K, Kraus A, Alexander N, Jansen A, Nenadić I, Straube B, Hahn T, Dannlowski U, Jamalabadi H, Kircher T. Machine learning-based prediction of illness course in major depression: The relevance of risk factors. **J Affect Disord**. 2025 Apr 1;374:513-522. doi: 10.1016/j.jad.2025.01.060.
 
 24. **Major Depressive Disorder Working Group of the Psychiatric Genomics Consortium.** Trans-ancestry genome-wide study of depression identifies 697 associations implicating cell types and pharmacotherapies. **Cell**. 2025 Feb 6;188(3):640-652.e9. doi: 10.1016/j.cell.2024.12.002. 
-
+</div>
 
 ---
 
