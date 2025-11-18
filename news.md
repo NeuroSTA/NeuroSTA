@@ -20,17 +20,32 @@ The retreat brought together early-career researchers from all CRC/TRR 393 sites
 Congratulations to Alina on this well-deserved recognition!
 <br><br>
 
-## 🏆 April 2025 – Awards at the DISCOURSE in Psychosis Satellite Meeting (Chicago, USA) for Rieke Mülfarth and Dr. Frederike Stein 
+### 🏆 April 2025 – Awards at the DISCOURSE in Psychosis Satellite Meeting (Chicago, USA)
 
-At the DISCOURSE in Psychosis Consortium Satellite Meeting on April 3, 2025, two researchers from the NeuroSTA group were recognized for their outstanding contributions to language and psychosis research.
+<div style="display: flex; gap: 20px; margin-bottom: 50px; align-items: flex-start;">
 
-**Dr. Frederike Stein** (Principal Investigator) received one of seven **Early Career Researcher (ECR) Awards**, supported by the Monique H. Bourgeois Chair and the François Bourgeois Foundation in Montreal. 
+  <div style="flex: 1;">
 
-**Rieke Mülfarth** (PhD candidate) was the sole recipient of the **DISCOURSE Open Science Award**. Her work was recognized for its strong potential to enhance the consortium’s open-source datasets. 
+At the DISCOURSE in Psychosis Consortium Satellite Meeting on April 3, 2025, two researchers from the **NeuroSTA group** were recognized for their outstanding contributions to language and psychosis research.
 
-The DISCOURSE in Psychosis Consortium is dedicated to advancing our understanding of thought, language, and communication disturbances in psychotic and affective disorders. With a strong focus on the multimodal nature of language production, the consortium investigates the mechanisms underlying these disturbances and their relevance for daily life.
+**Dr. Frederike Stein** (Principal Investigator of the NeuroSTA group) received one of seven **Early Career Researcher (ECR) Awards**, supported by the Monique H. Bourgeois Chair and the François Bourgeois Foundation (Montreal).
 
-Congratulations to Dr. Stein and Rieke Mülfarth on these well-deserved honors!
+**Rieke Mülfarth** (PhD candidate) was the sole recipient of the **DISCOURSE Open Science Award**. Her contribution was recognized for its strong potential to enhance the consortium’s open-source datasets.
+
+The DISCOURSE in Psychosis Consortium focuses on understanding disturbances in thought, language, and communication in psychotic and affective disorders, emphasizing the multimodal nature of language production.
+
+**Congratulations to Dr. Stein and Rieke Mülfarth on these well-deserved honors!**
+
+  </div>
+
+  <div style="flex: 0 0 180px;">
+    <img src="/assets/img/rieke_frederike_discourse.png" style="width: 100%; border-radius: 8px;">
+    <p style="font-size: 0.8rem; text-align: center; margin-top: 0.3rem;">
+      Dr. Frederike Stein & Rieke Mülfarth at DISCOURSE 2025
+    </p>
+  </div>
+
+</div>
 <br><br>
 
 ## 🏆 May 2025 – Awards at the DGBP Conference
