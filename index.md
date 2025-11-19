@@ -37,9 +37,7 @@ If you're interested in working with speech, neuroimaging, or computational meth
 
 ## Collaborations
 
-We are part of international research initiatives such as the FOR 2107 cohort, CRC/TRR 393, ENIGMA, and the DISCOURSE in Psychosis Consortium, enabling large-scale multimodal research across global cohorts.
-
----
+We are part of international research initiatives such as the [FOR 2107 cohort](https://for2107.de/), [CRC/TRR 393](https://www.uni-marburg.de/de/trr-393), [ENIGMA](https://enigma.ini.usc.edu/), and the [DISCOURSE in Psychosis Consortium](https://discourseinpsychosis.org/).
 
 ## Funding
 
