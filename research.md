@@ -3,12 +3,29 @@ title: "Research"
 ---
 
 ## 🔬 Research Overview
+
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;">
+
+<div style="flex: 1; text-align: justify; text-justify: inter-word;">
+
 We integrate:
 - Structural and functional MRI analyses  
 - Speech and linguistic feature extraction  
-- Multimodal data fusion and machine learning
+- Multimodal data fusion and machine learning  
 
 Our goal is to identify **transdiagnostic mechanisms** underlying communication and cognition.
+
+</div>
+
+<div style="flex: 0 0 280px; text-align: center;">
+    <img src="{{ '/speech.png' | relative_url }}" 
+         alt="Speech NeuroSTA" 
+         style="max-width: 100%; border-radius: 6px;">
+</div>
+
+</div>
+
+---
 
 ## Research Areas
 
