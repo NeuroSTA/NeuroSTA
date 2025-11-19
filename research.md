@@ -2,16 +2,19 @@
 title: "Research"
 ---
 
-## 🔬 Research Overview
+## Research Overview
 
 <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;">
 
 <div style="flex: 1; text-align: justify; text-justify: inter-word;">
 
-We integrate:
-- Structural and functional MRI analyses  
-- Speech and linguistic feature extraction  
-- Multimodal data fusion and machine learning  
+We investigate how neural circuits and language processes shape the emergence, progression, and remission of psychiatric disorders.
+By combining MRI, cognition, psychopathology and naturalistic speech data, our work aims to uncover dynamic brain–behavior relationships that transcend diagnostic categories. 
+
+Our approach integrates:
+- Neuroimaging markers of structural and functional network integrity
+- Computational speech analysis capturing semantic, syntactic, and acoustic features
+- Predictive modeling to track illness trajectories and future symptom development
 
 Our goal is to identify **transdiagnostic mechanisms** underlying communication and cognition.
 
@@ -26,16 +29,23 @@ Our goal is to identify **transdiagnostic mechanisms** underlying communication 
 </div>
 
 ---
-
 ## Research Areas
-
-We combine language, speech, and neuroimaging to study:
 
 1. **Speech and Language Networks**  
    Using NLP and acoustic analysis to extract linguistic features from natural speech.
 
 2. **Structural and Functional Connectivity**  
-   Based on MRI and DTI data processed with tools like *CATO* and *FSL*.
+   Based on MRI data processed with tools like *CATO* and *FSL*.
 
 3. **Transdiagnostic Mechanisms**  
    Exploring neural and linguistic markers across affective and psychotic disorders.
+
+---
+
+## Methods: 
+- Feature extraction pipelines for natural speech (acoustic + linguistic)
+- Cross-modal fusion models integrating neuroimaging and language metrics
+- Machine learning and deep-learning approaches for classification and prediction
+- Network neuroscience models to study large-scale brain connectivity
+
+---
