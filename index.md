@@ -6,6 +6,10 @@ title: ""
 
 **Neuroimaging and Speech using Transdiagnostic Approaches**
 
+<p align="center">
+  <img src="{{ '/speech2.png' | relative_url }}" alt="NeuroSTA Speech" width="350" style="margin-bottom: 1.5rem;">
+</p>
+
 We study how brain networks and language interact across diagnostic categories — combining speech, linguistic, and neuroimaging data.
 
 
