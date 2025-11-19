@@ -8,8 +8,8 @@ title: "Research"
 
 <div style="flex: 1; text-align: justify; text-justify: inter-word;">
 
-We investigate how neural circuits and language processes shape the emergence, progression, and remission of psychiatric disorders.  
-By combining MRI, cognition, psychopathology, and naturalistic speech data, our work aims to uncover dynamic brain–behavior relationships that transcend diagnostic categories.
+We investigate how neural circuits and language processes shape the emergence, progression, and remission of psychiatric disorders. Our overarching goal is to identify <strong>transdiagnostic mechanisms</strong> underlying communication, cognition, and symptom trajectories.
+
 
 Our approach integrates:
 
@@ -19,7 +19,7 @@ Our approach integrates:
   <li>Predictive modeling to track illness trajectories and future symptom development</li>
 </ul>
 
-Our overarching goal is to identify <strong>transdiagnostic mechanisms</strong> underlying communication, cognition, and symptom trajectories.
+
 
 </div>
 
@@ -46,7 +46,7 @@ Our overarching goal is to identify <strong>transdiagnostic mechanisms</strong> 
 
 ---
 
-## Methods: 
+## Methods
 - Feature extraction pipelines for natural speech (acoustic + linguistic)
 - Cross-modal fusion models integrating neuroimaging and language metrics
 - Machine learning and deep-learning approaches for classification and prediction
