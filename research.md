@@ -10,17 +10,20 @@ title: "Research"
 
 We investigate how neural circuits and language processes shape the emergence, progression, and remission of psychiatric disorders.
 By combining MRI, cognition, psychopathology and naturalistic speech data, our work aims to uncover dynamic brain–behavior relationships that transcend diagnostic categories. 
+<br>
 
 Our approach integrates:
 - Neuroimaging markers of structural and functional network integrity
 - Computational speech analysis capturing semantic, syntactic, and acoustic features
 - Predictive modeling to track illness trajectories and future symptom development
+  
+<br>
 
 Our goal is to identify **transdiagnostic mechanisms** underlying communication and cognition.
 
 </div>
 
-<div style="flex: 0 0 200px; text-align: center;">
+<div style="flex: 0 0 220px; text-align: center;">
     <img src="{{ '/speech.png' | relative_url }}" 
          alt="Speech NeuroSTA" 
          style="max-width: 100%; border-radius: 6px;">
