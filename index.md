@@ -1,7 +1,7 @@
 ---
 title: ""
 ---
-<div style="text-align: justify; text-justify: inter-word;">
+
 # Welcome to NeuroSTA 
 
 **Neuroimaging and Speech using Transdiagnostic Approaches**
@@ -10,8 +10,9 @@ title: ""
   <img src="{{ '/speech2.png' | relative_url }}" alt="NeuroSTA Speech" width="500" style="margin-bottom: 1.5rem;">
 </p>
 
+<div style="text-align: justify; text-justify: inter-word;">
 Our mission is to advance the understanding of mental disorders by integrating speech, language, and neuroimaging data in a fully transdiagnostic framework. We develop computational tools and multimodal models to identify mechanisms that shape symptom trajectories across psychiatric disorders.
-
+</div>
 
 ---
 
@@ -46,4 +47,4 @@ Our research is supported by the German Research Foundation (DFG) and the Von-Be
 ---
 
 *This page is part of NeuroSTA’s open-science initiative.*
-</div>
+
