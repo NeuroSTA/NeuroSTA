@@ -2,7 +2,7 @@
 title: ""
 ---
 
-# 🧠 Welcome to NeuroSTA 
+# Welcome to NeuroSTA 
 
 **Neuroimaging and Speech using Transdiagnostic Approaches**
 
@@ -10,22 +10,40 @@ title: ""
   <img src="{{ '/speech2.png' | relative_url }}" alt="NeuroSTA Speech" width="350" style="margin-bottom: 1.5rem;">
 </p>
 
-We study how brain networks and language interact across diagnostic categories — combining speech, linguistic, and neuroimaging data.
+Our mission is to advance the understanding of mental disorders by integrating speech, language, and neuroimaging data in a fully transdiagnostic framework. We develop computational tools and multimodal models to identify mechanisms that shape symptom trajectories across psychiatric disorders.
 
 
 ---
 
-## ⚡ News
+## News
 Latest [news](news.md) from our team.
 
 ---
-## 👥 People
+## People
 Meet our [team](people.md).
 
 ---
 
-## 📚 Publications
+## Publications
 Find our recent work on [Google Scholar](https://scholar.google.com).
+
+---
+
+## Join Us
+We offer opportunities for BSc/MSc theses, medical doctoral projects, and research internships in neuroscience, linguistics, psychology, and data science.
+If you're interested in working with speech, neuroimaging, or computational methods — get in touch!
+
+---
+
+## Collaborations
+
+We are part of international research initiatives such as the FOR 2107 cohort, CRC/TRR 393, ENIGMA, and the DISCOURSE in Psychosis Consortium, enabling large-scale multimodal research across global cohorts.
+
+---
+
+## Funding
+
+Our research is supported by the German Research Foundation (DFG) and the Von-Behring-Röntgen Stiftung. 
 
 ---
 
