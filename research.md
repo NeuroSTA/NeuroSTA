@@ -17,7 +17,7 @@ Our goal is to identify **transdiagnostic mechanisms** underlying communication 
 
 </div>
 
-<div style="flex: 0 0 280px; text-align: center;">
+<div style="flex: 0 0 200px; text-align: center;">
     <img src="{{ '/speech.png' | relative_url }}" 
          alt="Speech NeuroSTA" 
          style="max-width: 100%; border-radius: 6px;">
