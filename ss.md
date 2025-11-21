@@ -16,6 +16,13 @@ Svenja Seuffert is a PhD student in psychiatry at Philipps-Universität Marburg.
   </p>
   <ul class="pubs">
     <li>
+      <span class="me">Seuffert, S.</span>, Mülfarth, R. R., Teutenberg, L., Thomas-Odenthal, F., Usemann, P., Alexander, N., Jamalabadi, H., Nenadić, I., Straube, B., 
+      Hahn, T., Dannlowski, U., Kircher, T., & Stein, F. (2025). 
+      Linking speech patterns to brain structure in affective and psychotic disorders: An integrative natural language processing approach.
+      <em>Molecular Psychiatry.</em> Advance online publication.
+      <a href="https://doi.org/10.1038/s41380-025-03347-9 " target="_blank" rel="noopener">https://doi.org/10.1038/s41380-025-03347-9</a>
+    </li>
+    <li>
       Mueller, N., Mülfarth, R. R., <span class="me">Seuffert, S.</span>, Dannlowski, U., Kircher, T., Kauschke, C., Nagels, A., &amp; Stein, F. (2025).
       Figurative language production in schizophrenia, bipolar disorder, and depression.
       <em>Psychiatry Research, 354</em>(1), 116772.
