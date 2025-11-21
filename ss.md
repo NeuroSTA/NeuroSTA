@@ -40,8 +40,7 @@ Svenja Seuffert is a PhD student in psychiatry at Philipps-Universität Marburg.
 <section class="section" id="research">
   <div class="title">🧪 Research</div>
   <p class="desc">
-    Computational psychiatry; natural language processing of spontaneous speech; formal thought disorder;
-    multimodal integration of linguistic and neuroimaging markers; reproducible and transparent research.
+    Computational psychiatry; natural language processing (NLP); automatic speech analysis; transdiagnostic; brain imaging; formal thought disorder.
   </p>
 </section>
 
