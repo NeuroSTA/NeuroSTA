@@ -42,9 +42,12 @@ In addition, now I am a part of the Collaborative Research Center <a href="https
 
 ### Publications  
 
-1.	Mueller N, **Mülfarth R**, **Seuffert S**, Dannlowski U, Kircher T, Kauschke C, Nagels A, **Stein F**. Figurative language production in schizophrenia, bipolar disorder, and depression. **Psychiatry Res**. 2025 Oct 17;354:116772. doi: 10.1016/j.psychres.2025.116772.
+1. **Seuffert, S.**, **Mülfarth, R. R.**, Teutenberg, L., Thomas-Odenthal, F., Usemann, P., Alexander, N., Jamalabadi, H., Nenadić, I., Straube, B., 
+Hahn, T., Dannlowski, U., Kircher, T., & **Stein, F**. Linking speech patterns to brain structure in affective and psychotic disorders: an integrative natural language processing approach. **Mol Psychiatry** (2025). https://doi.org/10.1038/s41380-025-03347-9.
+
+2.	Mueller N, **Mülfarth R**, **Seuffert S**, Dannlowski U, Kircher T, Kauschke C, Nagels A, **Stein F**. Figurative language production in schizophrenia, bipolar disorder, and depression. **Psychiatry Res**. 2025 Oct 17;354:116772. doi: 10.1016/j.psychres.2025.116772.
    
-2.	Palominos C, He R, Fröhlich K, **Mülfarth RR**, **Seuffert S**, Sommer IE, Homan P, Kircher T, **Stein F**, Hinzen W. Approximating the semantic space: word embedding techniques in psychiatric speech analysis. **Schizophrenia (Heidelb)**. 2024 Dec 2;10(1):114. doi: 10.1038/s41537-024-00524-7.
+3.	Palominos C, He R, Fröhlich K, **Mülfarth RR**, **Seuffert S**, Sommer IE, Homan P, Kircher T, **Stein F**, Hinzen W. Approximating the semantic space: word embedding techniques in psychiatric speech analysis. **Schizophrenia (Heidelb)**. 2024 Dec 2;10(1):114. doi: 10.1038/s41537-024-00524-7.
    
 ---
 
