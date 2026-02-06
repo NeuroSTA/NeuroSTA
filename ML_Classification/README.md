@@ -1,4 +1,4 @@
-\# Machine Learning Analyses: Multimodal Classification Framework
+# Machine Learning Analyses: Multimodal Classification Framework
 
 
 
@@ -14,7 +14,7 @@ All analyses are implemented in Python using the PhotonAI framework and scikit-l
 
 
 
-\## Scientific Rationale
+## Scientific Rationale
 
 
 
@@ -30,7 +30,7 @@ The present framework was developed to address this limitation by enforcing \*\*
 
 
 
-\## Classification Tasks
+## Classification Tasks
 
 
 
@@ -38,13 +38,13 @@ The pipeline supports \*\*binary classification\*\* tasks, including:
 
 
 
-\- \*\*Diagnostic classification\*\*  
+- \*\*Diagnostic classification\*\*  
 
 &nbsp; e.g., patient vs. healthy control
 
 
 
-\- \*\*Symptom-state classification\*\*  
+- \*\*Symptom-state classification\*\*  
 
 &nbsp; e.g., acute vs. non-acute symptom status
 
@@ -52,9 +52,9 @@ The pipeline supports \*\*binary classification\*\* tasks, including:
 
 Targets can be provided either as:
 
-\- native binary variables (0/1), or
+- native binary variables (0/1), or
 
-\- continuous clinical scores transformed into binary labels via thresholding (e.g., HAMD ≤ 6).
+- continuous clinical scores transformed into binary labels via thresholding (e.g., HAMD ≤ 6).
 
 
 
@@ -62,7 +62,7 @@ Targets can be provided either as:
 
 
 
-\## Modalities and Feature Definitions
+## Modalities and Feature Definitions
 
 
 
@@ -70,31 +70,31 @@ Feature sets are centrally defined and version-controlled via registry files (`s
 
 
 
-\- \*\*Speech acoustics\*\*  
+- \*\*Speech acoustics\*\*  
 
 &nbsp; Low-level acoustic descriptors (e.g., prosody, spectral features, MFCCs) extracted using standardized openSMILE configurations.
 
 
 
-\- \*\*Transcript-based linguistic features\*\*  
+- \*\*Transcript-based linguistic features\*\*  
 
 &nbsp; Lexical, syntactic, semantic, and coherence-related measures derived from NLP pipelines, including embedding-based similarity indices.
 
 
 
-\- \*\*Neurocognition\*\*  
+- \*\*Neurocognition\*\*  
 
 &nbsp; Standardized neuropsychological test scores spanning executive function, memory, attention, and processing speed.
 
 
 
-\- \*\*Clinician-rated psychopathology\*\*  
+- \*\*Clinician-rated psychopathology\*\*  
 
 &nbsp; Established rating scales assessing positive, negative, affective, and global symptom severity.
 
 
 
-\- \*\*Structural neuroimaging (sMRI / connectivity)\*\*  
+- \*\*Structural neuroimaging (sMRI / connectivity)\*\*  
 
 &nbsp; Cortical thickness, surface-based morphometry, subcortical volumes, and network-level connectivity metrics.
 
@@ -108,7 +108,7 @@ Each experiment differs \*\*only\*\* in the feature columns included; preprocess
 
 
 
-\## Pipeline Architecture
+## Pipeline Architecture
 
 
 
@@ -116,7 +116,7 @@ All experiments are implemented using a shared, modular pipeline architecture:
 
 
 
-1\. \*\*Preprocessing\*\*
+\. \*\*Preprocessing\*\*
 
    - Optional Mean or median imputation (configurable)
 
@@ -128,7 +128,7 @@ All experiments are implemented using a shared, modular pipeline architecture:
 
 
 
-2\. \*\*Model space\*\*
+\. \*\*Model space\*\*
 
 &nbsp;  - Regularized logistic regression
 
@@ -142,7 +142,7 @@ All experiments are implemented using a shared, modular pipeline architecture:
 
 
 
-3\. \*\*Model selection\*\*
+\. \*\*Model selection\*\*
 
 &nbsp;  - Grid search optimization
 
@@ -154,7 +154,7 @@ All experiments are implemented using a shared, modular pipeline architecture:
 
 
 
-\## Validation Strategy
+## Validation Strategy
 
 
 
@@ -162,9 +162,9 @@ To prevent information leakage and optimistic bias, all analyses employ \*\*nest
 
 
 
-\- \*\*Outer loop\*\*: unbiased performance estimation  
+- \*\*Outer loop\*\*: unbiased performance estimation  
 
-\- \*\*Inner loop\*\*: hyperparameter optimization and model selection  
+- \*\*Inner loop\*\*: hyperparameter optimization and model selection  
 
 
 
@@ -180,7 +180,7 @@ All preprocessing and optimization steps are confined strictly to the training p
 
 
 
-\## Multimodal Integration Strategies
+## Multimodal Integration Strategies
 
 
 
@@ -188,19 +188,20 @@ Two complementary integration approaches are supported:
 
 
 
-\- \*\*Early fusion\*\*  
+- \*\*Early fusion\*\*  
 
 &nbsp; Feature-level concatenation followed by dimensionality reduction and classification.
 
 
 
-\- \*\*Late fusion / stacking\*\*  
+- \*\*Late fusion / stacking\*\*  
 
 &nbsp; Modality-specific base models are trained in parallel, and their predicted probabilities are combined via a meta-classifier within the same nested CV framework.
 
 
 
 This design enables principled comparison of unimodal, early-fusion, and late-fusion models under identical validation conditions.
+
 
 
 
