@@ -40,13 +40,13 @@ The pipeline supports **binary classification** tasks, including:
 
 - **Diagnostic classification**  
 
-&nbsp; e.g., patient vs. healthy control
+    e.g., patient vs. healthy control
 
 
 
 - **Symptom-state classification**  
 
-&nbsp; e.g., acute vs. non-acute symptom status
+    e.g., acute vs. non-acute symptom status
 
 
 
@@ -201,6 +201,7 @@ Two complementary integration approaches are supported:
 
 
 This design enables principled comparison of unimodal, early-fusion, and late-fusion models under identical validation conditions.
+
 
 
 
