@@ -22,7 +22,7 @@ Speech and language disturbances are transdiagnostic features of severe mental d
 
 
 
-The present framework was developed to address this limitation by enforcing \*\*identical analytical conditions across all modality-defined experiments\*\*, thereby enabling fair, interpretable comparisons of predictive utility and principled multimodal integration.
+The present framework was developed to address this limitation by enforcing **identical analytical conditions across all modality-defined experiments**, thereby enabling fair, interpretable comparisons of predictive utility and principled multimodal integration.
 
 
 
@@ -34,17 +34,17 @@ The present framework was developed to address this limitation by enforcing \*\*
 
 
 
-The pipeline supports \*\*binary classification\*\* tasks, including:
+The pipeline supports **binary classification** tasks, including:
 
 
 
-- \*\*Diagnostic classification\*\*  
+- **Diagnostic classification**  
 
 &nbsp; e.g., patient vs. healthy control
 
 
 
-- \*\*Symptom-state classification\*\*  
+- **Symptom-state classification**  
 
 &nbsp; e.g., acute vs. non-acute symptom status
 
@@ -70,37 +70,37 @@ Feature sets are centrally defined and version-controlled via registry files (`s
 
 
 
-- \*\*Speech acoustics\*\*  
+- **Speech acoustics**  
 
 &nbsp; Low-level acoustic descriptors (e.g., prosody, spectral features, MFCCs) extracted using standardized openSMILE configurations.
 
 
 
-- \*\*Transcript-based linguistic features\*\*  
+- **Transcript-based linguistic features**  
 
 &nbsp; Lexical, syntactic, semantic, and coherence-related measures derived from NLP pipelines, including embedding-based similarity indices.
 
 
 
-- \*\*Neurocognition\*\*  
+- **Neurocognition**  
 
 &nbsp; Standardized neuropsychological test scores spanning executive function, memory, attention, and processing speed.
 
 
 
-- \*\*Clinician-rated psychopathology\*\*  
+- **Clinician-rated psychopathology**  
 
 &nbsp; Established rating scales assessing positive, negative, affective, and global symptom severity.
 
 
 
-- \*\*Structural neuroimaging (sMRI / connectivity)\*\*  
+- **Structural neuroimaging (sMRI / connectivity)**  
 
 &nbsp; Cortical thickness, surface-based morphometry, subcortical volumes, and network-level connectivity metrics.
 
 
 
-Each experiment differs \*\*only\*\* in the feature columns included; preprocessing, model space, and validation procedures are otherwise identical.
+Each experiment differs **only** in the feature columns included; preprocessing, model space, and validation procedures are otherwise identical.
 
 
 
@@ -116,7 +116,7 @@ All experiments are implemented using a shared, modular pipeline architecture:
 
 
 
-\. \*\*Preprocessing\*\*
+. **Preprocessing**
 
    - Optional Mean or median imputation (configurable)
 
@@ -128,7 +128,7 @@ All experiments are implemented using a shared, modular pipeline architecture:
 
 
 
-\. \*\*Model space\*\*
+. **Model space**
 
 &nbsp;  - Regularized logistic regression
 
@@ -142,11 +142,11 @@ All experiments are implemented using a shared, modular pipeline architecture:
 
 
 
-\. \*\*Model selection\*\*
+. **Model selection**
 
 &nbsp;  - Grid search optimization
 
-&nbsp;  - Selection criterion: \*\*balanced accuracy\*\*
+&nbsp;  - Selection criterion: **balanced accuracy**
 
 
 
@@ -162,13 +162,13 @@ To prevent information leakage and optimistic bias, all analyses employ \*\*nest
 
 
 
-- \*\*Outer loop\*\*: unbiased performance estimation  
+- **Outer loop**: unbiased performance estimation  
 
-- \*\*Inner loop\*\*: hyperparameter optimization and model selection  
+- **Inner loop**: hyperparameter optimization and model selection  
 
 
 
-The number of folds is \*\*adaptively determined\*\* based on the minority class size to ensure valid stratified splits in imbalanced or subgroup-restricted analyses.
+The number of folds is **adaptively determined** based on the minority class size to ensure valid stratified splits in imbalanced or subgroup-restricted analyses.
 
 
 
@@ -188,19 +188,20 @@ Two complementary integration approaches are supported:
 
 
 
-- \*\*Early fusion\*\*  
+- **Early fusion**  
 
 &nbsp; Feature-level concatenation followed by dimensionality reduction and classification.
 
 
 
-- \*\*Late fusion / stacking\*\*  
+- **Late fusion / stacking**  
 
 &nbsp; Modality-specific base models are trained in parallel, and their predicted probabilities are combined via a meta-classifier within the same nested CV framework.
 
 
 
 This design enables principled comparison of unimodal, early-fusion, and late-fusion models under identical validation conditions.
+
 
 
 
