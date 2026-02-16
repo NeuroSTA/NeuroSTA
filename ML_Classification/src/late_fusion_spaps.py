@@ -1,10 +1,5 @@
 """
-State-of-the-art late-fusion pipeline for SPAPS
-
-Why this version:
-- Structured logging (human + JSONL), checkpointing, resumable artifacts.
-- Deterministic seeds; full environment capture for Methods/Appendix.
-- NaN-safe residualization (impute features BEFORE residualize; confounds imputed fold-wise).
+late-fusion pipeline
 - Per-modality inner-CV with calibrated base learners; calibrated meta-learner; repeated outer CV.
 - OOF predictions, 95% CIs, meta-level permutation importance; optional label permutation test.
 - Version-safe CalibratedClassifierCV (estimator/base_estimator).
@@ -536,3 +531,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
