@@ -308,9 +308,7 @@ FEATURE_SETS: Dict[str, List[str]] = {
         "LLatVent", "RLatVent", "Lthal", "Rthal", "Lcaud", "Rcaud",
         "Lput", "Rput", "Lpal", "Rpal", "Lhippo", "Rhippo",
         "Lamyg", "Ramyg", "Laccumb", "Raccumb",
-    ],
-
-    "CONNECTIVITY_FEATURES": [
+        #CONNECTIVITY_FEATURES
         "NumEdges",
         "TotalStreamlines",
         "MeanStreamlinesPerEdge",
@@ -350,10 +348,10 @@ def make_modalities(df: pd.DataFrame) -> Tuple[Modality, ...]:
         Modality("speech_text", keep_existing(FEATURE_SETS.get("TRANSCRIPT_FEATURES", []))),
         Modality("neurocog", keep_existing(FEATURE_SETS.get("NEUROCOGNITIVE_FEATURES", []))),
         Modality("smri", keep_existing(FEATURE_SETS.get("SMRI_FEATURES", []))),
-        Modality("network", keep_existing(FEATURE_SETS.get("CONNECTIVITY_FEATURES", []))),
     ]
     # Drop empty modalities silently to allow partial-modality runs (e.g., no sMRI rows)
     return tuple([m for m in mods if len(m.columns) > 0])
+
 
 
 
