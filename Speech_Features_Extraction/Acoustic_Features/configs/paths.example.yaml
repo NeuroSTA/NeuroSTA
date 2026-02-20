@@ -1,0 +1,4 @@
+raw_audio_dir: /pathaudio
+transcripts_dir: /pathtxt
+segments_out_dir: outputs/segments
+features_out_dir: outputs/features

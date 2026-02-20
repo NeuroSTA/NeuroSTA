@@ -1,0 +1,6 @@
+feature_set: egemaps
+backend: pyopensmile
+sampling_rate: 16000
+output_format: csv
+aggregation:
+  level: session

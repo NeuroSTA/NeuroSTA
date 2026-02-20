@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "speechgraph"
+version = "0.1.0"
+description = "Graph-based analysis of German spontaneous speech transcripts segmented by 'Bild X'."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["numpy", "pandas", "networkx", "nltk", "chardet"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

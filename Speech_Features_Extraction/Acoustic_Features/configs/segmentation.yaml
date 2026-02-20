@@ -1,0 +1,6 @@
+speakers:
+  interviewer_tag: "I:"
+  participant_tag: "P:"
+timestamp_format: "HH:MM:SS-f"
+transition_padding_sec: 0.5
+merge_consecutive_same_speaker: true

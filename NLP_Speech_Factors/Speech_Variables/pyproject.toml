@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "speech-variables"
+version = "0.1.0"
+description = "German speech analysis pipeline (linguistic + graph analysis) using spaCy, transformers, and related tooling."
+readme = "README.md"
+requires-python = ">=3.11"
+keywords = ["NLP", "German", "linguistics", "graph", "spaCy", "transformers"]
+license = { text = "Proprietary" }
+authors = [{ name = "Your Name" }]
+
+# Mirrors requirements.txt pins for reproducibility
+# If you prefer flexible ranges, relax these.
+dependencies = [
+  "spacy==3.7.5",
+  "gensim==4.3.2",
+  "torch==2.3.1",
+  "transformers==4.36.2",
+  "nltk==3.8.1",
+  "numpy==1.26.4",
+  "pandas==2.2.2",
+  "pyphen==0.16.0",
+  "networkx==3.3",
+  "scikit-learn==1.5.1",
+  "lexical-diversity==0.1.1",
+]
+
+[project.urls]
+Homepage = "https://example.com/"
+
+[project.scripts]
+# CLI entry points bound to existing functions
+sv-run-linguistics = "analysis_pipeline:run_linguistic_analysis"
+sv-run-graphs = "analysis_pipeline:run_graph_analysis"
+sv-merge-results = "merge_results:merge_results"
+
+[tool.setuptools]
+# Source layout: modules live directly in ./src
+package-dir = {"" = "src"}
+py-modules = [
+  "analysis_pipeline",
+  "graph_analysis",
+  "linguistics",
+  "merge_results",
+]
+include-package-data = true
