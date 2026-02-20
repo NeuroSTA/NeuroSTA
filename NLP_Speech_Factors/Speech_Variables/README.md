@@ -12,8 +12,8 @@ This project analyzes German speech transcripts, extracting linguistic features.
 ### Step-by-Step Setup
 1. **Clone the Repository**
     ```bash
-    git clone https://github.com/svenjaseuffert/NLP
-    cd Speech_analysis
+    git clone https://github.com/NeuroSTA/NeuroSTA/tree/main/NLP_Speech_Factors
+    cd Speech_Variables
     ```
 
 2. **Set Up a Virtual Environment**
@@ -24,6 +24,7 @@ This project analyzes German speech transcripts, extracting linguistic features.
 
 3. **Install Dependencies**
     ```bash
+    cd src
     pip install -r requirements.txt
     ```
 
