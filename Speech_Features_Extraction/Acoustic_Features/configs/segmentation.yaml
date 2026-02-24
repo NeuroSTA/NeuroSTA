@@ -1,6 +1,26 @@
-speakers:
-  interviewer_tag: "I:"
-  participant_tag: "P:"
-timestamp_format: "HH:MM:SS-f"
+# Transcript-guided segmentation settings
+
+# Speaker tags used in transcript lines
+speaker_tags:
+  interviewer: "I:"
+  participant: "P:"
+
+# Timestamp format expected in transcript lines:
+# HH:MM:SS-fraction  (fraction = tenths, e.g. 00:01:23-5)
+timestamp:
+  fraction_scale: 0.1
+
+# How to resolve small overlaps / transitions
 transition_padding_sec: 0.5
-merge_consecutive_same_speaker: true
+
+# Output audio format for segments
+export:
+  format: "wav"
+  sample_rate: 16000
+  channels: 1
+
+# Which file extensions to look for as raw audio within each session folder
+audio_extensions: [".mp3", ".wav"]
+
+# When true, export two merged files per session (interviewer and participant)
+export_speakers: ["interviewer", "participant"]

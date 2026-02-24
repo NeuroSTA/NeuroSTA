@@ -1,6 +1,28 @@
-feature_set: egemaps
-backend: pyopensmile
-sampling_rate: 16000
-output_format: csv
-aggregation:
-  level: session
+# Acoustic feature extraction settings
+
+backend: "pyopensmile"
+
+# Feature set:
+# - eGeMAPSv02 (default, 88 functionals)
+# - ComParE_2016 (large)
+feature_set: "eGeMAPSv02"
+
+# Feature level: Functionals = one row per file
+feature_level: "Functionals"
+
+# Input selection:
+# - "segments" reads from outputs/segments/participant (or both if you want)
+# - "raw" reads from raw_audio_dir (must be wav or mp3 readable)
+input_source: "segments"
+
+# If input_source == "segments", which speaker to extract from
+segments_speaker: "participant"   # "interviewer" or "participant"
+
+# Audio standardisation (applied if decoding via pydub is needed)
+standardize_audio:
+  enable: true
+  sample_rate: 16000
+  channels: 1
+
+# Output file name (written to outputs/features/)
+output_csv: "egemaps_features.csv"

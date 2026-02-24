@@ -1,4 +1,13 @@
-raw_audio_dir: /pathaudio
-transcripts_dir: /pathtxt
-segments_out_dir: outputs/segments
-features_out_dir: outputs/features
+# Copy to configs/paths.yaml and adapt paths to your machine.
+
+# Where raw data lives
+raw_audio_dir: "Speech_Data"          # can contain mp3/wav recursively
+transcripts_dir: "Audios"                # folder with session subfolders + .txt transcript timing files
+
+# Outputs
+outputs_dir: "outputs"
+segments_dir: "outputs/segments"
+features_dir: "outputs/features"
+
+# Optional: if you already have a folder with mp3 patient files that you just want to convert
+manual_audio_mp3_dir: "manual_audios_mp3"
