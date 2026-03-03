@@ -9,7 +9,7 @@ title: "Publications"
   }
 </style>
 
-# Publications 📚  
+# Publications 
 
 Full list available on PubMed:  
 [View all publications on PubMed](https://pubmed.ncbi.nlm.nih.gov/?term=frederike+stein&sort=date)
