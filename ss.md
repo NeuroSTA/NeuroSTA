@@ -8,7 +8,8 @@ Philipps-Universität Marburg, Germany
 **ORCID:** [0009-0007-2230-4741](https://orcid.org/0009-0007-2230-4741)
 
 
-I am a PhD student in psychiatry at Philipps-Universität Marburg. My research focuses on automatic speech analysis in psychiatric populations, with an emphasis on latent linguistic markers in affective and psychotic disorders and their neurobiological correlates.
+I am a PhD student at the Department of Psychiatry and Psychotherapy at Philipps-Universität Marburg. My work is situated at the interface of computational psychiatry, natural language processing (NLP), and clinical neuroscience.
+My research focuses on the automated analysis of spontaneous speech to identify latent linguistic markers of psychopathology. I investigate transdiagnostic language alterations across affective and psychotic disorders and examine their neurobiological correlates using structural and diffusion MRI.
 
 <section class="section" id="publications">
   <div class="title">📚 Publications</div>
@@ -21,6 +22,20 @@ I am a PhD student in psychiatry at Philipps-Universität Marburg. My research f
       Linking speech patterns to brain structure in affective and psychotic disorders: An integrative natural language processing approach.
       <em>Molecular Psychiatry.</em> Advance online publication.
       <a href="https://doi.org/10.1038/s41380-025-03347-9 " target="_blank" rel="noopener">https://doi.org/10.1038/s41380-025-03347-9</a>
+    </li>
+
+    <li>
+    Stein, F., Lepper, J., Mülfarth, R. R., Schepers, D., <span class="me">Seuffert, S.</span>, Teutenberg, L., Thomas-Odenthal, F., Usemann, P., Borgers, T., Flinkenflügel, K., Goltermann, J., Grotegerd, D., Hubbert, J., Jurischka, C., Krieger, J., Meinert, S., Alexander, N., Hahn, T., Jamalabadi, H., Jansen, A., Nenadić, I., Straube, B., Dannlowski, U., & Kircher, T. (2026).
+  Formal thought disorder in unipolar depression: Prevalence and functional brain correlates from a multimodal MRI study.
+  <em>Journal of Affective Disorders, 407</em>, 121779.
+  <a href="https://doi.org/10.1016/j.jad.2026.121779" target="_blank" rel="noopener">https://doi.org/10.1016/j.jad.2026.121779</a>
+  </li>
+    <li>
+      Mülfarth, R. R., <span class="me">Seuffert, S.</span>, Teutenberg, L., Thomas-Odenthal, F., Usemann, P., Alexander, N., Jamalabadi, H., Nenadić, I., Straube, B., 
+      Hahn, T., Dannlowski, U., Kircher, T., & Stein, F. (2026). 
+      Linking spontaneous speech, cognition, and psychopathology across affective and psychotic disorders: A network approach.
+      <em>European Psychiatry.</em>
+      <a href="https://www.cambridge.org/core/journals/european-psychiatry/article/linking-spontaneous-speech-cognition-and-psychopathology-across-affective-and-psychotic-disorders-a-network-approach/A5DFC3C368E3F7918D592695598B151A" target="_blank" rel="noopener">View article</a>
     </li>
     <li>
       Mueller, N., Mülfarth, R. R., <span class="me">Seuffert, S.</span>, Dannlowski, U., Kircher, T., Kauschke, C., Nagels, A., &amp; Stein, F. (2025).
@@ -51,6 +66,5 @@ I am a PhD student in psychiatry at Philipps-Universität Marburg. My research f
     Profiles:
     <a href="https://github.com/svenjaseuffert" target="_blank" rel="noopener">GitHub</a> ·
     <a href="https://www.linkedin.com/in/svenja-seuffert-45782a373/" target="_blank" rel="noopener">LinkedIn</a> ·
-    <a href="/CV_Seuffert.pdf">Curriculum Vitae (PDF)</a>
   </p>
 </section>
