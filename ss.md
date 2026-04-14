@@ -23,7 +23,6 @@ My research focuses on the automated analysis of spontaneous speech to identify 
       <em>Molecular Psychiatry.</em> Advance online publication.
       <a href="https://doi.org/10.1038/s41380-025-03347-9 " target="_blank" rel="noopener">https://doi.org/10.1038/s41380-025-03347-9</a>
     </li>
-
     <li>
     Stein, F., Lepper, J., Mülfarth, R. R., Schepers, D., <span class="me">Seuffert, S.</span>, Teutenberg, L., Thomas-Odenthal, F., Usemann, P., Borgers, T., Flinkenflügel, K., Goltermann, J., Grotegerd, D., Hubbert, J., Jurischka, C., Krieger, J., Meinert, S., Alexander, N., Hahn, T., Jamalabadi, H., Jansen, A., Nenadić, I., Straube, B., Dannlowski, U., & Kircher, T. (2026).
   Formal thought disorder in unipolar depression: Prevalence and functional brain correlates from a multimodal MRI study.
