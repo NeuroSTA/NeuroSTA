@@ -27,7 +27,7 @@ My research focuses on the automated analysis of spontaneous speech to identify 
       Hahn, T., Dannlowski, U., Kircher, T., & Stein, F. (2026). 
       Linking spontaneous speech, cognition, and psychopathology across affective and psychotic disorders: A network approach.
       <em>European Psychiatry.</em>
-      <a href="https://www.cambridge.org/core/journals/european-psychiatry/article/linking-spontaneous-speech-cognition-and-psychopathology-across-affective-and-psychotic-disorders-a-network-approach/A5DFC3C368E3F7918D592695598B151A" target="_blank" rel="noopener">View article</a>
+      <a href="https://doi.org/10.1016/j.jad.2026.121779" target="_blank" rel="noopener">https://doi.org/10.1016/j.jad.2026.121779</a>
       </li>
     <li>
       <span class="me">Seuffert, S.</span>, Mülfarth, R. R., Teutenberg, L., Thomas-Odenthal, F., Usemann, P., Alexander, N., Jamalabadi, H., Nenadić, I., Straube, B., 
