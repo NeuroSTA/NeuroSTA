@@ -21,12 +21,12 @@ My research focuses on the automated analysis of spontaneous speech to identify 
   <div class="title">📚 Publications</div>
 
   <ul class="pubs">
+    
     <li>
       Stein, F., Lepper, J., Mülfarth, R. R., Schepers, D., <span class="me">Seuffert, S.</span>, Teutenberg, L., Thomas-Odenthal, F., Usemann, P., Borgers, T., Flinkenflügel, K., Goltermann, J., Grotegerd, D., Hubbert, J., Jurischka, C., Krieger, J., Meinert, S., Alexander, N., Hahn, T., Jamalabadi, H., Jansen, A., Nenadić, I., Straube, B., Dannlowski, U., &amp; Kircher, T. (2026).
       Formal thought disorder in unipolar depression: Prevalence and functional brain correlates from a multimodal MRI study.
       <em>Journal of Affective Disorders, 407</em>, 121779.
       <a href="https://doi.org/10.1016/j.jad.2026.121779" target="_blank" rel="noopener">https://doi.org/10.1016/j.jad.2026.121779</a>
-      <br><span class="jif">Journal Impact Factor: 4.9</span>
     </li>
 
     <li>
@@ -34,7 +34,6 @@ My research focuses on the automated analysis of spontaneous speech to identify 
       Linking spontaneous speech, cognition, and psychopathology across affective and psychotic disorders: A network approach.
       <em>European Psychiatry, 69</em>(1), e21.
       <a href="https://doi.org/10.1192/j.eurpsy.2026.10151" target="_blank" rel="noopener">https://doi.org/10.1192/j.eurpsy.2026.10151</a>
-      <br><span class="jif">Journal Impact Factor: 6.7</span>
     </li>
 
     <li>
@@ -42,7 +41,6 @@ My research focuses on the automated analysis of spontaneous speech to identify 
     Linking speech patterns to brain structure in affective and psychotic disorders: An integrative natural language processing approach.
     <em>Molecular Psychiatry.</em> Advance online publication.
     <a href="https://doi.org/10.1038/s41380-025-03347-9" target="_blank" rel="noopener">https://doi.org/10.1038/s41380-025-03347-9</a>
-    <br><span class="jif">Journal Impact Factor: 10.1</span>
     </li>
 
     <li>
@@ -50,7 +48,6 @@ My research focuses on the automated analysis of spontaneous speech to identify 
       Figurative language production in schizophrenia, bipolar disorder, and depression.
       <em>Psychiatry Research, 354</em>, 116772.
       <a href="https://doi.org/10.1016/j.psychres.2025.116772" target="_blank" rel="noopener">https://doi.org/10.1016/j.psychres.2025.116772</a>
-      <br><span class="jif">Journal Impact Factor: 3.9</span>
     </li>
 
     <li>
@@ -58,7 +55,6 @@ My research focuses on the automated analysis of spontaneous speech to identify 
       Approximating the semantic space: Word embedding techniques in psychiatric speech analysis.
       <em>Schizophrenia, 10</em>(1), 114.
       <a href="https://doi.org/10.1038/s41537-024-00524-7" target="_blank" rel="noopener">https://doi.org/10.1038/s41537-024-00524-7</a>
-      <br><span class="jif">Journal Impact Factor: 4.1</span>
     </li>
   </ul>
 </section>
