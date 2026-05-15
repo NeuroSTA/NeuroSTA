@@ -62,11 +62,10 @@ My research focuses on the automated analysis of spontaneous speech to identify 
 <section class="section" id="profile">
   <div class="title">🎓 Academic Profile</div>
   <p class="desc">
-    <strong>Since 2023:</strong> Research Assistant and PhD Student, University of Marburg<br>
-    <strong>Doctoral thesis:</strong> Latent linguistic parameters in affective and psychotic disorders<br>
+    <strong>Since December 2023:</strong> Research Assistant and PhD Student, Philipps-Universität Marburg, Department of Psychiatry and Psychotherapy<br>
     <strong>Education:</strong> M.Sc. Psychology, University of Kassel · B.Sc. Psychology, University of Mannheim<br>
     <strong>Technical skills:</strong> R and Python<br>
-    <strong>Memberships:</strong> Center for Mind, Brain and Behavior; German Association for Psychiatry, Psychotherapy and Psychosomatics
+    <strong>Memberships:</strong> Center for Mind, Brain and Behavior (CMBB); German Association for Psychiatry, Psychotherapy and Psychosomatics (DGPPN)
   </p>
 </section>
 
@@ -74,7 +73,7 @@ My research focuses on the automated analysis of spontaneous speech to identify 
   <div class="title">✉️ Contact</div>
   <p class="desc">
     <strong>Email:</strong> <a href="mailto:svenja.seuffert@uni-marburg.de">svenja.seuffert@uni-marburg.de</a><br>
-    <strong>Profiles:</strong>
+    <strong>Profiles:</strong><br>
     <a href="https://github.com/svenjaseuffert" target="_blank" rel="noopener">GitHub</a> ·
     <a href="https://www.linkedin.com/in/svenja-seuffert-45782a373/" target="_blank" rel="noopener">LinkedIn</a>
   </p>
