@@ -1,3 +1,4 @@
+# Updated to resolve dependency issue
 flair==0.15.1
 gensim==4.3.3
 lexical_diversity==0.1.1
