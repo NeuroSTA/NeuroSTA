@@ -27,7 +27,6 @@ Our group brings together researchers from psychiatry, neuroscience, psychology,
 ## Medical students
 - Merle Gudjons
 - Elena Kemmann
-- Luca Mira Keunecke
 - Felix Bornhofen
 - Clara Stuhldreier
 - Lea Theresa Kercher
@@ -35,7 +34,14 @@ Our group brings together researchers from psychiatry, neuroscience, psychology,
   
 ---
 
+## Bachelor and Master students
+- Siria Brambilla
+- Jannik Sühling
+  
+---
+
 ## Alumni
+- Dr. med. Luca Mira Keunecke
 - Dr. med. Angela Sültmann
 - Dr. rer. med. Katharina Schneider
 - Delia Schepers
@@ -48,7 +54,7 @@ Our group brings together researchers from psychiatry, neuroscience, psychology,
 
 ---
 
-## Interested in Joining the Group? 🎓  
+## Interested in Joining the Group?   
 
 We are happy to hear from motivated students who would like to work with us.
 

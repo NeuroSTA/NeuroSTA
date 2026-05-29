@@ -62,25 +62,31 @@ I am deeply committed to interdisciplinary teaching and mentoring, supervising s
 ## Selected Publications  
 Full list available on [PubMed](https://pubmed.ncbi.nlm.nih.gov/?term=frederike+stein&sort=date).
 
-1.	**Stein F**, Kircher T: Transdiagnostic findings across major depressive disorder, bipolar disorder and schizophrenia: A qualitative review. J Affect Disord. 2025 Oct 15;387:119464. DOI: 10.1016/j.jad.2025.119464.  Open Access
+1. **Stein F**, **Lepper J**, **Mülfarth RR**, Schepers D, **Seuffert S**, Teutenberg L, Thomas-Odenthal F, Usemann P, Borgers T, Flinkenflügel K, Goltermann J, Grotegerd D, Hubbert J, Jurischka C, Krieger J, Meinert S, Alexander N, Hahn T, Jamalabadi H, Jansen A, Nenadić I, Straube B, Dannlowski U, Kircher T. Formal thought disorder in unipolar depression: Prevalence and functional brain correlates from a multimodal MRI study. **J Affect Disord**. 2026 Apr 9:121779. doi: 10.1016/j.jad.2026.121779. Open Access
+
+2. Emden D, Richter M, Chevance A, Leenings R, Herpertz J, Gutfleisch L, Fleuchaus A, Blitz R, Holstein VL, Goltermann J, Winter NR, Spanagel J, Meinert S, Borgers T, Flinkenflügel K, **Stein F**, Alexander N, Jamalabadi H, Repple J, Dobel C, Leehr EJ, Redlich R, Ebner-Priemer UW, Nenadić I, Kircher T, Dannlowski U, Hahn T, Opel N. Scalable depression monitoring with smartphone speech using a multimodal benchmark and topic analysis. **NPJ Digit Med**. 2026 Feb 28;9(1):230. doi: 10.1038/s41746-026-02486-9. Open Access
+
+3. **Mülfarth RR**, **Seuffert S**, Alexander N, Jamalabadi H, Nenadić I, Straube B, Teutenberg L, Thomas-Odenthal F, Usemann P, Dannlowski U, Kircher T, **Stein F**. Linking spontaneous speech, cognition, and psychopathology across affective and psychotic disorders: A network approach. **Eur Psychiatry**. 2026 Jan 23;69(1):e21. doi: 10.1192/j.eurpsy.2026.10151. Open Access
+
+4. **Seuffert S**, **Mülfarth RR**, Teutenberg L, Thomas-Odenthal F, Usemann P, Alexander N, Jamalabadi H, Nenadić I, Straube B, Hahn T, Dannlowski U, Kircher T, **Stein F**. Linking speech patterns to brain structure in affective and psychotic disorders: an integrative natural language processing approach. **Mol Psychiatry**. 2026 Apr;31(4):2057-2068. doi: 10.1038/s41380-025-03347-9. Open Access
+
+5.	**Stein F**, Kircher T: Transdiagnostic findings across major depressive disorder, bipolar disorder and schizophrenia: A qualitative review. J Affect Disord. 2025 Oct 15;387:119464. DOI: 10.1016/j.jad.2025.119464.  Open Access
    
-2.	**Stein F**, …, Jansen A, Krug A, Nenadić I, Straube B, Dannlowski U, Kircher T: Transdiagnostic types of formal thought disorder and their association with gray matter brain structure: a model-based cluster analytic approach. Mol Psychiatry. 2025 Apr 11. DOI: 10.1038/s41380-025-03009-w.
-   
-3.	Mueller N, Mülfarth R, Seuffert S, Dannlowski U, Kircher T, Kauschke C, Nagels A, **Stein F**: Figurative language production in schizophrenia, bipolar disorder, and depression. Psychiatry Res. 2025 Oct 17;354:116772. DOI: 10.1016/j.psychres.2025.116772. Open Access
-   
-4.	Krug A*, **Stein F**, …, Meinert S, …, Hahn T, …, Nenadić I, Dannlowski U, Kircher T, Forstner AJ. Factor analysis of lifetime psychopathology and its brain morphometric and genetic correlates in a transdiagnostic sample. Transl Psychiatry 2024; Jun 3;14(1):235. DOI: 10.1038/s41398-024-02936-6.  Open Access
-   
-5.	Berardi M, …, Dannlowski U, Nenadić I, Kircher T, Krug A, **Stein F**, Dietrich M*: Relative importance of speech and voice features in the classification of schizophrenia and depression. Transl Psychiatry 2023;13(1):298. DOI: 10.1038/s41398-023-02594-0. Open Access
+6.	**Stein F**, **Gudjons AM**, Brosch K, Keunecke LM, Pfarr JK, Teutenberg L, Thomas-Odenthal F, Usemann P, Wersching H, Wroblewski A, Flinkenflügel K, Goltermann J, Grotegerd D, Meinert S, Thiel K, Winter A, Alexander N, Hahn T, Jamalabadi H, Jansen A, Krug A, Nenadić I, Straube B, Dannlowski U, Kircher T. Transdiagnostic types of formal thought disorder and their association with gray matter brain structure: a model-based cluster analytic approach. **Mol Psychiatry**. 2025 Sep;30(9):4286-4295. doi: 10.1038/s41380-025-03009-w. Open Access
+
+7. Mueller N, Mülfarth R, Seuffert S, Dannlowski U, Kircher T, Kauschke C, Nagels A, **Stein F**: Figurative language production in schizophrenia, bipolar disorder, and depression. Psychiatry Res. 2025 Oct 17;354:116772. DOI: 10.1016/j.psychres.2025.116772. Open Access
+
+8. Berardi M, …, Dannlowski U, Nenadić I, Kircher T, Krug A, **Stein F**, Dietrich M*: Relative importance of speech and voice features in the classification of schizophrenia and depression. Transl Psychiatry 2023;13(1):298. DOI: 10.1038/s41398-023-02594-0. Open Access
     
-6.	Schneider K, Leinweber K, Jamalabadi H, …, Straube B, Alexander N, Nenadić I, Jansen A, Krug A, Dannlowski U, Kircher T, Nagels A*, **Stein F**: Syntactic complexity and diversity of spontaneous speech production in schizophrenia spectrum and major depressive disorders. Schizophrenia 2023; 9(1):35. DOI: 10.1038/s41537-023-00359-8. Open Access
+9.	Schneider K, Leinweber K, Jamalabadi H, …, Straube B, Alexander N, Nenadić I, Jansen A, Krug A, Dannlowski U, Kircher T, Nagels A*, **Stein F**: Syntactic complexity and diversity of spontaneous speech production in schizophrenia spectrum and major depressive disorders. Schizophrenia 2023; 9(1):35. DOI: 10.1038/s41537-023-00359-8. Open Access
     
-7.	**Stein F**, …, Meinert S, …, Hahn T, Leehr EJ, Jansen A, de Lange SC, van den Heuvel MP, Nenadić I, Krug A, Dannlowski U, Repple J, Kircher T: Brain structural network connectivity of formal thought disorder dimensions in affective and psychotic disorders. Biol Psychiatry 2023; S0006-3223(23)01297-0. DOI: 10.1016/j.biopsych.2023.05.010.
+10.	**Stein F**, …, Meinert S, …, Hahn T, Leehr EJ, Jansen A, de Lange SC, van den Heuvel MP, Nenadić I, Krug A, Dannlowski U, Repple J, Kircher T: Brain structural network connectivity of formal thought disorder dimensions in affective and psychotic disorders. Biol Psychiatry 2023; S0006-3223(23)01297-0. DOI: 10.1016/j.biopsych.2023.05.010.
     
-8.	Brosch K*, **Stein F**, …, Meinert S, …, Hahn T, Jansen A, Dannlowski U, Krug A, Nenadić I, Kircher T: Reduced hippocampal gray matter volume is a common feature of patients with major depression, bipolar disorder, and schizophrenia spectrum disorders. Mol Psychiatry 2022; 27(10):4234-4243. DOI: 10.1038/s41380-022-01687-4.
+11.	Brosch K*, **Stein F**, …, Meinert S, …, Hahn T, Jansen A, Dannlowski U, Krug A, Nenadić I, Kircher T: Reduced hippocampal gray matter volume is a common feature of patients with major depression, bipolar disorder, and schizophrenia spectrum disorders. Mol Psychiatry 2022; 27(10):4234-4243. DOI: 10.1038/s41380-022-01687-4.
     
-9.	**Stein F**, …, Meinert S, Leehr EJ, …, Hahn T, Dannlowski U, Jansen A, Nenadić I, Krug A, Kircher T: Dimensions of formal thought disorder and their relation to gray- and white matter brain structure in affective and psychotic disorders. Schizophr Bull 2022; 48(4):902-911. DOI: 10.1093/schbul/sbac002.
+12.	**Stein F**, …, Meinert S, Leehr EJ, …, Hahn T, Dannlowski U, Jansen A, Nenadić I, Krug A, Kircher T: Dimensions of formal thought disorder and their relation to gray- and white matter brain structure in affective and psychotic disorders. Schizophr Bull 2022; 48(4):902-911. DOI: 10.1093/schbul/sbac002.
     
-10.	**Stein F**, …, Meinert S, …, Jansen A, Nenadić I, Dannlowski U, Krug A, Kircher T: Psychopathological syndromes across affective and psychotic disorders correlate with gray matter volumes. Schizophr Bull 2021; 47(6):1740-1750. DOI: 10.1093/schbul/sbab037.
+13.	**Stein F**, …, Meinert S, …, Jansen A, Nenadić I, Dannlowski U, Krug A, Kircher T: Psychopathological syndromes across affective and psychotic disorders correlate with gray matter volumes. Schizophr Bull 2021; 47(6):1740-1750. DOI: 10.1093/schbul/sbab037.
 
 
 ---
