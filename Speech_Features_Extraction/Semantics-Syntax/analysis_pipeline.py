@@ -14,9 +14,11 @@ from sentence_transformers import SentenceTransformer
 from transformers import BertTokenizer, BertModel, XLMRobertaTokenizer, XLMRobertaModel
 from sklearn.metrics.pairwise import cosine_similarity
 from flair.embeddings import TransformerDocumentEmbeddings
+from flair.data import Sentence
 import flair
 import logging
 from gensim.models import KeyedVectors
+from gensim.models.fasttext import load_facebook_model
 from sentence_transformers import SentenceTransformer
 from transformers import BertTokenizer, BertModel, XLMRobertaTokenizer, XLMRobertaModel
 from sklearn.metrics.pairwise import cosine_similarity
@@ -67,8 +69,8 @@ word2vec_model_path = 'models/german.model'
 word2vec_model = KeyedVectors.load_word2vec_format(word2vec_model_path, binary=True)
 
 # Load FastText model
-fasttext_model_path = 'models/wiki.de.bin'
-fasttext_model = KeyedVectors.load_word2vec_format(fasttext_model_path, binary=True)
+#fasttext_model_path = 'models/cc.de.300.bin'
+#fasttext_model = load_facebook_model(fasttext_model_path)
 
 # Load BERT model and tokenizer
 tokenizer = BertTokenizer.from_pretrained('bert-base-german-dbmdz-uncased')
@@ -182,16 +184,17 @@ def run_linguistic_analysis():
         tokensnew = tokenize_text(preprocessed_txt)
         utterances = segment_into_utterances(preprocessed_txt)
         word2vec_embeddings = encode_with_model(tokensnew, word2vec_model)
-        fasttext_embeddings = encode_with_model(tokens, fasttext_model)
+        #fasttext_embeddings = encode_with_model(tokens, fasttext_model)
         bert_embeddings = encode_with_bert(utterances)
         sbert_embeddings = encode_with_sbert(utterances)
         xlmroberta_embeddings = encode_with_xlmroberta(utterances)
+        token_strs = [token.text.lower() for token in tokens if token.is_alpha]
 
         # Compute linguistic features
         result = {
             'Proband': proband,
             'BERT_Coherence': compute_bert_coherence(sentences),
-            'FastText_Coherence': compute_fasttext_coherence(sentences),
+            'FastText_Coherence': compute_fasttext_coherence(token_strs),
             'Readability': compute_readability(doc),
             'POS_Ratios': compute_pos_ratios(tokens),
             'PRON_Ratio': list(compute_pos_ratios(tokens).values())[0], 
@@ -213,7 +216,6 @@ def run_linguistic_analysis():
             'Mean_Dependency_Distance': calculate_mean_dependency_distance(doc),   
             'MATTR':calculate_moving_average_ttr(doc),      
             'Root_overlap':   calculate_morphological_root_overlap(doc),
-            'Mean_Dependency_Distance':calculate_mean_dependency_distance(doc),
             'MLU': mlu,
             'total_types':total_types,
             'SimS':simple_sentences_ratio,
@@ -239,15 +241,15 @@ def run_linguistic_analysis():
 
         # Embedding coherence: Word2Vec & FastText
         w2v_emb = encode_with_model(token_strs, word2vec_model)
-        ft_emb = encode_with_model(token_strs, fasttext_model)
-        for name, emb in [('Word2Vec', w2v_emb), ('FastText', ft_emb)]:
+        #ft_emb = encode_with_model(token_strs, fasttext_model)
+        for name, emb in [('Word2Vec', w2v_emb)]:
             stats = calculate_cosine_similarity_statistics(emb)
             result.update({f"{name}_{k}": v for k, v in stats.items()})
 
         # BERT token-level
         bert_embs = []
         for t in token_strs:
-            inputs = bert_tokenizer(t, return_tensors='pt', truncation=True, padding=True)
+            inputs = tokenizer(t, return_tensors='pt', truncation=True, padding=True)
             out = bert_model(**inputs)
             bert_embs.append(out.last_hidden_state.mean(dim=1).detach().numpy()[0])
         for k, v in calculate_cosine_similarity_statistics(bert_embs).items():
@@ -261,8 +263,8 @@ def run_linguistic_analysis():
         # XLM-RoBERTa sentence-level
         xlm_embs = []
         for u in utterances:
-            inp = xlmr_tokenizer(u, return_tensors='pt', truncation=True, padding=True)
-            out = xlmr_model(**inp)
+            inp = xlmroberta_tokenizer(u, return_tensors='pt', truncation=True, padding=True)
+            out = xlmroberta_model(**inp)
             xlm_embs.append(out.last_hidden_state.mean(dim=1).detach().numpy()[0])
         for k, v in calculate_cosine_similarity_statistics(xlm_embs).items():
             result[f'XLMR_{k}'] = v

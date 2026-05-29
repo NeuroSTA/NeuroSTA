@@ -3,7 +3,7 @@ gensim==4.3.3
 lexical_diversity==0.1.1
 networkx==3.3
 nltk==3.8.1
-numpy==2.2.5
+numpy==1.26.4
 pandas==2.2.3
 Pyphen==0.17.2
 scikit_learn==1.6.1

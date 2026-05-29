@@ -5,6 +5,7 @@ import pyphen
 import string
 from gensim.models.fasttext import load_facebook_model
 from transformers import AutoTokenizer, AutoModel, AutoModelForSequenceClassification
+from sklearn.metrics.pairwise import cosine_similarity
 from collections import Counter
 from nltk.corpus import stopwords
 import nltk
