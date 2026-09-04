@@ -1,1 +1,75 @@
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+from statsmodels.stats.multitest import multipletests
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+
+
+df = pd.read_excel(file_path)
+
+
+continuous_vars = []
+outcome = "Cluster_bin"
+
+df_model = df[continuous_vars + [outcome]].dropna()
+
+X = df_model[continuous_vars]
+y = df_model[outcome]
+
+# Intercept 
+X = sm.add_constant(X)
+
+
+print("VARIANCE INFLATION FACTOR (VIF)")
+
+vif_data = pd.DataFrame()
+vif_data["Variable"] = X.columns
+
+vif_data["VIF"] = [
+    variance_inflation_factor(X.values, i)
+    for i in range(X.shape[1])
+]
+
+print(vif_data)
+
+vif_data.to_excel("vif_fremdbeurteilung.xlsx")
+
+# --------------------------------------------------
+# Logistic Regression
+# --------------------------------------------------
+
+model = sm.Logit(y, X)
+result = model.fit()
+
+print(result.summary())
+
+# --------------------------------------------------
+# Odds Ratios + 95% CI
+# --------------------------------------------------
+params = result.params
+conf = result.conf_int()
+
+odds_ratios = np.exp(params)
+
+conf["OR_lower"] = np.exp(conf[0])
+conf["OR_upper"] = np.exp(conf[1])
+
+or_table = pd.concat([odds_ratios, conf[["OR_lower","OR_upper"]], result.pvalues], axis=1)
+or_table.columns = ["Odds_Ratio","CI_lower","CI_upper","p_value"]
+
+# --------------------------------------------------
+# FDR-Correction
+# --------------------------------------------------
+pvals = or_table["p_value"]
+
+reject, pvals_fdr, _, _ = multipletests(pvals, alpha=0.05, method='fdr_bh')
+
+or_table["p_value_FDR"] = pvals_fdr
+or_table["Significant_FDR"] = reject
+
+print("\n==============================")
+print("ODDS RATIOS WITH FDR-CORRECTION")
+print("==============================\n")
+
+print(or_table)
 
