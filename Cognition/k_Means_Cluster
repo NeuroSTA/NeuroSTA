@@ -1,0 +1,220 @@
+import os
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+from sklearn.decomposition import PCA
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score, calinski_harabasz_score, davies_bouldin_score
+
+
+# ----------------------------------------
+# GAP STATISTIC
+# ----------------------------------------
+
+def gap_statistic(X, k_max=10, B=20):
+    gaps = []
+    k_range = range(1, k_max + 1)
+
+    for k in k_range:
+        km = KMeans(n_clusters=k, random_state=42, n_init=50).fit(X)
+        disp = km.inertia_
+
+        ref = []
+        for _ in range(B):
+            rand = np.random.uniform(X.min(), X.max(), X.shape)
+            ref_km = KMeans(n_clusters=k, random_state=42, n_init=50).fit(rand)
+            ref.append(ref_km.inertia_)
+
+        gap = np.mean(np.log(ref)) - np.log(disp)
+        gaps.append(gap)
+
+    optimal_k = k_range[np.argmax(gaps)]
+
+    return optimal_k, gaps, list(k_range)
+
+
+X_model = X_resid.dropna()
+optimal_k, gaps, gap_k = gap_statistic(X_model)
+
+# ----------------------------------------
+# EVALUATE OPTIMAL NUMBER OF CLUSTER
+# ----------------------------------------
+# important: set k either manually after decision based on all cluster metrices (recommended)
+# or automatically based on a specific metric, e.g., GAP-statistic (not recommended, evaluate all metrices for best cluster solution)
+
+manual_k = 2
+
+if manual_k is None:
+    k = optimal_k
+
+else:
+    k = manual_k
+    print(f"Set k manually, based on evaluation of all cluster metrices k: {k}")
+
+final_kmeans = KMeans(n_clusters=k, random_state=42, n_init=50)
+clusters = final_kmeans.fit_predict(X_model)
+
+df_final = df_clean.loc[X_model.index].copy()
+df_final['Cluster'] = clusters + 1
+
+# ----------------------------------------
+# PCA for Cluster Visualization
+# ----------------------------------------
+
+pca_vis = PCA(n_components=2)
+X_vis = pca_vis.fit_transform(X_model)
+
+# ----------------------------------------
+# KMEANS: CALINSKI-HARABASZ, SILHOUETTE,
+# INERTIA & DAVIES-BOULDIN INDEX
+# ----------------------------------------
+
+k_range = range(1, 11)
+
+calinski_scores = []
+silhouette_scores = []
+inertia_scores = []
+davies_bouldin_scores = []
+
+for k_eval in k_range:
+    kmeans = KMeans(n_clusters=k_eval, random_state=42, n_init=30)
+    labels = kmeans.fit_predict(X_model)
+
+    calinski_scores.append(
+        calinski_harabasz_score(X_model, labels)
+    )
+
+    silhouette_scores.append(
+        silhouette_score(X_model, labels)
+    )
+
+    inertia_scores.append(
+        kmeans.inertia_
+    )
+
+    davies_bouldin_scores.append(
+        davies_bouldin_score(X_model, labels)
+    )
+
+# ----------------------------------------
+# VISUALIZATION OF ALL METRICES AND CLUSTER
+# ----------------------------------------
+
+plt.figure(figsize=(18, 10))
+
+# 1. Calinski-Harabasz
+plt.subplot(2, 3, 1)
+plt.plot(k_range, calinski_scores, marker='o', color='blue')
+plt.title("Calinski-Harabasz Index (CHI)")
+plt.xlabel("Cluster (k)")
+plt.ylabel("CH")
+plt.grid(True, alpha=0.3)
+
+# 2. Silhouette
+plt.subplot(2, 3, 2)
+plt.plot(k_range, silhouette_scores, marker='s', color='red')
+plt.title("Silhouette Score (Sil)")
+plt.xlabel("Cluster (k)")
+plt.ylabel("Sil")
+plt.grid(True, alpha=0.3)
+
+# 3. Elbow
+plt.subplot(2, 3, 3)
+plt.plot(k_range, inertia_scores, marker='^', color='green')
+plt.title("Elbow Plot")
+plt.xlabel("Cluster (k)")
+plt.ylabel("Inertia")
+plt.grid(True, alpha=0.3)
+
+# 4. Davies-Bouldin
+plt.subplot(2, 3, 4)
+plt.plot(k_range, davies_bouldin_scores, marker='d', color='purple')
+plt.title("Davies-Bouldin Index (DBI)")
+plt.xlabel("Cluster (k)")
+plt.ylabel("DBI")
+plt.grid(True, alpha=0.3)
+
+# 5. Gap Statistic
+plt.subplot(2, 3, 5)
+plt.plot(gap_k, gaps, marker='o', color='blue')
+plt.title("Gap Statistic")
+plt.xlabel("Cluster (k)")
+plt.ylabel("Gap Value")
+plt.grid(True, alpha=0.3)
+
+
+# 6. Cluster-Visualization
+plt.subplot(2, 3, 6)
+
+# select color, if k==2
+if k == 2:
+    palette = {
+        1: "#2C7BB6",   # Blau
+        2: "#D7191C"    # Rot
+    }
+else:
+    palette = "Set2"
+
+sns.scatterplot(
+    x=X_vis[:, 0],
+    y=X_vis[:, 1],
+    hue=df_final['Cluster'],
+    palette=palette,
+    s=60
+)
+
+# Cluster Center
+centers_vis = pca_vis.transform(final_kmeans.cluster_centers_)
+
+plt.scatter(
+    centers_vis[:, 0],
+    centers_vis[:, 1],
+    marker='x',
+    s=250,
+    c='black',
+    linewidths=3,
+    label='Cluster Center'
+)
+
+plt.title(f"Cluster (2D PCA)")
+plt.xlabel("PC1")
+plt.ylabel("PC2")
+plt.legend()
+
+plt.tight_layout()
+
+plt.show()
+
+# ----------------------------------------
+# Table all Cluster Metrices
+# ----------------------------------------
+
+metrics_table = pd.DataFrame({
+    "k": list(k_range),
+    "Calinski_Harabasz": calinski_scores,
+    "Silhouette": silhouette_scores,
+    "Inertia": inertia_scores,
+    "Davies_Bouldin": davies_bouldin_scores
+})
+
+metrics_table.to_excel(
+    os.path.join(folder_path, f"Cluster_Metriken_k{k}.xlsx"),
+    index=False
+)
+
+print("\nCluster Validation Metrics")
+print(metrics_table.round(3))
+
+# ----------------------------------------
+# CLUSTER × DIAGNOSE
+# ----------------------------------------
+
+ct = pd.crosstab(df_final['Cluster'], df_final['Group'])
+print("\nCluster × Group:")
+print(ct)
+
+print("\nCluster sizes:")
+print(df_final['Cluster'].value_counts())
