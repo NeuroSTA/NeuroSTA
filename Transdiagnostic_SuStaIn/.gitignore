@@ -1,0 +1,50 @@
+# Controlled-access and participant-level data
+private_data/
+HPC/input/
+*.csv
+*.tsv
+*.sav
+*.xlsx
+
+# SuStaIn model objects and generated results
+*.pickle
+*.pkl
+*.npy
+*.npz
+HPC/SuStaIn_*/
+Output_sustainrun/
+Output_sustainrun_reanalysis/
+Output Scripte/
+Output_master/
+results_*/
+execution_*/
+*.png
+*.pdf
+*.docx
+*.html
+*.Rmd
+*.RDS
+*.rds
+*.nii
+*.nii.gz
+
+# Logs and scheduler output
+*.log
+*.out
+*.err
+slurm-*
+
+# Local environments and caches
+.venv/
+venv/
+renv/library/
+renv/staging/
+__pycache__/
+*.py[cod]
+.Rhistory
+.RData
+.Rproj.user/
+.DS_Store
+
+# Local configuration
+.env
