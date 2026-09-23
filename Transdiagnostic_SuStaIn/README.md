@@ -71,7 +71,7 @@ Group coding used for derived diagnosis files is:
 |---|---:|
 | MDD | 2 |
 | BD | 3 |
-| SZ | 4 or 5 |
+| SSD | 4 and 5 |
 | ANX | 8 |
 
 ## Reconstructing SuStaIn inputs
