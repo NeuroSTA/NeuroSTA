@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --job-name=SuStaIn_SZ_main
+#SBATCH --job-name=SuStaIn_Angst_main
 #SBATCH --partition=normal
 #SBATCH --time=10-00:00:00
 #SBATCH --cpus-per-task=8
@@ -9,7 +9,7 @@
 #SBATCH --error=%x_%j.err
 #SBATCH --mail-type=END,FAIL
 
-echo "===== SuStaIn SZ MAIN RUN gestartet ====="
+echo "===== SuStaIn ANGST MAIN RUN gestartet ====="
 echo "Hostname: $(hostname)"
 echo "Startzeit: $(date)"
 
@@ -29,7 +29,7 @@ export PYTHONUNBUFFERED=1
 : "${SUSTAIN_PROJECT_DIR:?Set SUSTAIN_PROJECT_DIR to the repository root before submission}"
 cd "$SUSTAIN_PROJECT_DIR"
 
-python -u HPC_Scripts/sustain_main_SZ.py
+python -u HPC_Scripts/run_anx_main.py
 
 echo "===== JOB ENDE ====="
 echo "Endzeit: $(date)"

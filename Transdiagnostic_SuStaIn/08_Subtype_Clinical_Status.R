@@ -4,7 +4,7 @@
 # - Global test: Chi-squared, Fisher if expected cell counts are small
 # - Post hoc: Fisher 2x2
 # - Omnibus BH family: six main symptom scales plus clinical status,
-#   calculated in script 07 after this script writes the raw status p value.
+#   calculated in script 06 after this script writes the raw status p value.
 # - Status post hoc: Benjamini-Hochberg (BH) within status comparisons.
 # - HC excluded if identifiable
 # - Outputs: write_csv2 (Excel-DE: ; and decimal comma)

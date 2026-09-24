@@ -44,8 +44,8 @@ export VECLIB_MAXIMUM_THREADS=1
 : "${SUSTAIN_PROJECT_DIR:?Set SUSTAIN_PROJECT_DIR to the repository root before submission}"
 cd "$SUSTAIN_PROJECT_DIR"
 
-echo "Starte Python-Script: run_sustain_main.py"
-python -u HPC_Scripts/run_sustain_main.py
+echo "Starting Python script: run_transdiagnostic_main.py"
+python -u HPC_Scripts/run_transdiagnostic_main.py
 
 echo "=========================================="
 echo "===== JOB FINISHED ====="

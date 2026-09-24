@@ -1,17 +1,17 @@
 #!/bin/bash
 
-#SBATCH --job-name=sustain_cv_BD
+#SBATCH --job-name=sustain_cv_SZ
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=10
 #SBATCH --mem=16G
 #SBATCH --time=10-00:00:00
-#SBATCH --partition=normal
-#SBATCH --output=sustain_cv_BD_%j.out
-#SBATCH --error=sustain_cv_BD_%j.err
+#SBATCH --partition=long_any
+#SBATCH --output=sustain_cv_SZ_%j.out
+#SBATCH --error=sustain_cv_SZ_%j.err
 #SBATCH --mail-type=END,FAIL
 
-echo "===== SuStaIn BD CV JOB STARTED ====="
+echo "===== SuStaIn SZ CV JOB STARTED ====="
 echo "Hostname: $(hostname)"
 echo "Startzeit: $(date)"
 echo "Job ID: $SLURM_JOB_ID"
@@ -33,7 +33,7 @@ export PYTHONUNBUFFERED=1
 : "${SUSTAIN_PROJECT_DIR:?Set SUSTAIN_PROJECT_DIR to the repository root before submission}"
 cd "$SUSTAIN_PROJECT_DIR"
 
-python -u HPC_Scripts/sustain_cv_BD_3fold.py
+python -u HPC_Scripts/run_sz_cross_validation.py
 
-echo "===== SuStaIn BD CV JOB FINISHED ====="
+echo "===== SuStaIn SZ CV JOB FINISHED ====="
 echo "Endzeit: $(date)"
