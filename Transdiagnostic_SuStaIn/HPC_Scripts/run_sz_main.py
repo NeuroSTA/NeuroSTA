@@ -165,5 +165,5 @@ print("\n=== SuStaIn Hauptlauf SZ abgeschlossen ===")
 print("Ergebnisse gespeichert unter:", OUTPUT_RES)
 
 # Canonical participant assignments are exported after all model files exist by
-# export_sustain_assignments.py, which aligns participants and defines
+# export_participant_assignments.py, which aligns participants and defines
 # every posterior probability unambiguously.

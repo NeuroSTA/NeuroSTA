@@ -36,8 +36,8 @@ export VECLIB_MAXIMUM_THREADS=1
 : "${SUSTAIN_PROJECT_DIR:?Set SUSTAIN_PROJECT_DIR to the repository root before submission}"
 cd "$SUSTAIN_PROJECT_DIR"
 
-echo "Starte Python-Script: sustain_cv_3fold.py"
-python -u HPC_Scripts/sustain_cv_3fold.py
+echo "Starting Python script: run_transdiagnostic_cross_validation.py"
+python -u HPC_Scripts/run_transdiagnostic_cross_validation.py
 
 echo "=========================================="
 echo "===== JOB FINISHED ====="

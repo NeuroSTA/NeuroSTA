@@ -2,7 +2,7 @@
 # SuStaIn Subtypen x Symptom-Scores - WHITELIST, 3 Subtypen, alle Cohorts
 # Cohorts: main, MDD, Angst, BD, SZ
 # Omnibus BH/FDR family per cohort: six main scales plus clinical status
-# from script 09. Run script 09 first.
+# from script 08. Run script 08 first.
 # Pairwise symptom-scale tests retain their existing within-scale BH correction.
 # Output: write_csv2 (Excel-DE kompatibel: ; und Dezimalkomma)
 #
@@ -614,7 +614,7 @@ run_one_cohort_symptoms <- function(cohort_name, assign_path) {
   decisions_df <- bind_rows(decisions_all)
   
   # Clinical status is derived from the symptom ratings and belongs to the
-  # same omnibus BH family. Script 09 must use the same assignment and
+  # same omnibus BH family. Script 08 must use the same assignment and
   # clinical-status input file.
   status_cohort <- if (cohort_name == "main") "TDM" else cohort_name
   status_path <- file.path(base_dir, "Output Scripte",
@@ -634,7 +634,7 @@ run_one_cohort_symptoms <- function(cohort_name, assign_path) {
       !is.finite(status_test$p.value[[1]]) ||
       status_test$p.value[[1]] < 0 || status_test$p.value[[1]] > 1) {
     stop("Clinical-status result is missing, incomplete, or does not match the current inputs: ",
-         status_path, ". Run script 09 with the current data first.")
+         status_path, ". Run script 08 with the current data first.")
   }
   if (nrow(global_df) != 6L || anyNA(global_df$p.value) ||
       any(!is.finite(global_df$p.value)) ||

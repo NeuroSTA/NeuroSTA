@@ -1,17 +1,17 @@
 #!/bin/bash
 
-#SBATCH --job-name=sustain_cv_SZ
+#SBATCH --job-name=sustain_cv_MDD
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=10
 #SBATCH --mem=16G
 #SBATCH --time=10-00:00:00
 #SBATCH --partition=long_any
-#SBATCH --output=sustain_cv_SZ_%j.out
-#SBATCH --error=sustain_cv_SZ_%j.err
+#SBATCH --output=sustain_cv_MDD_%j.out
+#SBATCH --error=sustain_cv_MDD_%j.err
 #SBATCH --mail-type=END,FAIL
 
-echo "===== SuStaIn SZ CV JOB STARTED ====="
+echo "===== SuStaIn MDD CV JOB STARTED ====="
 echo "Hostname: $(hostname)"
 echo "Startzeit: $(date)"
 echo "Job ID: $SLURM_JOB_ID"
@@ -30,10 +30,11 @@ export VECLIB_MAXIMUM_THREADS=1
 export TQDM_DISABLE=1
 export PYTHONUNBUFFERED=1
 
+
 : "${SUSTAIN_PROJECT_DIR:?Set SUSTAIN_PROJECT_DIR to the repository root before submission}"
 cd "$SUSTAIN_PROJECT_DIR"
 
-python -u HPC_Scripts/sustain_cv_SZ_3fold.py
+python -u HPC_Scripts/run_mdd_cross_validation.py
 
-echo "===== SuStaIn SZ CV JOB FINISHED ====="
+echo "===== SuStaIn MDD CV JOB FINISHED ====="
 echo "Endzeit: $(date)"

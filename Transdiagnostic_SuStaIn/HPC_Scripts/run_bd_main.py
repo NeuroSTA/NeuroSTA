@@ -11,10 +11,10 @@ from project_paths import HPC_DIR, INPUT_DIR
 # ==========================================================
 # Pfade
 # ==========================================================
-DATA_FILE = str(INPUT_DIR / "residuals_z_scored_mainflip_Angst.csv")
+DATA_FILE = str(INPUT_DIR / "residuals_z_scored_mainflip_BD.csv")
 ZMAX_FILE = str(INPUT_DIR / "Zmax_global_patients_only.csv")
 
-OUTPUT_MAIN = str(HPC_DIR / "SuStaIn_diag" / "Angst" / "main")
+OUTPUT_MAIN = str(HPC_DIR / "SuStaIn_diag" / "BD" / "main")
 OUTPUT_LOG  = f"{OUTPUT_MAIN}/logs"
 OUTPUT_RES  = f"{OUTPUT_MAIN}/results"
 
@@ -22,7 +22,7 @@ os.makedirs(OUTPUT_MAIN, exist_ok=True)
 os.makedirs(OUTPUT_LOG, exist_ok=True)
 os.makedirs(OUTPUT_RES, exist_ok=True)
 
-print("\n=== Starte SuStaIn Hauptlauf: ANGST ===")
+print("\n=== Starte SuStaIn Hauptlauf: BD ===")
 print("Input:", DATA_FILE)
 print("Zmax:", ZMAX_FILE)
 
@@ -90,7 +90,7 @@ if missing_in_zmax:
     )
 
 if extra_in_zmax:
-    print("\nHinweis: Zmax-Datei enthält zusätzliche ROIs, die nicht im ANGST-Datensatz vorkommen:")
+    print("\nHinweis: Zmax-Datei enthält zusätzliche ROIs, die nicht im BD-Datensatz vorkommen:")
     print(extra_in_zmax)
 
 # Zmax in der exakt richtigen Reihenfolge ziehen
@@ -121,7 +121,7 @@ N_startpoints = 25
 N_S_max = 6              # max. Subtypen (1..6)
 N_iterations_MCMC = int(1e5)
 
-dataset_name = "SuStaIn_mainRun_Angst"
+dataset_name = "SuStaIn_mainRun_BD"
 
 print("\nSuStaIn-Parameter:")
 print(f"  N_startpoints       = {N_startpoints}")
@@ -161,9 +161,9 @@ print("\nInitialisierung erfolgreich. Starte MCMC...")
     prob_subtype_stage
 ) = model.run_sustain_algorithm()
 
-print("\n=== SuStaIn Hauptlauf ANGST abgeschlossen ===")
+print("\n=== SuStaIn Hauptlauf BD abgeschlossen ===")
 print("Ergebnisse gespeichert unter:", OUTPUT_RES)
 
 # Canonical participant assignments are exported after all model files exist by
-# export_sustain_assignments.py, which aligns participants and defines
+# export_participant_assignments.py, which aligns participants and defines
 # every posterior probability unambiguously.
