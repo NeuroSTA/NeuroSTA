@@ -43,5 +43,5 @@ If you use code from this repository, please cite the relevant associated public
 ## Contact and contributions
 
 Questions, suggestions, and contributions are welcome via [GitHub Issues](https://github.com/NeuroSTA/NeuroSTA/issues). 
-For more information about NeuroSTA, our research, team, and publications, please visit the [NeuroSTA website](https://neurosta.github.io/NeuroSTA-website/).
+For more information about NeuroSTA, our research, team, and publications, please visit the [NeuroSTA website](https://neurosta.github.io/NeuroSTA/).
 
