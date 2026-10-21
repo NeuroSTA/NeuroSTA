@@ -1,6 +1,4 @@
-<head>
-  <title>Rieke Mülfarth</title>
-</head>
+
 
 <p align="center">
   <img src="{{ '/rm_bild.jpg' | relative_url }}" width="200" style="border-radius: 50%;">
