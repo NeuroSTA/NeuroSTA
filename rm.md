@@ -1,0 +1,66 @@
+<head>
+  <title>Rieke Mülfarth</title>
+</head>
+
+<p align="center">
+  <img src="{{ '/rm_bild.jpg' | relative_url }}" width="200" style="border-radius: 50%;">
+</p>
+
+<h2 align="center" style="font-size: 1.8rem; font-weight: 600; margin-top: 0.5rem;">
+  Rieke Mülfarth
+</h2>
+
+<h3 align="center" style="font-size: 1.3rem; font-weight: 400; margin-top: -0.3rem;">
+  Doctoral Researcher
+</h3>
+
+<p>
+🏛️ Department of Psychiatry and Psychotherapy<br>
+Philipps-University Marburg, Germany<br>
+ORCID: <a href="https://orcid.org/0009-0001-8425-0431" target="_blank">0009-0001-8425-0431</a> <br><br>
+
+
+📧 r.r.muelfarth@uni-marburg.de
+</p>
+
+<div style="text-align: justify;">
+
+I’m a linguist, and my research focuses on latent linguistic parameters and their association with psychopathology, cognition, and brain structure in affective and psychotic disorders. 
+By combining linguistic feature extraction using Natural Language Processing (NLP) with methods such as network analysis, diffusion-MRI-based connectomics, I am following an interdisciplinary approach that integrates linguistics, psychiatry, and computational neuroscience. 
+Alongside my studies, I worked as a student (later research) assistant in the <a href="https://sfb901.uni-paderborn.de/" target="_blank">CRC 901 “On-The-Fly Computing”</a> (2019-2022), where I annotated data. After that, I contributed to the <a href="https://trr318.uni-paderborn.de/en/" target="_blank">CRC/TRR 318 “Constructing Explainability”</a> (2022-2023), where my work included annotating and analyzing transcripts as well as conducting study sessions (incl. preparing the experimental setup/equipment & running participants). These experiences strengthend my deep interest in interdisciplinary collaboration and computational approaches to language. 
+In addition, now I am a part of the Collaborative Research Center <a href="https://www.uni-marburg.de/en/trr-393" target="_blank">CRC/TRR 393 “Trajectories of Affective Disorders”</a>. 
+</div>
+<br><br>
+
+### Academic Qualifications  
+
+- **M.A. Linguistics**, Program: Language Dynamics, University of Paderborn, Germany, 2020–2023
+  
+- **B.A. Linguistics**, University of Paderborn, Germany, 2016–2020
+
+---
+
+### Publications  
+
+1. Palominos, C., Fröhlich, K., **Mülfarth, R. R., Seuffert, S.**, Brochhagen, T., **Stein**, F., Kircher, T., Sommer, I. E., Homan, P., & Hinzen, W. (2026). Co-reference and the topology of meaning in schizophrenia and depression. **Schizophrenia**. Advance online publication. doi: https://doi.org/10.1038/s41537-026-00802-6.
+   
+2. Tan, R., **Stein, F.**, Teutenberg, L., Thomas-Odenthal, F., Usemann, P., Javaheripour, N., **Mülfarth, R. R., Seuffert, S.**, Shen, Y., Qian, Z., Hahn, T., Meinert, S., Flinkenflügel, K., Borgers, T., Grotegerd, D., Leehr, E. J., Jamalabadi, H., Nenadić, I., Straube, B., … Kircher, T. (2026). The role of social support in transdiagnostic symptom networks in affective and psychotic disorders: A cross-sectional and longitudinal network analysis. **European Archives of Psychiatry and Clinical Neuroscience**. Advance online publication. doi: https://doi.org/10.1007/s00406-026-02389-6.
+
+3. **Stein, F., Lepper, J., Mülfarth, R. R., Schepers, D., Seuffert, S.**, Teutenberg, L., Thomas-Odenthal, F., Usemann, P., Borgers, T., Flinkenflügel, K., Goltermann, J., Grotegerd, D., Hubbert, J., Jurischka, C., Krieger, J., Meinert, S., Alexander, N., Hahn, T., Jamalabadi, H., … Kircher, T. (2026). Formal thought disorder in unipolar depression: Prevalence and functional brain correlates from a multimodal MRI study. **Journal of Affective Disorders**, 407, 121779, doi: 10.1016/j.jad.2026.121779.
+
+4. **Mülfarth, R. R., Seuffert, S.**, Alexander, N., Jamalabadi, H., Nenadić, I., Straube, B., Teutenberg, L., Thomas-Odenthal, F., Usemann, P., Dannlowski, U., Kircher, T., **Stein, F.**. Linking Spontaneous Speech, Cognition, and Psychopathology Across Affective and Psychotic Disorders: A Network Approach. **European Psychiatry**. 2026 Jan 23, doi:10.1192/j.eurpsy.2026.10151.
+
+5. **Seuffert, S.**, **Mülfarth, R. R.**, Teutenberg, L., Thomas-Odenthal, F., Usemann, P., Alexander, N., Jamalabadi, H., Nenadić, I., Straube, B., 
+Hahn, T., Dannlowski, U., Kircher, T., & **Stein, F**. Linking speech patterns to brain structure in affective and psychotic disorders: an integrative natural language processing approach. **Mol Psychiatry** 2025 Nov 20. doi:10.1038/s41380-025-03347-9.
+
+6.	Mueller N, **Mülfarth R**, **Seuffert S**, Dannlowski U, Kircher T, Kauschke C, Nagels A, **Stein F**. Figurative language production in schizophrenia, bipolar disorder, and depression. **Psychiatry Res**. 2025 Oct 17;354:116772. doi: 10.1016/j.psychres.2025.116772.
+   
+7.	Palominos C, He R, Fröhlich K, **Mülfarth RR**, **Seuffert S**, Sommer IE, Homan P, Kircher T, **Stein F**, Hinzen W. Approximating the semantic space: word embedding techniques in psychiatric speech analysis. **Schizophrenia (Heidelb)**. 2024 Dec 2;10(1):114. doi: 10.1038/s41537-024-00524-7.
+   
+---
+
+### Awards and Grants  
+- **2025**	Open Science Award, Discourse in Psychosis Consortium, Chicago, USA
+- **2025**	Travel grant from MArburg University Research Academy (MARA)
+- **2025**	Travel grant from Center for Mind, Brain and Behavior (CMBB)
+
