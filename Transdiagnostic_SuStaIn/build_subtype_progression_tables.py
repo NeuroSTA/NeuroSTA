@@ -10,6 +10,7 @@ Cohorts processed:
 - SSD (SZ folder, labeled as SSD)
 
 Enforces K=3 by always loading subtype2.pickle (k_idx=2) and verifying K==3 in pickle.
+Subtype labels follow the assignment order from posterior mean subtype fractions.
 
 Outputs:
 OUTPUT_ROOT/
@@ -320,6 +321,12 @@ def process_cohort(cohort_key: str, cfg: dict) -> dict:
                 "Wrong CSV for this pickle."
             )
 
+        # Use the same subtype order as pySuStaIn's individual assignments.
+        subtype_fractions = np.asarray(data["samples_f"], dtype=float)
+        if subtype_fractions.shape != (K, samp_seq.shape[2]) or not np.isfinite(subtype_fractions).all():
+            raise ValueError("samples_f must contain one finite fraction per subtype and posterior draw.")
+        assignment_to_em = np.argsort(subtype_fractions.mean(axis=1))[::-1]
+
         # subsample posterior samples
         S_total = samp_seq.shape[2]
         S_use = min(MAX_SAMPLES, S_total)
@@ -333,18 +340,18 @@ def process_cohort(cohort_key: str, cfg: dict) -> dict:
 
         all_rows = []
 
-        for k in range(K):
-            inv = invert_permutation(ml_seq[k, :])      # inv[roi] = position 0..E-1
+        for subtype, em_row in enumerate(assignment_to_em, start=1):
+            inv = invert_permutation(ml_seq[em_row, :])      # inv[roi] = position 0..E-1
             ml_pos = inv + 1                             # 1..E
             ml_stage = ml_pos                            # stage index
 
-            mean_pos, lo, hi = positions_from_samples(samp_seq_use[k, :, :])
+            mean_pos, lo, hi = positions_from_samples(samp_seq_use[em_row, :, :])
             post_mean_stage = mean_pos + 1.0
             post_lo_stage = lo + 1.0
             post_hi_stage = hi + 1.0
 
             dfk = pd.DataFrame({
-                "Subtype": (k + 1),
+                "Subtype": subtype,
                 "ROI_index_0based": np.arange(E, dtype=int),
                 "ROI": roi_cols,
                 "ML_position_1based": ml_pos.astype(int),
@@ -354,15 +361,15 @@ def process_cohort(cohort_key: str, cfg: dict) -> dict:
                 "post_hi_stage": post_hi_stage,
             }).sort_values("ML_stage")
 
-            out_csv = os.path.join(out_dir, f"progression_table_subtype{k+1}.csv")
+            out_csv = os.path.join(out_dir, f"progression_table_subtype{subtype}.csv")
             dfk.to_csv(out_csv, index=False)
             all_rows.append(dfk)
 
-            out_png = os.path.join(out_dir, f"plot_progression_{label}_subtype{k+1}.png")
+            out_png = os.path.join(out_dir, f"plot_progression_{label}_subtype{subtype}.png")
             plot_progression_paper(
                 dfk,
                 out_png,
-                title=f"SuStaIn progression ({label}, K=3, Subtype {k+1})"
+                title=f"SuStaIn progression ({label}, K=3, Subtype {subtype})"
             )
 
         df_all = pd.concat(all_rows, axis=0, ignore_index=True)
@@ -373,6 +380,7 @@ def process_cohort(cohort_key: str, cfg: dict) -> dict:
             f.write(f"PICKLE: {pickle_path}\n")
             f.write(f"INPUT_CSV: {input_csv}\n")
             f.write(f"K={K}, E={E}, S_total={S_total}, posterior_samples_used={samp_seq_use.shape[2]}\n")
+            f.write(f"Assignment subtype to original EM row (1-based): {(assignment_to_em + 1).tolist()}\n")
 
     except Exception as e:
         qc["status"] = "FAIL"

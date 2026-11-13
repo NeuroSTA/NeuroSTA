@@ -184,10 +184,13 @@ The numbered R scripts follow the manuscript analysis sequence:
 | `15_Stage_Illness_Course.R` | Illness duration and episode counts across stages |
 | `16_Stage_Phenotypic_Domains.R` | Phenotypic domains across stages |
 | `17_Sensitivity_Indeterminate_As_Remitted.R` | Sensitivity analysis for indeterminate status |
+| `18_Internal_Split_Site_Reproducibility.R` | Internal comparison of subtype profiles, frequencies, and stages across sites |
 
 Run `08_Subtype_Clinical_Status.R` before `06_Subtype_Symptom_Severity.R`, because script 06 incorporates the status omnibus p-value into the prespecified seven-test correction family.
 
 `12_Stage_GMV_Associations.R` runs the reported `paper_z` analysis by default. Set `options(SUSTAIN_RUN_RAW_GMV = TRUE)` only to run the additional raw-GMV branch.
+
+Run `Rscript 18_Internal_Split_Site_Reproducibility.R` after building the inputs and exporting participant assignments. This analysis also requires the `Site` column in the covariate file. Outputs, including a participant-level QC table, are written to `Output_sustainrun/internal_split_site_reproducibility/`.
 
 ## Data protection
 
