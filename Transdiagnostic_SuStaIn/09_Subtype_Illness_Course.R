@@ -301,7 +301,7 @@ run_one_cohort_durations <- function(cohort_name, assign_path) {
   
   long_qc_parts <- list()
   
-  # Duration variables — apply age-limit filter as before
+  # Apply the age-limit filter to duration variables.
   if (nrow(dur_vars_here) > 0) {
     long_qc_parts[["duration"]] <- dur_vars_here %>%
       mutate(tmp = purrr::map2(Variable, Unit, function(var_name, unit_name) {

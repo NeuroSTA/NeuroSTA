@@ -182,7 +182,7 @@ neuropsych_metric_vars <- c(
 
 metric_vars <- c(early_metric_vars, current_metric_vars, neuropsych_metric_vars)
 
-# Nominal (familial/genetic risk): belongs to EARLY domain for BH family as requested
+# Familial and genetic risk variables are included in the early-life domain for BH correction.
 nominal_vars <- c("GenRisiko_Affektiv1","GenRisiko_Psycho1")
 
 domain_of_metric <- function(v) {
@@ -207,7 +207,7 @@ if (!"Proband" %in% names(data_all)) {
   if ("Name" %in% names(data_all)) data_all <- data_all %>% rename(Proband = Name)
   if ("names" %in% names(data_all)) data_all <- data_all %>% rename(Proband = names)
 }
-if (!"Proband" %in% names(data_all)) stop("Fehler: Proband-Spalte fehlt in data_all.")
+if (!"Proband" %in% names(data_all)) stop("Missing Proband column in the input data.")
 data_all <- data_all %>% mutate(Proband = norm_id(Proband))
 
 # -----------------------------
@@ -230,7 +230,7 @@ run_one_cohort_early_current_neuro <- function(cohort_name, assign_path) {
     if ("Name" %in% names(cluster_data)) cluster_data <- cluster_data %>% rename(Proband = Name)
     if ("names" %in% names(cluster_data)) cluster_data <- cluster_data %>% rename(Proband = names)
   }
-  if (!"Proband" %in% names(cluster_data)) stop("Fehler: Proband-Spalte fehlt in assignment file: ", assign_path)
+  if (!"Proband" %in% names(cluster_data)) stop("Missing Proband column in the assignment file: ", assign_path)
   
   cluster_data <- cluster_data %>%
     mutate(Proband = norm_id(Proband)) %>%

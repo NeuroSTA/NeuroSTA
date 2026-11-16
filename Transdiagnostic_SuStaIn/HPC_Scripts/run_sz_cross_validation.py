@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from project_paths import HPC_DIR, INPUT_DIR
 
 # ==========================================================
-# Pfade
+# Paths
 # ==========================================================
 DATA_FILE = str(INPUT_DIR / "residuals_z_scored_mainflip_SZ.csv")
 ZMAX_FILE = str(INPUT_DIR / "Zmax_global_patients_only.csv")
@@ -23,20 +23,20 @@ os.makedirs(BASE_OUT, exist_ok=True)
 os.makedirs(OUT_LOG, exist_ok=True)
 os.makedirs(OUT_RES, exist_ok=True)
 
-print("\n=== STARTE ECHTE 3-FOLD CROSS-VALIDATION (SZ) ===")
+print("\n=== STARTING THREE-FOLD CROSS-VALIDATION (SZ) ===")
 print("Input:", DATA_FILE)
 print("Zmax:", ZMAX_FILE)
 print("BASE_OUT:", BASE_OUT)
 
 # ==========================================================
-# Daten laden
+# Load the input data
 # ==========================================================
 df = pd.read_csv(DATA_FILE)
 
-print("\nSpalten im Daten-File:")
+print("\nInput file columns:")
 print(df.columns.tolist())
 
-# ROI-Daten (ab Spalte 2)
+# ROI data from column index 2 onward
 X = df.iloc[:, 2:].to_numpy(dtype=float)
 y = df["Group"].astype(int).to_numpy()
 
@@ -48,14 +48,14 @@ if list(df.columns[:2]) != ["Proband", "Group"] or N != 62:
 if df["Proband"].astype(str).duplicated().any() or not np.isfinite(X).all():
     raise ValueError("Input contains duplicate participant IDs or non-finite ROI values.")
 
-print(f"\nDaten Form = {X.shape} (Subjects x Biomarker = {X.shape[0]} x {N})")
+print(f"\nData shape = {X.shape} (Subjects x Biomarker = {X.shape[0]} x {N})")
 classes, counts = np.unique(y, return_counts=True)
-print("Group-Verteilung (für StratifiedKFold):")
+print("Group counts for StratifiedKFold:")
 for c, n in zip(classes, counts):
     print(f"  Group {c}: n = {n}")
 
 # ==========================================================
-# Zmax laden und passend ordnen
+# Load and align the Zmax values
 # ==========================================================
 zdf = pd.read_csv(ZMAX_FILE)
 zdf["ROI"] = zdf["ROI"].astype(str).str.strip()
@@ -63,7 +63,7 @@ zdf = zdf.set_index("ROI")
 
 missing = [roi for roi in biomarkers if roi not in zdf.index]
 if missing:
-    raise ValueError("Zmax fehlt für ROIs: " + str(missing))
+    raise ValueError("Zmax is missing for the following ROIs: " + str(missing))
 
 Z_max = zdf.loc[biomarkers, "Zmax"].to_numpy(dtype=float)
 
@@ -71,22 +71,22 @@ if zdf.index.duplicated().any() or not np.isfinite(Z_max).all() or np.any(Z_max 
     raise ValueError("Zmax contains duplicate ROIs, non-finite values, or non-positive values.")
 
 # ==========================================================
-# Z_vals – eine Schwelle für alle Biomarker
+# Z_vals: one threshold for all biomarkers
 # ==========================================================
 Z_vals = np.ones((N, 1), dtype=float)
 
 print("\nZ_vals Shape:", Z_vals.shape)
-print("Erste 5 Z_max-Werte:", Z_max[:5])
+print("First five Z_max values:", Z_max[:5])
 
 # ==========================================================
-# SuStaIn Parameter
+# SuStaIn parameters
 # ==========================================================
 N_S_MAX = 6
 N_START = 25
 N_ITER  = int(1e5)
 SEED    = 42
 
-print("\nSuStaIn Parameter:")
+print("\nSuStaIn parameters:")
 print(f" N_S_max       = {N_S_MAX}")
 print(f" N_startpoints = {N_START}")
 print(f" N_MCMC        = {N_ITER}")
@@ -95,7 +95,7 @@ print(f" SEED          = {SEED}")
 # ==========================================================
 # CV-Splits
 # ==========================================================
-print("\nErzeuge 3-stratifizierte Folds...")
+print("\nCreating three stratified folds.")
 cv = StratifiedKFold(n_splits=3, shuffle=True, random_state=SEED)
 test_idxs = [test for _, test in cv.split(X, y)]
 test_idxs = np.array(test_idxs, dtype=object)
@@ -103,7 +103,7 @@ test_idxs = np.array(test_idxs, dtype=object)
 print(" Fold Sizes:", [len(idx) for idx in test_idxs])
 
 # ==========================================================
-# SuStaIn-Objekt erzeugen
+# Initialize the SuStaIn model
 # ==========================================================
 model = ZscoreSustain(
     data=X,
@@ -120,9 +120,9 @@ model = ZscoreSustain(
 )
 
 # ==========================================================
-# Echte Cross-Validation starten
+# Run cross-validation
 # ==========================================================
-print("\n=== STARTE SuStaIn CROSS-VALIDATION (SZ) ===")
+print("\n=== STARTING SuStaIn CROSS-VALIDATION (SZ) ===")
 CVIC, loglike = model.cross_validate_sustain_model(test_idxs)
 
 print("\nCVIC-Shape:", CVIC.shape)
@@ -132,16 +132,16 @@ np.save(f"{OUT_RES}/cvic_matrix.npy", CVIC)
 np.save(f"{OUT_RES}/loglike_matrix.npy", loglike)
 
 # ==========================================================
-# CVIC und LogLikelihood für summary.csv aufbereiten
+# Summarize CVIC and log-likelihood for summary.csv
 # ==========================================================
-# CVIC kommt bereits als Vektor: ein Wert pro K
+# CVIC is a vector with one value per K
 cvic_vec = np.array(CVIC, dtype=float).reshape(-1)
 
 if cvic_vec.shape[0] != N_S_MAX:
-    print("WARNUNG: CVIC-Länge stimmt nicht mit N_S_MAX überein.")
+    print("WARNING: The number of CVIC values differs from N_S_MAX.")
     print("cvic_vec.shape[0] =", cvic_vec.shape[0], "N_S_MAX =", N_S_MAX)
 
-# Log-Likelihood über die Folds mitteln (axis=0, weil Shape (n_folds, K))
+# Average log-likelihood across folds (axis 0 of the n_folds by K array)
 mean_ll = np.nanmean(loglike, axis=0)
 
 summary = pd.DataFrame({
@@ -151,8 +151,8 @@ summary = pd.DataFrame({
 })
 summary.to_csv(f"{OUT_RES}/summary.csv", index=False)
 
-print("\n=== CV ZUSAMMENFASSUNG (SZ) ===")
+print("\n=== CROSS-VALIDATION SUMMARY (SZ) ===")
 print(summary)
 
-print("\n[✓] 3-Fold Cross-Validation (SZ) abgeschlossen.")
-print("Ergebnisse gespeichert unter:", OUT_RES)
+print("\nThree-fold cross-validation (SZ) completed.")
+print("Results saved to:", OUT_RES)

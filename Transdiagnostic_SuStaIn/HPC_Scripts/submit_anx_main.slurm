@@ -9,9 +9,9 @@
 #SBATCH --error=%x_%j.err
 #SBATCH --mail-type=END,FAIL
 
-echo "===== SuStaIn ANGST MAIN RUN gestartet ====="
+echo "===== SuStaIn ANX MAIN RUN STARTED ====="
 echo "Hostname: $(hostname)"
-echo "Startzeit: $(date)"
+echo "Start time: $(date)"
 
 module purge
 module load miniconda
@@ -31,5 +31,5 @@ cd "$SUSTAIN_PROJECT_DIR"
 
 python -u HPC_Scripts/run_anx_main.py
 
-echo "===== JOB ENDE ====="
-echo "Endzeit: $(date)"
+echo "===== JOB FINISHED ====="
+echo "End time: $(date)"

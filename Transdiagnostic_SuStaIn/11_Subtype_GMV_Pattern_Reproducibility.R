@@ -6,7 +6,7 @@
 # - Similarity: Pearson or Spearman correlations of ROI pattern vectors
 # - Bootstrap (stratified within subtype): CI for matched subtype correlations and mean reproducibility
 #
-# SECTION 6 (NEW):
+# SECTION 6:
 # - Pairwise diagnosis similarity: all 6 pairs of diagnosis cohorts
 # - Full K×K matrix per pair (3×3=9 correlations), total 54 correlations
 # - Best label match + bootstrap CIs with a prespecified mapping

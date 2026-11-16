@@ -6,14 +6,14 @@ import pandas as pd
 from project_paths import HPC_DIR, OUTPUT_DIR
 
 # ==========================================================
-# Einstellungen
+# Settings
 # ==========================================================
 
 BASE_DIR = str(HPC_DIR)
 OUT_DIR = str(OUTPUT_DIR)
 os.makedirs(OUT_DIR, exist_ok=True)
 
-# Laufbereich: K=2..6 (entspricht subtype1..subtype5)
+# Model range: K=2 through 6 (subtype1 through subtype5)
 K_MIN = 2
 K_MAX = 6
 
@@ -42,29 +42,29 @@ COHORT_CONFIG = {
 
 
 def load_ml_subtype(pickle_path):
-    """Laedt ml_subtype aus einem pySuStaIn-Pickle."""
+    """Load ml_subtype from a pySuStaIn pickle file."""
     if not os.path.exists(pickle_path):
-        raise FileNotFoundError(f"Pickle nicht gefunden: {pickle_path}")
+        raise FileNotFoundError(f"Pickle file not found: {pickle_path}")
 
     with open(pickle_path, "rb") as f:
         obj = pickle.load(f)
 
     if not isinstance(obj, dict):
         raise TypeError(
-            f"Unerwarteter Pickle-Typ ({type(obj)}). "
-            f"Erwarte ein Dict mit Key 'ml_subtype'."
+            f"Unexpected pickle object type ({type(obj)}). "
+            f"Expected a dictionary containing 'ml_subtype'."
         )
 
     if "ml_subtype" not in obj:
-        raise KeyError(f"'ml_subtype' fehlt im Pickle: {pickle_path}")
+        raise KeyError(f"Pickle file is missing 'ml_subtype': {pickle_path}")
 
     return np.asarray(obj["ml_subtype"])
 
 
 def compute_counts_for_cohort_and_K(cohort_name, cfg, K_model):
     """
-    Berechnet n und % pro Subtyp fuer eine Kohorte und ein gegebenes K_model
-    (nur fuer Auswahl der richtigen Datei). Labels werden automatisch als 0- oder 1-basiert erkannt.
+    Compute subtype counts and percentages for a cohort and model size.
+    Detect whether subtype labels start at zero or one.
     """
     pickle_dir = cfg["pickle_dir"]
     prefix = cfg["file_prefix"]
@@ -73,28 +73,28 @@ def compute_counts_for_cohort_and_K(cohort_name, cfg, K_model):
     pickle_file = f"{prefix}{file_index}.pickle"
     pickle_path = os.path.join(pickle_dir, pickle_file)
 
-    print(f"\n=== Kohorte {cohort_name} | K={K_model}: lade {pickle_path} ===")
+    print(f"\n=== Cohort {cohort_name} | K={K_model}: loading {pickle_path} ===")
 
     ml_subtype = load_ml_subtype(pickle_path).astype(int)
 
     unique_labels = np.unique(ml_subtype)
-    print(f"  Labels (roh): {unique_labels}")
+    print(f"  Raw labels: {unique_labels}")
 
     n_total = int(ml_subtype.shape[0])
 
     if n_total == 0:
-        raise ValueError("ml_subtype ist leer (n=0).")
+        raise ValueError("ml_subtype is empty.")
 
-    # 0-basiert (typisch pySuStaIn) -> Ausgabe 1..K
+    # Convert zero-based pySuStaIn labels to one-based labels
     if unique_labels.min() == 0:
         label_offset = 1
     else:
         label_offset = 0
 
-    # Hinweis falls weniger Labels belegt als K_model
+    # Report models with fewer observed labels than model subtypes
     if len(unique_labels) < K_model:
         print(
-            f"  [Hinweis] Datei formal K={K_model}, aber nur {len(unique_labels)} Labels belegt."
+            f"  Model K={K_model} has {len(unique_labels)} observed labels."
         )
 
     rows = []
@@ -125,7 +125,7 @@ def main():
         all_tables = []
 
         print("\n" + "=" * 70)
-        print(f"STARTE EXPORT: K={K_model} (subtype{K_model-1}.pickle)")
+        print(f"STARTING EXPORT: K={K_model} (subtype{K_model-1}.pickle)")
         print("=" * 70)
 
         for cohort_name, cfg in COHORT_CONFIG.items():
@@ -136,11 +136,11 @@ def main():
                 print(f"  [SKIP] {cohort_name} | K={K_model}: {e}")
                 continue
             except Exception as e:
-                print(f"  [FEHLER] {cohort_name} | K={K_model}: {e}")
+                print(f"  [ERROR] {cohort_name} | K={K_model}: {e}")
                 continue
 
         if not all_tables:
-            print(f"[WARN] K={K_model}: keine Kohorte erfolgreich. Keine Datei geschrieben.")
+            print(f"[WARN] K={K_model}: No cohort could be summarized. No file was written.")
             continue
 
         result_df = pd.concat(all_tables, ignore_index=True)
@@ -149,12 +149,12 @@ def main():
         result_df.to_csv(out_path, index=False)
         any_export = True
 
-        print("\n=== Zusammenfassung Subtyp-Verteilungen ===")
+        print("\n=== Subtype count summary ===")
         print(result_df)
-        print(f"\nGespeichert: {out_path}")
+        print(f"\nSaved to: {out_path}")
 
     if not any_export:
-        print("\n[WARN] Es wurde keine Datei exportiert. Pfade/Pickles pruefen.")
+        print("\n[WARN] No files were exported. Check the paths and pickle files.")
 
 
 if __name__ == "__main__":

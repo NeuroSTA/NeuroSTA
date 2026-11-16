@@ -12,13 +12,13 @@
 
 echo "===== JOB STARTED ====="
 echo "Hostname: $(hostname)"
-echo "Startzeit: $(date)"
+echo "Start time: $(date)"
 echo "Job ID: $SLURM_JOB_ID"
 echo "CPUs: $SLURM_CPUS_PER_TASK"
 echo "=========================================="
 
 # ---------------------------------------------------------
-# Module / Conda-Umgebung
+# Modules and Conda environment
 # ---------------------------------------------------------
 module purge
 module load miniconda
@@ -26,12 +26,12 @@ source "$CONDA_ROOT/bin/activate"
 conda activate "${SUSTAIN_CONDA_ENV:-sustain_env}"
 
 # ---------------------------------------------------------
-# tqdm & Threads konfigurieren
+# Progress output and thread settings
 # ---------------------------------------------------------
-# tqdm-Fortschrittsbalken deaktivieren (schreibt sonst massiv ins Log)
+# Disable tqdm progress bars to limit log output
 export TQDM_DISABLE=1
 
-# Verhindere Oversubscription durch BLAS/MKL/OpenMP
+# Prevent thread oversubscription in BLAS, MKL, and OpenMP
 export OMP_NUM_THREADS=1
 export OPENBLAS_NUM_THREADS=1
 export MKL_NUM_THREADS=1
@@ -39,7 +39,7 @@ export NUMEXPR_NUM_THREADS=1
 export VECLIB_MAXIMUM_THREADS=1
 
 # ---------------------------------------------------------
-# Ausführen
+# Run SuStaIn
 # ---------------------------------------------------------
 : "${SUSTAIN_PROJECT_DIR:?Set SUSTAIN_PROJECT_DIR to the repository root before submission}"
 cd "$SUSTAIN_PROJECT_DIR"
@@ -49,4 +49,4 @@ python -u HPC_Scripts/run_transdiagnostic_main.py
 
 echo "=========================================="
 echo "===== JOB FINISHED ====="
-echo "Endzeit: $(date)"
+echo "End time: $(date)"

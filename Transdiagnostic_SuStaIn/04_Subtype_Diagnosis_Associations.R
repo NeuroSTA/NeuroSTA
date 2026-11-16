@@ -151,7 +151,7 @@ readr::write_csv(cluster_data, file.path(output_dir, "input_main_filtered.csv"))
 # 4) Frequency table
 # ------------------------------
 group_cluster_table <- table(cluster_data$Subtyp, cluster_data$Diagnosis)
-message(">>> Frequency table Subtyp × Diagnosis - TDM:")
+message(">>> Frequency table: subtype by diagnosis - TDM:")
 print(group_cluster_table)
 
 readr::write_csv(as.data.frame(group_cluster_table),
@@ -235,7 +235,7 @@ readr::write_csv(posthoc_df, file.path(output_dir, "posthoc_tests_BH.csv"))
 
 # ------------------------------
 # 7) Plots
-# styled like acute vs. remittiert
+# Use the same styling as the acute versus remitted comparison
 # separate figures for poster, colored
 # ------------------------------
 df_plot <- as.data.frame(group_cluster_table) %>%

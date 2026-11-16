@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from project_paths import HPC_DIR, INPUT_DIR
 
 # ==========================================================
-# Pfade
+# Paths
 # ==========================================================
 DATA_FILE = str(INPUT_DIR / "residuals_z_scored_corrected_allGroups.csv")
 ZMAX_FILE = str(INPUT_DIR / "Zmax_global_patients_only.csv")
@@ -22,29 +22,29 @@ os.makedirs(OUTPUT_MAIN, exist_ok=True)
 os.makedirs(OUTPUT_LOG, exist_ok=True)
 os.makedirs(OUTPUT_RES, exist_ok=True)
 
-print("\n=== Starte SuStaIn Hauptlauf: PATIENTS ONLY ===")
+print("\n=== Starting the SuStaIn main run: PATIENTS ONLY ===")
 print("Input:", DATA_FILE)
 print("Zmax:", ZMAX_FILE)
 
 # ==========================================================
-# CSV einlesen (R: write_csv -> Komma als Trenner, Punkt als Dezimal)
+# Read the CSV produced by R write_csv (comma delimiter, decimal point)
 # ==========================================================
 df = pd.read_csv(DATA_FILE)
 
-print("\nSpalten erkannt im Daten-File:")
+print("\nInput file columns:")
 print(df.columns.tolist())
 
-# Minimaler Sanity-Check
+# Check the input column order
 expected_first_cols = ["Proband", "Group"]
 if not all(col in df.columns[:2] for col in expected_first_cols):
-    print("\nWARNUNG: Erste Spalten sind nicht ['Proband', 'Group'].")
-    print("Gefunden:", df.columns[:5].tolist())
+    print("\nWARNING: The first two columns are not ['Proband', 'Group'].")
+    print("Found:", df.columns[:5].tolist())
 
 # ==========================================================
-# ROI-Daten extrahieren (ab Spalte 2: ROIs)
-#   Spalte 0: Proband
-#   Spalte 1: Group (numerischer Code)
-#   Spalte 2+: ROIs (z-Werte)
+# Extract ROI data from column index 2 onward
+#   Column 0: Proband
+#   Column 1: Group (numeric code)
+#   Columns 2 onward: ROI z-scores
 # ==========================================================
 data = df.iloc[:, 2:].to_numpy(dtype=float)
 biomarkers = df.columns[2:].tolist()
@@ -59,64 +59,64 @@ if df["Proband"].astype(str).duplicated().any():
 if not np.isfinite(data).all():
     raise ValueError("ROI input contains missing or non-finite values.")
 
-print("\nROI-Daten Shape:", data.shape)
+print("\nROI matrix shape:", data.shape)
 print("N Biomarker =", N)
 
 # ==========================================================
-# Zmax laden und an ROI-Namen ausrichten
-#   - R-Output: eine Zeile pro ROI
-#     Spalten: ROI, q90, q95, q99, max_abs, mean_abs, sd_abs, Zmax
+# Load Zmax and align it by ROI name
+#   - R output: one row per ROI
+#     Columns: ROI, q90, q95, q99, max_abs, mean_abs, sd_abs, Zmax
 # ==========================================================
 zdf = pd.read_csv(ZMAX_FILE)
 
-print("\nSpalten erkannt im Zmax-File:")
+print("\nZmax file columns:")
 print(zdf.columns.tolist())
 
 if "ROI" not in zdf.columns or "Zmax" not in zdf.columns:
     raise ValueError(
-        "FEHLER: Zmax-Datei muss mindestens die Spalten 'ROI' und 'Zmax' enthalten!"
+        "The Zmax file must contain 'ROI' and 'Zmax' columns."
     )
 
-# ROI-Namen trimmen (falls irgendwo Leerzeichen sind)
+# Strip whitespace from ROI names
 zdf["ROI"] = zdf["ROI"].astype(str).str.strip()
 zdf = zdf.set_index("ROI")
 
-# Prüfe, ob alle Biomarker im Zmax-File vorhanden sind
+# Check that Zmax includes all biomarkers
 missing_in_zmax = [roi for roi in biomarkers if roi not in zdf.index]
 extra_in_zmax   = [roi for roi in zdf.index if roi not in biomarkers]
 
 if missing_in_zmax:
     raise ValueError(
-        f"FEHLER: Für folgende ROIs aus den Daten fehlt ein Zmax-Eintrag: {missing_in_zmax}"
+        f"Zmax is missing for the following ROIs: {missing_in_zmax}"
     )
 
 if extra_in_zmax:
-    print("\nHinweis: Zmax-Datei enthält zusätzliche ROIs, die nicht im Datensatz vorkommen:")
+    print("\nThe Zmax file contains ROIs outside this dataset:")
     print(extra_in_zmax)
 
-# Zmax in der exakt richtigen Reihenfolge der Biomarker ziehen
+# Align Zmax values with the biomarker order
 Z_max = zdf.loc[biomarkers, "Zmax"].to_numpy(dtype=float)
 
 if zdf.index.duplicated().any() or not np.isfinite(Z_max).all() or np.any(Z_max <= 0):
     raise ValueError("Zmax contains duplicate ROIs, non-finite values, or non-positive values.")
 
 if len(Z_max) != N:
-    raise ValueError(f"FEHLER: Zmax hat {len(Z_max)} Werte, erwartet wurden {N}!")
+    raise ValueError(f"Found {len(Z_max)} Zmax values, expected {N}.")
 
-print("\nErste 10 Zmax-Werte (ROI -> Zmax):")
+print("\nFirst 10 Zmax values (ROI -> Zmax):")
 for roi, z in list(zip(biomarkers, Z_max))[:10]:
     print(f"  {roi}: {z}")
 print(list(zip(biomarkers, Z_max))[:10])
 # ==========================================================
-# Z_vals: nur eine Schwelle (z=1) für alle Biomarker
+# Z_vals: one threshold (z=1) for all biomarkers
 # ==========================================================
 Z_vals = np.ones((N, 1), dtype=float)
 
-print("\nZ_max und Z_vals geladen und ausgerichtet.")
+print("\nZ_max and Z_vals loaded and aligned.")
 print("Z_vals Shape:", Z_vals.shape)
 
 # ==========================================================
-# SuStaIn Parameter
+# SuStaIn parameters
 # ==========================================================
 N_startpoints = 25
 N_S_max = 6
@@ -124,14 +124,14 @@ N_iterations_MCMC = int(1e5)
 
 dataset_name = "SuStaIn_mainRun_patientsOnly"
 
-print("\nSuStaIn-Parameter:")
+print("\nSuStaIn parameters:")
 print(f"  N_startpoints       = {N_startpoints}")
 print(f"  N_S_max             = {N_S_max}")
 print(f"  N_iterations_MCMC   = {N_iterations_MCMC}")
 print(f"  dataset_name        = {dataset_name}")
 
 # ==========================================================
-# SuStaIn Model initialisieren
+# Initialize the SuStaIn model
 # ==========================================================
 model = ZscoreSustain(
     data=data,
@@ -147,10 +147,10 @@ model = ZscoreSustain(
     seed=42
 )
 
-print("\nInitialisierung erfolgreich. Starte MCMC...")
+print("\nModel initialized. Starting MCMC.")
 
 # ==========================================================
-# SuStaIn ausführen
+# Run SuStaIn
 # ==========================================================
 (
     samples_sequence,
@@ -162,5 +162,5 @@ print("\nInitialisierung erfolgreich. Starte MCMC...")
     prob_subtype_stage
 ) = model.run_sustain_algorithm()
 
-print("\n=== SuStaIn Hauptlauf abgeschlossen ===")
-print("Ergebnisse gespeichert unter:", OUTPUT_RES)
+print("\n=== SuStaIn main run completed ===")
+print("Results saved to:", OUTPUT_RES)
