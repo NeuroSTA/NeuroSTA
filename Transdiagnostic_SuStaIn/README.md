@@ -77,7 +77,6 @@ Group coding used for derived diagnosis files is:
 
 ## Sample characteristics and Table 1
 
-The former separate patient-only and healthy-control scripts have been replaced by one analysis:
 
 ```bash
 Rscript 01_Sample_Characteristics.R
@@ -192,6 +191,3 @@ Run `08_Subtype_Clinical_Status.R` before `06_Subtype_Symptom_Severity.R`, becau
 
 Run `Rscript 18_Internal_Split_Site_Reproducibility.R` after building the inputs and exporting participant assignments. This analysis also requires the `Site` column in the covariate file. Outputs, including a participant-level QC table, are written to `Output_sustainrun/internal_split_site_reproducibility/`.
 
-## Data protection
-
-The `.gitignore` excludes controlled-access inputs, participant-level CSV files, SuStaIn pickle objects, generated results, logs, and local environments. Before publishing a release, inspect staged files with `git status` and confirm that no data or local paths are present.
