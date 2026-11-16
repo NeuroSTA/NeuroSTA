@@ -1,15 +1,14 @@
 # ===============================
-# SuStaIn Subtypen x Symptom-Scores - WHITELIST, 3 Subtypen, alle Cohorts
+# Symptom scores by SuStaIn subtype (three subtypes per cohort)
 # Cohorts: main, MDD, Angst, BD, SZ
 # Omnibus BH/FDR family per cohort: six main scales plus clinical status
 # from script 08. Run script 08 first.
 # Pairwise symptom-scale tests retain their existing within-scale BH correction.
-# Output: write_csv2 (Excel-DE kompatibel: ; und Dezimalkomma)
+# Output: write_csv2 (semicolon delimiter and decimal comma)
 #
 # Regel (cohort-level):
-# - Wenn in einer Cohort auch nur eine Skala nicht-parametrisch sein muss
-#   (Normalitaet verletzt/NA oder Levene fail oder zu kleine Gruppen),
-#   dann werden ALLE Skalen dieser Cohort nicht-parametrisch ausgewertet
+# - Use nonparametric tests for all scales in a cohort if any scale requires them
+#   due to normality, variance, or group-size checks.
 #   (Kruskal-Wallis + Dunn, BH).
 # HAM-D analyses use the prespecified HAMD_Sum17 variable. HAMA, SANS,
 # SAPS, and YMRS scores are calculated from the item whitelists below.
@@ -296,7 +295,7 @@ if (!"Proband" %in% names(data_all)) {
   if ("Name" %in% names(data_all)) data_all <- data_all %>% rename(Proband = Name)
   if ("names" %in% names(data_all)) data_all <- data_all %>% rename(Proband = names)
 }
-if (!"Proband" %in% names(data_all)) stop("Fehler: Proband-Spalte fehlt in data_all.")
+if (!"Proband" %in% names(data_all)) stop("Missing Proband column in the input data.")
 
 data_all <- data_all %>% mutate(Proband = norm_id(Proband))
 
@@ -319,7 +318,7 @@ run_one_cohort_symptoms <- function(cohort_name, assign_path) {
     if ("Name" %in% names(cluster_data)) cluster_data <- cluster_data %>% rename(Proband = Name)
     if ("names" %in% names(cluster_data)) cluster_data <- cluster_data %>% rename(Proband = names)
   }
-  if (!"Proband" %in% names(cluster_data)) stop("Fehler: Proband-Spalte fehlt in assignment file: ", assign_path)
+  if (!"Proband" %in% names(cluster_data)) stop("Missing Proband column in the assignment file: ", assign_path)
   
   cluster_data <- cluster_data %>%
     mutate(Proband = norm_id(Proband)) %>%

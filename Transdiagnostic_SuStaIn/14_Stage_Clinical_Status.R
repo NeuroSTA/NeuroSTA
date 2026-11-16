@@ -1,5 +1,5 @@
 # ============================================================
-# PAPER PLOTS + STATS: ML Stage vs Clinical Status (acute vs remittiert)
+# PAPER PLOTS + STATS: ML Stage vs Clinical Status (acute vs remitted)
 # Cohorts: TDM, ANX, MDD, BD, SSD (SuStaIn assignments; 3 subtypes)
 #
 # Unified analysis strategy
@@ -21,7 +21,7 @@
 # Status rule:
 # - acute if ANY trigger:
 #   SANS7/12/16/21 > 2 OR SAPS7/20/25/34 > 2 OR HAMA_Sum > 19 OR HAMD_Sum17 > 6 OR YMRS_Sum >= 4 (Berk et al., 2008)
-# - remittiert if no trigger == 1 but at least one trigger observed
+# - remitted if all 11 criteria are observed and none is positive
 # - HC excluded if Group == 1 detectable
 # Outputs (per cohort):
 #   plots/
@@ -470,7 +470,7 @@ run_one_cohort_stage_status <- function(cohort_name, assign_path) {
   }
   merged <- merged %>% mutate(across(all_of(trigger_vars_items), minus99_to_na))
 
-  # Status verwendet ausschliesslich die vorhandenen direkten Summenspalten.
+  # Use the recorded scale totals for clinical status.
   missing_sum_targets <- setdiff(sum_targets, names(merged))
   if (length(missing_sum_targets) > 0L) {
     stop("Required direct status totals are missing: ", paste(missing_sum_targets, collapse = ", "))
@@ -490,8 +490,8 @@ run_one_cohort_stage_status <- function(cohort_name, assign_path) {
     mutate(missing_pct = round(100 * n_missing / n_total, 2))
   safe_write_csv(missing_df, file.path(out_stats_dir, "missingness_status_inputs.csv"))
 
-  # Status define: acute bei mindestens einem positiven Trigger; remittiert
-  # nur bei vollstaendigen 11 Triggern ohne Schwellenueberschreitung.
+  # Classify as acute if at least one status criterion is positive.
+  # Classify as remitted if all eleven criteria are observed and none is positive.
   f_SANS7  <- flag_gt(merged$SANS7, 2)
   f_SANS12 <- flag_gt(merged$SANS12, 2)
   f_SANS16 <- flag_gt(merged$SANS16, 2)

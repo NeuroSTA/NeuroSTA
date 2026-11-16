@@ -13,7 +13,7 @@
 
 echo "===== JOB STARTED ====="
 echo "Hostname: $(hostname)"
-echo "Startzeit: $(date)"
+echo "Start time: $(date)"
 echo "Job ID: $SLURM_JOB_ID"
 echo "CPUs: $SLURM_CPUS_PER_TASK"
 echo "=========================================="
@@ -23,7 +23,7 @@ module load miniconda
 source "$CONDA_ROOT/bin/activate"
 conda activate "${SUSTAIN_CONDA_ENV:-sustain_env}"
 
-# tqdm-Ausgabe ins Log deaktivieren
+# Disable tqdm progress output in the log
 export TQDM_DISABLE=1
 
 # BLAS/MKL/OpenMP Threads begrenzen
@@ -41,4 +41,4 @@ python -u HPC_Scripts/run_transdiagnostic_cross_validation.py
 
 echo "=========================================="
 echo "===== JOB FINISHED ====="
-echo "Endzeit: $(date)"
+echo "End time: $(date)"

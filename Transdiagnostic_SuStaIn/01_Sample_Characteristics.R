@@ -1,24 +1,22 @@
 # ============================================================================== 
-# Gemeinsame Stichprobencharakteristika: HC und alle Patientengruppen
-# Replaces the former separate patient and healthy-control analyses.
+# Combined sample characteristics for healthy controls and all patient groups
 #
-# Auswertungsregeln:
-#   1. Gemeinsame Tabelle mit HC, MDD, BD, SZ und Angst.
-#   2. HAMD wird ausschliesslich aus HAMD_Sum17 gelesen. Kein Item-Fallback.
-#   3. Akut, sobald mindestens ein Status-Trigger positiv ist.
-#   4. Remittiert nur bei vollstaendigen Triggerdaten ohne positiven Trigger.
-#   5. Omnibus-p-Werte bleiben unkorrigiert.
-#   6. Post-hoc-p-Werte werden je Variable nach Benjamini-Hochberg korrigiert.
-#   7. Alter, Geschlecht, Bildung, TIV und Symptomskalen: Vergleich aller 5 Gruppen.
-#   8. Erkrankungsbeginn, Erkrankungsdauer, Komorbiditaet und Status:
-#      Vergleich nur der 4 Patientengruppen, da diese Variablen fuer HC nicht
-#      sinnvoll definiert sind.
+# Analysis rules:
+#   1. Use a single table for HC, MDD, BD, SZ, and ANX.
+#   2. Use HAMD_Sum17 as the sole source of HAMD scores.
+#   3. Classify as acute when at least one status criterion is positive.
+#   4. Classify as remitted when all status criteria are observed and none is positive.
+#   5. Report unadjusted omnibus p-values.
+#   6. Adjust post hoc p-values within each variable using Benjamini-Hochberg.
+#   7. Compare age, sex, education, TIV, and symptom scales across all five groups.
+#   8. Compare age at onset, illness duration, comorbidity, and clinical status
+#      across the four patient groups.
 # ============================================================================== 
 
 rm(list = ls())
 
 # ------------------------------------------------------------------------------
-# 1) Pfade
+# 1) Paths
 # ------------------------------------------------------------------------------
 base_dir <- getOption(
   "SUSTAIN_PROJECT_DIR",
@@ -53,11 +51,11 @@ output_csv <- file.path(
   "Sample_Characteristics.csv"
 )
 
-if (!file.exists(data_path)) stop("Eingabedatei nicht gefunden: ", data_path)
+if (!file.exists(data_path)) stop("Input file not found: ", data_path)
 if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
 
 # ------------------------------------------------------------------------------
-# 2) Pakete
+# 2) Packages
 # ------------------------------------------------------------------------------
 required_packages <- c(
   "dplyr", "readr", "tidyr", "purrr", "rstatix", "DescTools", "openxlsx"
@@ -68,7 +66,7 @@ missing_packages <- required_packages[
 ]
 
 if (length(missing_packages) > 0) {
-  stop("Fehlende R-Pakete: ", paste(missing_packages, collapse = ", "))
+  stop("Missing R packages: ", paste(missing_packages, collapse = ", "))
 }
 
 suppressPackageStartupMessages({
@@ -84,7 +82,7 @@ suppressPackageStartupMessages({
 set.seed(20260916L)
 
 # ------------------------------------------------------------------------------
-# 3) Definitionen
+# 3) Definitions
 # ------------------------------------------------------------------------------
 alpha <- 0.05
 group_levels <- c("HC", "MDD", "BD", "SZ", "Angst")
@@ -119,7 +117,7 @@ required_columns <- c(
 )
 
 # ------------------------------------------------------------------------------
-# 4) Hilfsfunktionen
+# 4) Helper functions
 # ------------------------------------------------------------------------------
 as_numeric_clean <- function(x) {
   out <- suppressWarnings(as.numeric(gsub(",", ".", trimws(as.character(x)), fixed = TRUE)))
@@ -201,13 +199,13 @@ status_flag_ge <- function(x, threshold) {
 }
 
 # ------------------------------------------------------------------------------
-# 5) Daten einlesen und vorbereiten
+# 5) Read and prepare the data
 # ------------------------------------------------------------------------------
 data_all <- suppressWarnings(readr::read_csv(data_path, show_col_types = FALSE))
 
 missing_columns <- setdiff(required_columns, names(data_all))
 if (length(missing_columns) > 0) {
-  stop("Fehlende Pflichtspalten: ", paste(missing_columns, collapse = ", "))
+  stop("Missing required columns: ", paste(missing_columns, collapse = ", "))
 }
 
 numeric_columns <- unique(c(
@@ -252,7 +250,7 @@ data_all <- data_all %>%
   filter(!is.na(Gruppe))
 
 # ------------------------------------------------------------------------------
-# 6) Akut versus remittiert, nur Patienten
+# 6) Acute versus remitted status in patients
 # ------------------------------------------------------------------------------
 status_flags <- cbind(
   status_flag_gt(data_all$SANS7, 2),
@@ -283,7 +281,7 @@ data_all <- data_all %>%
   )
 
 # ------------------------------------------------------------------------------
-# 7) Variablenplan
+# 7) Variable definitions
 # ------------------------------------------------------------------------------
 continuous_plan <- tibble::tribble(
   ~variable,            ~label,                       ~scope,
@@ -307,7 +305,7 @@ categorical_plan <- tibble::tribble(
 )
 
 # ------------------------------------------------------------------------------
-# 8) Stetige Variablen
+# 8) Continuous variables
 # ------------------------------------------------------------------------------
 continuous_main <- list()
 continuous_omnibus <- list()
@@ -390,7 +388,7 @@ for (i in seq_len(nrow(continuous_plan))) {
 }
 
 # ------------------------------------------------------------------------------
-# 9) Kategoriale Variablen
+# 9) Categorical variables
 # ------------------------------------------------------------------------------
 categorical_main <- list()
 categorical_omnibus <- list()
@@ -509,7 +507,7 @@ for (i in seq_len(nrow(categorical_plan))) {
 }
 
 # ------------------------------------------------------------------------------
-# 10) Gemeinsame Tabelle und QC
+# 10) Combined table and quality checks
 # ------------------------------------------------------------------------------
 main_table <- bind_rows(c(continuous_main, categorical_main))
 omnibus_table <- bind_rows(c(continuous_omnibus, categorical_omnibus))
@@ -543,23 +541,23 @@ missingness_table <- bind_rows(
 
 status_counts <- data_all %>%
   filter(as.character(Gruppe) %in% patient_levels) %>%
-  mutate(Status_display = ifelse(is.na(Status), "nicht bestimmbar", as.character(Status))) %>%
+  mutate(Status_display = ifelse(is.na(Status), "indeterminate", as.character(Status))) %>%
   count(Gruppe, Status_display, name = "N") %>%
   group_by(Gruppe) %>%
   mutate(Percent_total_group = 100 * N / sum(N)) %>%
   ungroup()
 
 method_table <- tibble::tribble(
-  ~Bereich, ~Festlegung,
-  "Stichprobe", "HC, MDD, BD, SZ und Angst in einer gemeinsamen Tabelle.",
-  "HAMD", "Ausschliesslich HAMD_Sum17. Keine Itemberechnung und kein Fallback.",
-  "Akut", "Mindestens einer der elf Status-Trigger ist positiv.",
-  "Remittiert", "Alle elf Status-Trigger liegen vor und keiner ist positiv.",
-  "Nicht bestimmbar", "Kein positiver Trigger, aber mindestens ein fehlender Trigger. Keine Umkodierung zu remittiert.",
-  "Omnibus", "Unkorrigierte p-Werte bei alpha = 0.05.",
-  "Post-hoc", "Dunn fuer stetige und Fisher fuer kategoriale Variablen. BH-Korrektur getrennt je Variable.",
-  "Vergleich mit HC", "Alter, Geschlecht, Bildung, TIV und Symptomskalen werden ueber alle fuenf Gruppen verglichen.",
-  "Patientenvergleich", "Erkrankungsbeginn, Erkrankungsdauer, Komorbiditaet und Status werden nur ueber MDD, BD, SZ und Angst verglichen."
+  ~Topic, ~Rule,
+  "Sample", "The combined table includes HC, MDD, BD, SZ, and ANX.",
+  "HAMD", "HAMD scores are read directly from HAMD_Sum17.",
+  "Acute", "At least one of the eleven status criteria is positive.",
+  "Remitted", "All eleven status criteria are observed and none is positive.",
+  "Indeterminate", "No observed criterion is positive and at least one criterion is missing.",
+  "Omnibus", "Unadjusted p-values at alpha = 0.05.",
+  "Post-hoc", "Use Dunn's test for continuous variables and Fisher's exact test for categorical variables. Apply BH correction within each variable.",
+  "All-group comparisons", "Compare age, sex, education, TIV, and symptom scales across all five groups.",
+  "Patient-group comparisons", "Compare age at onset, illness duration, comorbidity, and clinical status across MDD, BD, SZ, and ANX."
 )
 
 readr::write_csv(main_table, output_csv)
@@ -570,18 +568,18 @@ readr::write_csv(missingness_table, file.path(output_dir, "Missingness_QC.csv"))
 readr::write_csv(status_counts, file.path(output_dir, "Status_QC.csv"))
 
 # ------------------------------------------------------------------------------
-# 11) Excel-Datei direkt aus diesem R-Skript
+# 11) Create the Excel workbook
 # ------------------------------------------------------------------------------
 workbook <- openxlsx::createWorkbook()
 
 sheet_data <- list(
-  "Gemeinsame Tabelle" = main_table,
+  "Sample characteristics" = main_table,
   "Omnibus" = omnibus_table,
-  "Posthoc stetig" = posthoc_continuous_table,
-  "Posthoc kategorial" = posthoc_categorical_table,
+  "Continuous post hoc" = posthoc_continuous_table,
+  "Categorical post hoc" = posthoc_categorical_table,
   "Missingness QC" = missingness_table,
   "Status QC" = status_counts,
-  "Methodik" = method_table
+  "Methods" = method_table
 )
 
 title_style <- openxlsx::createStyle(
@@ -630,19 +628,19 @@ for (sheet_name in names(sheet_data)) {
   openxlsx::setColWidths(workbook, sheet_name, cols = seq_len(max(1, ncol(table_data))), widths = "auto")
 }
 
-# Haupttabelle lesbar formatieren.
+# Format the main table.
 openxlsx::addStyle(
-  workbook, "Gemeinsame Tabelle", wrap_style,
+  workbook, "Sample characteristics", wrap_style,
   rows = 6:(5 + nrow(main_table)), cols = 1:ncol(main_table), gridExpand = TRUE
 )
-openxlsx::setColWidths(workbook, "Gemeinsame Tabelle", cols = 1, widths = 28)
-openxlsx::setColWidths(workbook, "Gemeinsame Tabelle", cols = 2:6, widths = 42)
-openxlsx::setColWidths(workbook, "Gemeinsame Tabelle", cols = 7, widths = 24)
-openxlsx::setColWidths(workbook, "Gemeinsame Tabelle", cols = 8, widths = 34)
-openxlsx::setColWidths(workbook, "Gemeinsame Tabelle", cols = 9, widths = 65)
-openxlsx::setRowHeights(workbook, "Gemeinsame Tabelle", rows = 6:(5 + nrow(main_table)), heights = 58)
+openxlsx::setColWidths(workbook, "Sample characteristics", cols = 1, widths = 28)
+openxlsx::setColWidths(workbook, "Sample characteristics", cols = 2:6, widths = 42)
+openxlsx::setColWidths(workbook, "Sample characteristics", cols = 7, widths = 24)
+openxlsx::setColWidths(workbook, "Sample characteristics", cols = 8, widths = 34)
+openxlsx::setColWidths(workbook, "Sample characteristics", cols = 9, widths = 65)
+openxlsx::setRowHeights(workbook, "Sample characteristics", rows = 6:(5 + nrow(main_table)), heights = 58)
 
-# Numerische Formate.
+# Apply numeric formats.
 if (nrow(omnibus_table) > 0) {
   p_col <- match("p_raw", names(omnibus_table))
   openxlsx::addStyle(
@@ -654,7 +652,7 @@ if (nrow(omnibus_table) > 0) {
 if (nrow(posthoc_continuous_table) > 0) {
   p_cols <- match(c("p_raw", "p_adj"), names(posthoc_continuous_table))
   openxlsx::addStyle(
-    workbook, "Posthoc stetig", p_style,
+    workbook, "Continuous post hoc", p_style,
     rows = 6:(5 + nrow(posthoc_continuous_table)), cols = p_cols, gridExpand = TRUE
   )
 }
@@ -662,7 +660,7 @@ if (nrow(posthoc_continuous_table) > 0) {
 if (nrow(posthoc_categorical_table) > 0) {
   p_cols <- match(c("p_raw", "p_adj"), names(posthoc_categorical_table))
   openxlsx::addStyle(
-    workbook, "Posthoc kategorial", p_style,
+    workbook, "Categorical post hoc", p_style,
     rows = 6:(5 + nrow(posthoc_categorical_table)), cols = p_cols, gridExpand = TRUE
   )
 }
@@ -678,24 +676,24 @@ if (nrow(missingness_table) > 0) {
 openxlsx::saveWorkbook(workbook, output_xlsx, overwrite = TRUE)
 
 # ------------------------------------------------------------------------------
-# 12) Abschlusskontrollen
+# 12) Final quality checks
 # ------------------------------------------------------------------------------
 expected_counts <- c(HC = 1062L, MDD = 764L, BD = 164L, SZ = 155L, Angst = 233L)
 observed_counts <- table(factor(data_all$Gruppe, levels = group_levels))
 
 if (!identical(as.integer(observed_counts), as.integer(expected_counts))) {
   warning(
-    "Gruppengroessen weichen von der aktuellen Referenz ab. Beobachtet: ",
+    "Group sizes differ from the expected counts. Observed: ",
     paste(names(observed_counts), as.integer(observed_counts), sep = "=", collapse = ", ")
   )
 }
 
 if (any(is.na(data_all$Sum_HAMD17))) {
-  warning("HAMD_Sum17 enthaelt fehlende Werte. Es wurde kein Fallback verwendet.")
+  warning("HAMD_Sum17 contains missing values.")
 }
 
-message("\n[OK] Gemeinsames Skript erfolgreich ausgefuehrt.")
-message("[OK] Gemeinsame Excel-Tabelle: ", output_xlsx)
-message("[OK] Gemeinsame CSV-Tabelle:   ", output_csv)
-message("[OK] HAMD-Quelle: ausschliesslich HAMD_Sum17, ohne Fallback.")
-message("[OK] Omnibus: raw p. Post-hoc: BH-korrigiert je Variable.")
+message("\n[OK] Sample characteristics analysis completed.")
+message("[OK] Excel workbook: ", output_xlsx)
+message("[OK] CSV table: ", output_csv)
+message("[OK] HAMD score source: HAMD_Sum17.")
+message("[OK] Omnibus p-values are unadjusted. Post hoc p-values are BH-adjusted within each variable.")

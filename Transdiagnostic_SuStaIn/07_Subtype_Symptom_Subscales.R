@@ -1,8 +1,8 @@
 # ===============================
-# SuStaIn Subtypen × ENIGMA-Subskalen (SANS/SAPS) – 3 Subtypen, alle Cohorts
+# ENIGMA SANS and SAPS subscales by SuStaIn subtype (three subtypes per cohort)
 # Cohorts: main, MDD, Angst, BD, SZ
-# Tests: global (ANOVA oder Kruskal, datengetrieben) + pairwise (BH)
-# Missing columns: wird protokolliert (NA)
+# Tests: omnibus ANOVA or Kruskal-Wallis, followed by BH-adjusted pairwise comparisons
+# Report missing columns as NA
 # Output: CSV + PNG
 # ===============================
 
@@ -99,7 +99,7 @@ if (!"Proband" %in% names(data_all)) {
   if ("Name" %in% names(data_all)) data_all <- data_all %>% rename(Proband = Name)
   if ("names" %in% names(data_all)) data_all <- data_all %>% rename(Proband = names)
 }
-if (!"Proband" %in% names(data_all)) stop("Fehler: Proband-Spalte fehlt in data_all.")
+if (!"Proband" %in% names(data_all)) stop("Missing Proband column in the input data.")
 
 data_all <- data_all %>% mutate(Proband = norm_id(Proband))
 
@@ -123,7 +123,7 @@ run_one_cohort_subscales <- function(cohort_name, assign_path) {
     if ("Name" %in% names(cluster_data)) cluster_data <- cluster_data %>% rename(Proband = Name)
     if ("names" %in% names(cluster_data)) cluster_data <- cluster_data %>% rename(Proband = names)
   }
-  if (!"Proband" %in% names(cluster_data)) stop("Fehler: Proband-Spalte fehlt in assignment file: ", assign_path)
+  if (!"Proband" %in% names(cluster_data)) stop("Missing Proband column in the assignment file: ", assign_path)
   
   cluster_data <- cluster_data %>%
     mutate(Proband = norm_id(Proband)) %>%

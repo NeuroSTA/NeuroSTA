@@ -101,8 +101,7 @@ nominal_vars <- c(
   "GenRisiko_Psycho1"
 )
 
-# Main symptom scale items (still used for HAMA/SANS/SAPS/YMRS; HAMD
-# now sourced directly from HAMD_Sum17)
+# Questionnaire items used for HAMA, SANS, SAPS, and YMRS scores.
 questionnaire_vars <- c(
   "HAMD1","HAMD2","HAMDa1","HAMD3","HAMD4","HAMDa2","HAMDa3","HAMDa5","HAMD6","HAMD7",
   "HAMD8","HAMDa6","HAMD9_SF","HAMDa7","HAMD10","HAMD11","HAMD12","HAMD13","HAMD14",
@@ -118,7 +117,7 @@ questionnaire_vars <- c(
   "YMRS1","YMRS2","YMRS3","YMRS4","YMRS5","YMRS6","YMRS7","YMRS8","YMRS9","YMRS10","YMRS11"
 )
 
-# NOTE: "HAMD" removed -- sourced directly from HAMD_Sum17 (see section 3).
+# The HAMD score is read directly from HAMD_Sum17.
 items_by_scale <- list(
   HAMA = questionnaire_vars[grepl("^HAMA", questionnaire_vars)],
   SANS = questionnaire_vars[grepl("^SANS", questionnaire_vars)],

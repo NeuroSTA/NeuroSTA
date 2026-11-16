@@ -459,14 +459,7 @@ run_one_cohort <- function(cohort_name, sustain_csv) {
   readr::write_csv(roi_global, file.path(out_dir, "roi_global_kruskal_BH.csv"))
   
   n_sig_rois <- sum(!is.na(roi_global$q_BH) & roi_global$q_BH < alpha_fdr)
-  ## ============================================================
-  ## PATCH: Make p.adj + significance stars refer to GLOBAL BH
-  ##        across all ROI-by-pair Dunn tests (not within-ROI).
-  ##        - Keep raw p in column "p"
-  ##        - Overwrite/define "p.adj" = BH(p) across ALL rows
-  ##        - Recompute "p.adj.signif" from the GLOBAL p.adj
-  ##        - Drop q_BH_all (optional), because p.adj is now global
-  ## ============================================================
+  # Apply Benjamini-Hochberg correction across all ROI-by-pair Dunn tests.
   
   ## Helper: significance stars for adjusted p-values (paper-style)
   p_to_stars <- function(p) {
@@ -480,7 +473,6 @@ run_one_cohort <- function(cohort_name, sustain_csv) {
     )
   }
   
-  ## --- inside run_one_cohort(), replace ONLY the block E) ROI-level posthoc Dunn ---
   ## -----------------------------
   ## E) ROI-level posthoc Dunn (GLOBAL BH across all ROI-by-pair tests)
   ## -----------------------------
@@ -793,7 +785,7 @@ cat("N numeric cols used for GMV_volume:", length(roi_cols_gmv), "\n")
 cat("First 20 numeric cols:\n")
 print(head(roi_cols_gmv, 20))
 
-# Fingerprint: ein ROI exemplarisch
+# Fingerprint for one example ROI
 roi0 <- roi_cols_gmv[1]
 cat("ROI example:", roi0, "\n")
 print(summary(gmv_z[[roi0]]))

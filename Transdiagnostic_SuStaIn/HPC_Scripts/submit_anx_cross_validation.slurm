@@ -11,9 +11,9 @@
 #SBATCH --error=sustain_cv_Angst_%j.err
 #SBATCH --mail-type=END,FAIL
 
-echo "===== SuStaIn ANGST CV JOB STARTED ====="
+echo "===== SuStaIn ANX CV JOB STARTED ====="
 echo "Hostname: $(hostname)"
-echo "Startzeit: $(date)"
+echo "Start time: $(date)"
 echo "Job ID: $SLURM_JOB_ID"
 
 module purge
@@ -36,5 +36,5 @@ cd "$SUSTAIN_PROJECT_DIR"
 
 python -u HPC_Scripts/run_anx_cross_validation.py
 
-echo "===== SuStaIn ANGST CV JOB FINISHED ====="
-echo "Endzeit: $(date)"
+echo "===== SuStaIn ANX CV JOB FINISHED ====="
+echo "End time: $(date)"

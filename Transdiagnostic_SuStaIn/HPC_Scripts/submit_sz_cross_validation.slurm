@@ -13,7 +13,7 @@
 
 echo "===== SuStaIn SZ CV JOB STARTED ====="
 echo "Hostname: $(hostname)"
-echo "Startzeit: $(date)"
+echo "Start time: $(date)"
 echo "Job ID: $SLURM_JOB_ID"
 
 module purge
@@ -36,4 +36,4 @@ cd "$SUSTAIN_PROJECT_DIR"
 python -u HPC_Scripts/run_sz_cross_validation.py
 
 echo "===== SuStaIn SZ CV JOB FINISHED ====="
-echo "Endzeit: $(date)"
+echo "End time: $(date)"
