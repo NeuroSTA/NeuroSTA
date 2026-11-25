@@ -115,7 +115,7 @@ optimal_k, gaps, gap_k = gap_statistic(X_model)
 # ----------------------------------------
 
 # None = automatically (not recommended)
-# oder manually after careful consideration of cluster metrices
+# or manually after careful consideration of cluster metrices
 manual_k = 2
 
 if manual_k is None:
@@ -255,14 +255,7 @@ plt.title(f"Cluster (2D PCA)")
 plt.xlabel("PC1")
 plt.ylabel("PC2")
 plt.legend()
-
 plt.tight_layout()
-
-plt.savefig(
-    os.path.join(folder_path, f"Cluster_Evaluation_k{k}.png"),
-    dpi=300,
-    bbox_inches="tight"
-)
 plt.show()
 
 # ----------------------------------------
@@ -277,28 +270,11 @@ metrics_table = pd.DataFrame({
     "Davies_Bouldin": davies_bouldin_scores
 })
 
-metrics_table.to_excel(
-    os.path.join(folder_path, f"Cluster_Metrices_k{k}.xlsx"),
-    index=False
-)
-
-print("\nCluster Validation Metrics (k = 2 bis 10):")
+print("\nCluster Validation Metrics")
 print(metrics_table.round(3))
 
-# ----------------------------------------
-# CLUSTER × DIAGNOSE
-# ----------------------------------------
-
-ct = pd.crosstab(df_final['Cluster'], df_final['Group'])
-print("\nCluster × Group:")
-print(ct)
-
-print("\nCluster sizes:")
-print(df_final['Cluster'].value_counts())
-
-
 # ============================================================
-# BOOTsTRAP Stability of Cluster Solution
+# BOOTSTRAP Stability of Cluster Solution
 # ============================================================
 
 from sklearn.metrics import adjusted_rand_score
@@ -334,11 +310,9 @@ for b in range(n_bootstraps):
 
     bootstrap_labels = bootstrap_model.predict(X_array)
 
-
     bootstrap_ari.append(
         adjusted_rand_score(reference_labels, bootstrap_labels)
     )
-
 
     coassignment_counts += (
         bootstrap_labels[:, None] == bootstrap_labels[None, :]
