@@ -1,0 +1,160 @@
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+from statsmodels.stats.multitest import multipletests
+
+
+# ============================================================
+# LOAD AND PREPARE DATA
+# ============================================================
+
+file_path = # insert path
+df = pd.read_excel(file_path)
+
+
+df["Cluster_bin"] = pd.to_numeric(df["Cluster"], errors="coerce")
+
+if df["Cluster_bin"].isna().any():
+    raise ValueError(
+        "Cluster contains missing values."
+    )
+
+df["Group"] = (
+    pd.to_numeric(df["Group"], errors="coerce")
+    .replace(-99, np.nan)
+)
+
+
+
+clinical_vars = [ ] # insert variables
+
+missing_columns = [
+    col for col in clinical_vars
+    if col not in df.columns
+]
+
+if missing_columns:
+    raise KeyError(
+        f"Missing Columns: "
+        f"{missing_columns}"
+    )
+
+
+# ============================================================
+# LOGISTIC REGRESSION (adjusted for Diagnosis)
+# ============================================================
+
+results = []
+
+for var in clinical_vars:
+    clinical_score = (
+        pd.to_numeric(df[var], errors="coerce")
+        .replace(-99, np.nan)
+    )
+
+    model_data = pd.DataFrame({
+        "Cluster_bin": df["Cluster_bin"],
+        "Group": df["Group"],
+        "clinical_raw": clinical_score,
+    }).dropna()
+
+    if model_data.empty:
+        print(f"{var}")
+        continue
+
+    if model_data["Cluster_bin"].nunique() < 2:
+        print(f"{var}")
+        continue
+
+    sd = model_data["clinical_raw"].std(ddof=1)
+
+    if not np.isfinite(sd) or sd == 0:
+        print(f"{var}")
+        continue
+
+    model_data["clinical_z"] = (
+        model_data["clinical_raw"] - model_data["clinical_raw"].mean()
+    ) / sd
+
+    # Diagnosis as categorical covariate.
+    if model_data["Group"].nunique() > 1:
+        diagnosis_dummies = pd.get_dummies(
+            model_data["Group"].astype("category"),
+            prefix="Diagnose",
+            drop_first=True,
+            dtype=float,
+        )
+
+        X = pd.concat(
+            [
+                diagnosis_dummies,
+                model_data[["clinical_z"]],
+            ],
+            axis=1,
+        )
+        diagnosis_adjusted = True
+
+    else:
+        X = model_data[["clinical_z"]].copy()
+        diagnosis_adjusted = False
+
+        print(
+            f"{var}"
+        )
+
+    X = sm.add_constant(X, has_constant="add")
+    y = model_data["Cluster_bin"].astype(int)
+
+    try:
+        fit = sm.Logit(y, X).fit(disp=False, maxiter=200)
+
+        ci_low, ci_high = fit.conf_int().loc["clinical_z"]
+
+        results.append({
+            "Predictor_variable": var,
+            "N": len(model_data),
+            "Cluster_1_n": int((y == 0).sum()),
+            "Cluster_2_n": int((y == 1).sum()),
+            "Diagnosis_adjusted": diagnosis_adjusted,
+            "OR_pro_SD": np.exp(fit.params["clinical_z"]),
+            "CI_95low": np.exp(ci_low),
+            "CI_95_high": np.exp(ci_high),
+            "p_value": fit.pvalues["clinical_z"],
+            "Konvergiert": fit.mle_retvals.get("converged", np.nan),
+        })
+
+    except Exception as exc:
+        print(f"{var}: No model estimation {exc}")
+
+
+# ============================================================
+# FDR-Correction
+# ============================================================
+
+results_table = pd.DataFrame(results)
+
+if results_table.empty:
+    print("No model estimation")
+
+else:
+    results_table["p_FDR"] = np.nan
+    valid = results_table["p_Wert"].notna()
+
+    results_table.loc[valid, "p_FDR"] = multipletests(
+        results_table.loc[valid, "p_Wert"],
+        alpha=0.05,
+        method="fdr_bh",
+    )[1]
+
+    print("\nResults of logistic regression:")
+    print(results_table.round(3).to_string(index=False))
+
+
+
+output_file_path =  # insert path
+
+results_table.to_excel(
+    output_file_path,
+    sheet_name="ClinicalData_LogReg",
+    index=False,
+)
